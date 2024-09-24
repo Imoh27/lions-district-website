@@ -740,8 +740,8 @@ ul.navbar-nav > li.active > a {
 
 /*-- Logo --*/
 .logo img {
-  width: auto;
-  height: 35px;
+  /* width: auto; */
+  height: 85px !important;
 }
 
 .sitename{
@@ -1751,7 +1751,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 
 /* Service box bg */
 .ts-service-box-bg {
-  background: #252525;
+  background: #112e57;
   color: #fff;
   padding: 30px;
 }
