@@ -526,6 +526,9 @@ a[href^=tel] {
 .btn-alt {
   background: #ffb600;
 }
+.text-alt {
+  color: #ffb600;
+}
 
 .btn-dark {
   background: #23282d;
@@ -742,6 +745,11 @@ ul.navbar-nav > li.active > a {
 .logo img {
   /* width: auto; */
   height: 85px !important;
+}
+/*-- Logo --*/
+.menu-logo img {
+  /* width: auto; */
+  height: 35px !important;
 }
 
 .sitename{
