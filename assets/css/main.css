@@ -1,16 +1,4 @@
-/**
-* Template Name: Moderna
-* Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway",  sans-serif;
@@ -21,8 +9,8 @@
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #555555; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #1e4356; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #68a4c4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #0a3dab; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #f9c910; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -45,10 +33,17 @@
 }
 
 .dark-background {
-  --background-color: #1e4356;
+  --background-color: #0a3dab;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #284e62;
+  --surface-color: #112e57;
+  --contrast-color: #ffffff;
+}
+.alt-background {
+  --background-color: #f9c910;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #e3b90e;
   --contrast-color: #ffffff;
 }
 
@@ -251,7 +246,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #1e4356;
+  --background-color: #0a3dab;
 }
 
 /*--------------------------------------------------------------
@@ -860,7 +855,7 @@ section,
   background: linear-gradient(to right, color-mix(in srgb, var(--background-color), transparent 90%), var(--background-color)), url("../img/hero-bg.jpg") center top no-repeat;
   background-size: cover;
   z-index: 0;
-  border-radius: 0 0 50% 50%;
+  /* border-radius: 0 0 50% 50%; */
   transform: translateX(-50%) rotate(0deg);
 }
 
@@ -875,7 +870,7 @@ section,
   opacity: 0.3;
   z-index: 0;
   border-radius: 0 0 50% 50%;
-  transform: translateX(-50%) translateY(18px) rotate(2deg);
+  transform: translateX(-50%) translateY(2px) rotate(18deg);
 }
 
 .hero img {
@@ -1245,7 +1240,7 @@ section,
 .stats .stats-item span {
   font-size: 48px;
   display: block;
-  color: var(--accent-color);
+  color: var(--heading-color);
   font-weight: 700;
 }
 
@@ -1311,7 +1306,7 @@ section,
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: var(--accent-color);
+  background-color: var(--heading-color);
 }
 
 /*--------------------------------------------------------------
@@ -1679,7 +1674,7 @@ section,
 
 .pricing h4 {
   font-size: 48px;
-  color: var(--accent-color);
+  color: var(--heading-color);
   font-family: var(--heading-font);
   font-weight: 400;
 }
@@ -1750,7 +1745,7 @@ section,
 }
 
 .pricing .featured .pricing-item {
-  background: var(--accent-color);
+  background: var(--heading-color);
 }
 
 @media (min-width: 992px) {
@@ -2046,19 +2041,19 @@ section,
 }
 
 .blog-pagination li a {
-  color: var(--accent-color);
+  color: var(--heading-color);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--heading-color);
 }
 
 .blog-pagination li a.active,
 .blog-pagination li a:hover {
-  background: var(--accent-color);
+  background: var(--heading-color);
   color: var(--contrast-color);
 }
 
@@ -2371,7 +2366,7 @@ section,
 
 .contact .info-item i {
   font-size: 20px;
-  color: var(--accent-color);
+  color: var(--heading-color);
   width: 56px;
   height: 56px;
   display: flex;
@@ -2379,7 +2374,7 @@ section,
   align-items: center;
   transition: all 0.3s ease-in-out;
   border-radius: 50%;
-  border: 2px dotted color-mix(in srgb, var(--accent-color), transparent 40%);
+  border: 2px dotted color-mix(in srgb, var(--heading-color), transparent 40%);
 }
 
 .contact .info-item h3 {
@@ -2434,7 +2429,7 @@ section,
 
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background: var(--heading-color);
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
