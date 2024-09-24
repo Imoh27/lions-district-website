@@ -321,14 +321,17 @@ h6 {
 
   .navmenu .dropdown ul li {
     min-width: 200px;
+    margin-bottom: 10px;
   }
-
+ 
   .navmenu .dropdown ul a {
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 15px;
     text-transform: none;
     color: var(--nav-dropdown-color);
+    display: inline !important;
   }
+
 
   .navmenu .dropdown ul a i {
     font-size: 12px;
