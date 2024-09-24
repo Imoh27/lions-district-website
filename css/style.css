@@ -1911,7 +1911,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 }
 
 .ts-service-classic:hover .ts-service-icon i {
-  background: #ffb600;
+  background: #112e57;
 }
 
 /* Projects area
@@ -1921,7 +1921,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
   display: inline-block;
   margin: 20px 0 50px;
   width: 100%;
-  border-bottom: 3px solid #ffb600;
+  border-bottom: 3px solid #112e57;
 }
 
 .shuffle-btn-group label {
@@ -1951,8 +1951,8 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 }
 
 .shuffle-btn-group label.active {
-  color: #212121;
-  background: #ffb600;
+  color: #fff;
+  background: #112e57;
 }
 
 .shuffle-btn-group label input {
@@ -2003,7 +2003,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
   right: 0;
   z-index: 1;
   padding: 5px 12px;
-  background: #ffb600;
+  background: #112e57;
   color: #fff;
   opacity: 0;
   -webkit-transform: perspective(1px) scale3d(0, 0, 0);
