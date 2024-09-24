@@ -503,6 +503,10 @@ a[href^=tel] {
   font-size: 14px;
 }
 
+.text-alt {
+  color: #ffb600 !important;
+}
+
 @media (max-width: 767px) {
   .btn-primary,
   .btn-alt
@@ -525,9 +529,6 @@ a[href^=tel] {
 }
 .btn-alt {
   background: #ffb600;
-}
-.text-alt {
-  color: #ffb600;
 }
 
 .btn-dark {
