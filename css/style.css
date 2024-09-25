@@ -491,16 +491,21 @@ a[href^=tel] {
 }
 
 .btn-primary,
-.btn-dark {
-  border: 0;
-  border-radius: 3px;
-  padding: 12px 20px 10px;
-  font-weight: 700;
-  text-transform: uppercase;
+.btn-dark, 
+.btn-alt {
+  border: 0 !;
+  border-radius: 3px !;
+  padding: 12px 20px 10px !;
+  font-weight: 700 !;
+  text-transform: uppercase !;
+  /* color: #fff; */
+  font-family: "Montserrat", sans-serif !;
+  transition: 350ms !;
+  font-size: 14px !;
+}
+.btn-primary,
+.btn-dark{
   color: #fff;
-  font-family: "Montserrat", sans-serif;
-  transition: 350ms;
-  font-size: 14px;
 }
 
 .text-alt {
@@ -519,10 +524,6 @@ a[href^=tel] {
   background: #fff;
   color: #112e57;
 }
-.btn-white.btn-alt {
-  background: #fff;
-  color: #ffb600;
-}
 
 .btn-primary {
   background: #112e57;
@@ -539,7 +540,7 @@ a[href^=tel] {
 .btn-dark:hover,
 .btn-white.btn-primary:hover {
   background: #111;
-  color: #fff;
+  color: #fff !important;
 }
 
 .btn-primary:hover:active, .btn-primary:hover:focus,
@@ -547,7 +548,7 @@ a[href^=tel] {
 .btn-dark:hover:focus,
 .btn-white.btn-primary:hover:active,
 .btn-white.btn-primary:hover:focus {
-  color: #fff;
+  color: #fff !important;
   background-color: #111 !important;
 }
 
@@ -1199,7 +1200,7 @@ ul.navbar-nav > li > a {
 }
 
 /* Get a quote */
-.header-get-a-quote .btn-primary {
+.header-get-a-quote .btn-primary{
   padding: 12px 25px !important;
   font-size: 13px;
   border-radius: 3px;
@@ -1208,15 +1209,24 @@ ul.navbar-nav > li > a {
   color: #fff;
   margin-top: 5px;
 }
-
+.header-get-a-quote .btn-alt {
+  padding: 12px 25px !important;
+  font-size: 13px;
+  border-radius: 3px;
+  line-height: normal;
+  text-transform: capitalize;
+  color: #000 !important;
+  margin-top: 5px;
+}
+  
 @media (max-width: 1200px) {
-  .header-get-a-quote .btn-primary {
+  .header-get-a-quote .btn-primary .btn-alt{
     padding: 12px !important;
   }
 }
 
 @media (max-width: 991px) {
-  .header-get-a-quote .btn-primary {
+  .header-get-a-quote .btn-primary .btn-alt {
     padding: 12px 30px !important;
   }
 }
@@ -1224,6 +1234,10 @@ ul.navbar-nav > li > a {
 .header-get-a-quote .btn-primary:hover {
   background: #272d33;
   color: #ffb600 !important;
+}
+.header-get-a-quote .btn-alt:hover {
+  background: #d39d16;
+  color: #112e57 !important;
 }
 
 ul.navbar-nav > li.header-get-a-quote:hover > a:after {
