@@ -53,9 +53,9 @@ include("assets/other-pages-nav.php");
               <div class="item" style="background-image:url(images/slider-pages/slide-page1.jpg)">
                 <div class="container">
                     <div class="box-slider-content">
-                      <div class="box-slider-text">
-                          <!-- <h2 class="box-slide-title">Educaton</h2> -->
-                      </div>    
+                      <!-- <div class="box-slider-text">
+                          <h2 class="box-slide-title">Educaton</h2>
+                      </div>     -->
                     </div>
                 </div>
               </div><!-- Item 1 end -->
@@ -63,9 +63,9 @@ include("assets/other-pages-nav.php");
               <div class="item" style="background-image:url(images/slider-pages/action1.jpg)">
                 <div class="container">
                     <div class="box-slider-content">
-                      <div class="box-slider-text">
-                          <!-- <h2 class="box-slide-title">Hunger Relief</h2> -->
-                      </div>    
+                      <!-- <div class="box-slider-text">
+                          <h2 class="box-slide-title">Hunger Relief</h2>
+                      </div>     -->
                     </div>
                 </div>
               </div><!-- Item 1 end -->
@@ -73,9 +73,9 @@ include("assets/other-pages-nav.php");
               <div class="item" style="background-image:url(images/slider-pages/action6.jpg)">
                 <div class="container">
                     <div class="box-slider-content">
-                      <div class="box-slider-text">
-                          <!-- <h2 class="box-slide-title">Leadership</h2> -->
-                      </div>    
+                      <!-- <div class="box-slider-text">
+                          <h2 class="box-slide-title">Leadership</h2>
+                      </div>     -->
                     </div>
                 </div>
               </div><!-- Item 1 end -->
@@ -83,18 +83,18 @@ include("assets/other-pages-nav.php");
               <div class="item" style="background-image:url(images/slider-pages/action7.jpg)">
                 <div class="container">
                     <div class="box-slider-content">
-                      <div class="box-slider-text">
-                          <!-- <h2 class="box-slide-title">Satisfction</h2> -->
-                      </div>    
+                      <!-- <div class="box-slider-text">
+                          <h2 class="box-slide-title">Satisfction</h2>
+                      </div>     -->
                     </div>
                 </div>
               </div><!-- Item 1 end -->
               <div class="item" style="background-image:url(images/slider-pages/screening.jpg)">
                 <div class="container">
                     <div class="box-slider-content">
-                      <div class="box-slider-text">
-                          <!-- <h2 class="box-slide-title">Good Health</h2> -->
-                      </div>    
+                      <!-- <div class="box-slider-text">
+                          <h2 class="box-slide-title">Good Health</h2>
+                      </div>     -->
                     </div>
                 </div>
               </div><!-- Item 1 end -->
