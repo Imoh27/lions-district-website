@@ -3,15 +3,15 @@
 		<!-- page content -->
 		<div class="col-md-3 left_col">
 			<div class="left_col scroll-view">
-				<div class="navbar nav_title" style="border: 0;">
-					<a href="dashboard.php" class="site_title"><i class="fa fa-hospital-o"></i> <span>HMS</span></a>
+				<div class="navbar nav_title justify-content-center" style="border: 0;">
+					<a href="dashboard.php"><img style="height: 50px; display:flex" class="mt-3 img-fluid" src="../../images/logo-ion.png" alt=""></a>
 				</div>
 				<div class="clearfix"></div>
 				<!-- menu profile quick info -->
-				<div class="profile clearfix">
-					<div class="ml-2 text-light">Hospital Management System</div>
-					<div class="profile_pic">
-						<img src="../assets/images/img.jpg" alt="..." class="img-circle profile_img">
+				<div class=" profile clearfix">
+					<div class="text-center ml-2 mt-3 text-light">Lions District 404A2</div>
+					<div class=" profile_pic">
+						<img src="assets/images/img.jpg" alt="..." class="img-circle profile_img">
 					</div>
 					<div class="profile_info">
 						<span>Welcome,</span>

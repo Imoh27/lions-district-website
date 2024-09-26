@@ -24,7 +24,7 @@ check_login();
   <!-- bootstrap-daterangepicker -->
   <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
   <!-- Custom Theme Style -->
-  <link href="../assets/css/custom.min.css" rel="stylesheet">
+  <link href="assets/css/custom.min.css" rel="stylesheet">
 </head>
 <body class="nav-md">
   <?php include('include/header.php');?>
@@ -115,7 +115,7 @@ check_login();
   <script src="vendors/Flot/jquery.flot.js"></script>
   <script src="vendors/Flot/jquery.flot.pie.js"></script>
   <script src="vendors/Flot/jquery.flot.time.js"></script>
-  <script src="vendors/Flot/jquery.flot.stack.js"></scr ipt>
+  <script src="vendors/Flot/jquery.flot.stack.js"></script>
   <script src="vendors/Flot/jquery.flot.resize.js"></script>
   <!-- Flot plugins -->
   <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>

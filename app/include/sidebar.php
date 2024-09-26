@@ -4,11 +4,31 @@
 		<h3>General</h3>
 		<ul class="nav side-menu">
 			<li><a href="dashboard.php"><i class="fa fa-home"></i> Dashboard</a></li>
-			<li><a><i class="fa fa-user-md"></i> Doctors <span class="fa fa-chevron-down"></span></a>
+			<li><a><i class="fa fa-users"></i> District <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="doctor-specilization.php">Doctor Specialization</a></li>
-					<li><a href="add-doctor.php">Add Doctor</a></li>
-					<li><a href="manage-doctors.php">Manage Doctors</a></li>
+					<!-- <li><a href="doctor-specilization.php">Doctor Specialization</a></li> -->
+					<!-- <li><a href="add-doctor.php">Add Doctor</a></li> -->
+					<li><a href="manage-doctors.php">Offices</a></li>
+					<li><a><i class="fa fa-user-md"></i> Leaders <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="manage-doctors.php">Interational Leaders</a></li>
+							<li><a href="manage-doctors.php">Past District Governors</a></li>
+							<li><a href="manage-doctors.php">Core Officers</a></li>
+							<li><a href="manage-doctors.php">Core Officers</a></li>
+							<li><a href="manage-doctors.php">DG's Team</a></li>
+						</ul>
+					<!-- <li><a href="manage-doctors.php">Manage Doctors</a></li>
+					<li><a href="manage-doctors.php">Manage Doctors</a></li> -->
+				</ul>
+			</li>
+			<li><a><i class="fa fa-users"></i> Region <span class="fa fa-chevron-down"></span></a>
+				<ul class="nav child_menu">
+					<li><a href="manage-users.php">Manage Regions</a></li>
+				</ul>
+			</li>
+			<li><a><i class="fa fa-group"></i> Clubs <span class="fa fa-chevron-down"></span></a>
+				<ul class="nav child_menu">
+					<li><a href="manage-users.php">Manage Clubs</a></li>
 				</ul>
 			</li>
 			<li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>

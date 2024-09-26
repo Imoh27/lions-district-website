@@ -96,7 +96,11 @@ else
 							</fieldset>
 						</form>
 						<div class="copyright">
-							&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						<span
+                    >&copy; <script>
+                      document.write(new Date().getFullYear());
+                    </script> Lions Clubs District 404A2.
+                  </span>
 						</div>
 					</section>
 				</div>
