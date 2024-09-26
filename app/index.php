@@ -66,12 +66,15 @@ else
 			<div class="animate form login_form">
 				<section class="login_content">
 					<form class="form-login" method="post">
+					<div class="logo mb-4">
+						<img style="height: 150px;" class="img-fluid" src="../images/logo-ion.png" alt="logo"/>
+					</div>
 						<fieldset>
 							<legend>
-								Admin | Sign in to your account
+								Admin Login
 							</legend>
 							<p>
-								Please enter your name and password to log in.<br />
+								Please enter your username and password to log in.<br />
 								<span style="color:red;"><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg']="");?></span>
 							</p>
 							<div class="form-group">

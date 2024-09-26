@@ -810,7 +810,7 @@
 
 
 body{
-    background: #f5f5f5 url(../images/crossword.png) !important;
+    background: #fff !important;
   }
 
 .left_col {
@@ -1814,6 +1814,7 @@ h2 {
 }
 legend {
   padding-bottom: 7px;
+  color: #f7f7f7 !important;
 }
 .demo-placeholder {
   height: 280px;
@@ -4129,7 +4130,9 @@ ul.project_files li a i {
   font-size: 35px;
 }
 .login {
-  background: #f7f7f7;
+  min-height:100% !important;
+  background:linear-gradient(0deg, rgba(5, 27, 149, 0.801), rgba(5, 27, 149, 0.801)), url(../../../images/slider-main/service-07.JPG) !important;
+  background-size:cover !important;
   
 }
 .login .fa-paw {
