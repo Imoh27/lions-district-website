@@ -2557,14 +2557,14 @@ img.testimonial-thumb {
 
 .footer-social ul li a i {
   display: block;
-  font-size: 16px;
-  color: #999;
+  font-size: 26px;
+  color: #dedede;
   transition: 400ms;
   padding: 10px 13px;
 }
 
-.footer-social ul li:hover {
-  color: #fff;
+.footer-social ul li a :hover {
+  color: #ffb600;
 }
 
 /* Links */
