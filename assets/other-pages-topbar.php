@@ -62,7 +62,7 @@
                     <div class="info-box">
                       <div class="info-box-content">
                           <p class="info-box-title">Email Us</p>
-                          <p class="info-box-subtitle"><a href="mailto:office@Constra.com">info@lionsdistrict404a2.com</a></p>
+                          <p class="info-box-subtitle"><a href="mailto:info@lionsdistrict404a2.com">info@lionsdistrict404a2.com</a></p>
                       </div>
                     </div>
                   </li>
