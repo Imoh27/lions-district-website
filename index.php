@@ -99,7 +99,7 @@
               <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                   <div class="logo">
-                    <a class="d-block" href="index.html">
+                    <a class="d-block" href="index">
                       <img loading="lazy" src="images/logo.png" alt="Lions District 404A2" />
                       <!-- <h4 class="sitename text-uppercase">Lions District 404A2</h4> -->
                     </a>
@@ -121,7 +121,7 @@
                   <div id="navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav ml-auto align-items-center">
                       <li class="nav-item nav-itemactive">
-                        <a href="index.html">Home</a>
+                        <a href="index">Home</a>
                       </li>
 
                       <li class="nav-item dropdown">
@@ -132,16 +132,16 @@
                           >About <i class="fa fa-angle-down"></i
                         ></a>
                         <ul class="dropdown-menu" role="menu">
-                          <!-- <li><a href="typography.html">Typography</a></li>
-                          <li><a href="404.html">404</a></li> -->
+                          <!-- <li><a href="typography">Typography</a></li>
+                          <li><a href="404">404</a></li> -->
                           <li>
-                            <a href="about.html">District 404A2 </a>
+                            <a href="about">District 404A2 </a>
                           </li>
                           <li>
-                            <a href="about.html">International Leaders </a>
+                            <a href="about">International Leaders </a>
                           </li>
                           <li>
-                            <a href="team.html">Past District Governors</a>
+                            <a href="team">Past District Governors</a>
                           </li>
                           <li class="dropdown-submenu">
                             <a
@@ -156,7 +156,7 @@
                             </ul>
                           </li>
                           <li class="nav-item nav-itemactive">
-                            <a href="index.html">District Directory</a>
+                            <a href="index">District Directory</a>
                           </li>
                         </ul>
                       </li>
@@ -168,8 +168,8 @@
                           >Focus Areas <i class="fa fa-angle-down"></i
                         ></a>
                         <ul class="dropdown-menu" role="menu">
-                          <!-- <li><a href="typography.html">Typography</a></li>
-                          <li><a href="404.html">404</a></li> -->
+                          <!-- <li><a href="typography">Typography</a></li>
+                          <li><a href="404">404</a></li> -->
                       
                           <li class="dropdown-submenu">
                             <a
@@ -182,7 +182,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/give-our-focus-areas/diabetes" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/diabetes-icon.png"
                                     style="margin-right: 0 !important"
@@ -193,7 +193,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/give-our-focus-areas/vision" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/sight-icon.png"
                                     style="margin-right: 0 !important"
@@ -205,7 +205,7 @@
                                 <a 
                                   href="https://www.lionsclubs.org/en/give-our-focus-areas/hunger" 
                                   target="_blank" 
-                                  rel="noopener noreferrer"  <!-- For security reasons -->
+                                  rel="noopener noreferrer" >
                                 
                                   <img
                                     src="images/global-causes-icons/HungerRelief.webp"
@@ -219,7 +219,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/give-our-focus-areas/environment" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/environment.png"
                                     style="margin-right: 0 !important"
@@ -230,7 +230,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/give-our-focus-areas/disaster-relief" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/disaster-icon.png"
                                     style="margin-right: 0 !important"
@@ -241,7 +241,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/start-our-global-causes/childhood-cancer" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/childhood-cancer.png"
                                     style="margin-right: 0 !important"
@@ -252,7 +252,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/give-our-focus-areas/humanitarian" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/humanitarian-icon.png"
                                     style="margin-right: 0 !important"
@@ -263,7 +263,7 @@
                               <li class="menu-logo">
                                 <a href="https://www.lionsclubs.org/en/give-our-focus-areas/youth" 
                                 target="_blank" 
-                                rel="noopener noreferrer"  <!-- For security reasons -->
+                                rel="noopener noreferrer" >
                                   <img
                                     src="images/global-causes-icons/youth-icon.png"
                                     style="margin-right: 0 !important"
@@ -274,15 +274,15 @@
                             </ul>
                           </li>
                           <li class="nav-item nav-itemactive">
-                            <a href="index.html">Core Projects</a>
+                            <a href="index">Core Projects</a>
                           </li>
                         </ul>
                       </li>
                       <!-- <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Core Projects <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="projects.html">Projects All</a></li>
-                            <li><a href="projects-single.html">Projects Single</a></li>
+                            <li><a href="projects">Projects All</a></li>
+                            <li><a href="projects-single">Projects Single</a></li>
                           </ul>
                       </li> -->
 
@@ -294,9 +294,9 @@
                           >Events <i class="fa fa-angle-down"></i
                         ></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="services.html">Events</a></li>
+                          <li><a href="services">Events</a></li>
                           <li>
-                            <a href="service-single.html">Events Gallery</a>
+                            <a href="service-single">Events Gallery</a>
                           </li>
                         </ul>
                       </li>
@@ -309,22 +309,22 @@
                           >updates Center <i class="fa fa-angle-down"></i
                         ></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="news-left-sidebar.html">Blog</a></li>
+                          <li><a href="news-left-sidebar">Blog</a></li>
                           <li>
-                            <a href="news-right-sidebar.html">Newsletter</a>
+                            <a href="news-right-sidebar">Newsletter</a>
                           </li>
                         </ul>
                       </li>
 
                       <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact">Contact</a>
                       </li>
 
                       <li class="header-get-a-quote">
                         <a
                           class="btn btn-primary"
                           style="color: #fff !important"
-                          href="contact.html"
+                          href="contact"
                           >Donate Now</a
                         >
                       </li>
@@ -355,7 +355,7 @@
                 <p class="box-slide-description">
                   By coming together, we strengthen our communities and make a meaningful difference in people’s lives.</p>
                 <!-- <p>
-                  <a href="services.html" class="slider btn btn-alt"
+                  <a href="services" class="slider btn btn-alt"
                     >Our Service</a
                   >
                 </p> -->
@@ -378,7 +378,7 @@
                     Together, we create lasting change by addressing the world’s most pressing needs, one step at a time.</p>
                   <!-- <p>
                     <a
-                      href="about.html"
+                      href="about"
                       class="slider btn btn-alt"
                       aria-label="about-us"
                       >Know Us</a
@@ -403,7 +403,7 @@
                     Every act of service, no matter how small, brings us closer to a more compassionate and caring world.</p>
                   <!-- <p>
                     <a
-                      href="about.html"
+                      href="about"
                       class="slider btn btn-alt"
                       aria-label="about-us"
                       >Know Us</a
@@ -428,7 +428,7 @@
                     Our local actions drive global impact. Together, we inspire change that reaches beyond borders.</p>
                   <!-- <p>
                     <a
-                      href="about.html"
+                      href="about"
                       class="slider btn btn-alt"
                       aria-label="about-us"
                       >Know Us</a
@@ -760,7 +760,7 @@
                   </div> -->
                   <div class="ts-service-info">
                     <h3 class="service-box-title">
-                      <a href="service-single.html">Thinksgiving Service</a>
+                      <a href="service-single">Thinksgiving Service</a>
                     </h3>
                     <p>
                       The District Governor, District 404A2 Nigeria, Lion Sir Maurice Ibom have kicked-start the 2024/2025 Lions Service 
@@ -768,7 +768,7 @@
                     </p>
                     <a
                       class="learn-more d-inline-block"
-                      href="service-single.html"
+                      href="service-single"
                       aria-label="service-details"
                       ><i class="fa fa-caret-right"></i> Learn more</a
                     >
@@ -799,7 +799,7 @@
                   </div> -->
                   <div class="ts-service-info">
                     <h3 class="service-box-title">
-                      <a href="service-single.html">Hunger Relief</a>
+                      <a href="service-single">Hunger Relief</a>
                     </h3>
                     <p>
                       16 Clubs of Lions Regions 4, 5 and 6 on Thursday, August 29, 2024 carried out Hunger Relief Project in some areas in 
@@ -808,7 +808,7 @@
                     </p>
                     <a
                       class="learn-more d-inline-block"
-                      href="service-single.html"
+                      href="service-single"
                       aria-label="service-details"
                       ><i class="fa fa-caret-right"></i> Learn more</a
                     >
@@ -839,7 +839,7 @@
                   </div> -->
                   <div class="ts-service-info">
                     <h3 class="service-box-title">
-                      <a href="service-single.html">International Training</a>
+                      <a href="service-single">International Training</a>
                     </h3>
                     <p>
                       The First Vice District Governor, District 404A2 Nigeria, Lion Sir Dr Maurice Ibok PMJF, NLCF was in attendance at 
@@ -847,7 +847,7 @@
                     </p>
                     <a
                       class="learn-more d-inline-block"
-                      href="service-single.html"
+                      href="service-single"
                       aria-label="service-details"
                       ><i class="fa fa-caret-right"></i> Learn more</a
                     >
@@ -962,7 +962,7 @@
                     <div class="project-item-info">
                       <div class="project-item-info-content">
                         <h3 class="project-item-title">
-                          <a href="projects-single.html"
+                          <a href="projects-single"
                             >Capital Teltway Building</a
                           >
                         </h3>
@@ -995,7 +995,7 @@
                     <div class="project-item-info">
                       <div class="project-item-info-content">
                         <h3 class="project-item-title">
-                          <a href="projects-single.html">Ghum Touch Hospital</a>
+                          <a href="projects-single">Ghum Touch Hospital</a>
                         </h3>
                         <p class="project-cat">Healthcare</p>
                       </div>
@@ -1026,7 +1026,7 @@
                     <div class="project-item-info">
                       <div class="project-item-info-content">
                         <h3 class="project-item-title">
-                          <a href="projects-single.html">TNT East Facility</a>
+                          <a href="projects-single">TNT East Facility</a>
                         </h3>
                         <p class="project-cat">Government</p>
                       </div>
@@ -1057,7 +1057,7 @@
                     <div class="project-item-info">
                       <div class="project-item-info-content">
                         <h3 class="project-item-title">
-                          <a href="projects-single.html"
+                          <a href="projects-single"
                             >Narriot Headquarters</a
                           >
                         </h3>
@@ -1090,7 +1090,7 @@
                     <div class="project-item-info">
                       <div class="project-item-info-content">
                         <h3 class="project-item-title">
-                          <a href="projects-single.html">Kalas Metrorail</a>
+                          <a href="projects-single">Kalas Metrorail</a>
                         </h3>
                         <p class="project-cat">Infrastructure</p>
                       </div>
@@ -1121,7 +1121,7 @@
                     <div class="project-item-info">
                       <div class="project-item-info-content">
                         <h3 class="project-item-title">
-                          <a href="projects-single.html"
+                          <a href="projects-single"
                             >Ancraft Avenue House</a
                           >
                         </h3>
@@ -1138,7 +1138,7 @@
 
             <div class="col-12">
               <div class="general-btn text-center">
-                <a class="btn btn-primary" href="projects.html"
+                <a class="btn btn-primary" href="projects"
                   >View All Projects</a
                 >
               </div>
@@ -1214,7 +1214,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="latest-post">
                 <div class="latest-post-media">
-                  <a href="news-single.html" class="latest-post-img">
+                  <a href="news-single" class="latest-post-img">
                     <img
                       loading="lazy"
                       class="img-fluid"
@@ -1225,7 +1225,7 @@
                 </div>
                 <div class="post-body">
                   <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block"
+                    <a href="news-single" class="d-inline-block"
                       >Hunger Relief Project: Abuja Prestige Metro Lions Club have distributed cooked food to Internally Displaced Persons, IDP Camp in Durumi, Abuja.</a>
                   </h4>
                   <div class="latest-post-meta">
@@ -1242,7 +1242,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="latest-post">
                 <div class="latest-post-media">
-                  <a href="news-single.html" class="latest-post-img">
+                  <a href="news-single" class="latest-post-img">
                     <img
                       loading="lazy"
                       class="img-fluid"
@@ -1253,7 +1253,7 @@
                 </div>
                 <div class="post-body">
                   <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block"
+                    <a href="news-single" class="d-inline-block"
                       >Niger Delta Lions Club extended a helping hand to the sick at the Federal Medical Center (FMC) Yenagoa, Bayelsa State.</a
                     >
                   </h4>
@@ -1271,7 +1271,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="latest-post">
                 <div class="latest-post-media">
-                  <a href="news-single.html" class="latest-post-img">
+                  <a href="news-single" class="latest-post-img">
                     <img
                       loading="lazy"
                       class="img-fluid"
@@ -1282,7 +1282,7 @@
                 </div>
                 <div class="post-body">
                   <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block"
+                    <a href="news-single" class="d-inline-block"
                       >HUNGER RELIEF: The Committee on Diaspora Matters and International Relations, District 404A2 Nigeria of Lions International</a
                     >
                   </h4>
@@ -1300,7 +1300,7 @@
           <!--/ Content row end -->
 
           <div class="general-btn text-center mt-4">
-            <a class="btn btn-primary" href="news-left-sidebar.html"
+            <a class="btn btn-primary" href="news-left-sidebar"
               >See All Posts</a
             >
           </div>
@@ -1336,20 +1336,20 @@
                 <div class="row">
                   <div class="col-md-6">
                     <ul class="list-arrow">
-                      <li><a href="service-single.html">About Us</a></li>
-                      <li><a href="service-single.html">Our Leaders</a></li>
-                      <li><a href="service-single.html">Events</a></li>
-                      <li><a href="service-single.html">Club Locator</a></li>
-                      <li><a href="service-single.html">Focus Areas</a></li>
+                      <li><a href="service-single">About Us</a></li>
+                      <li><a href="service-single">Our Leaders</a></li>
+                      <li><a href="service-single">Events</a></li>
+                      <li><a href="service-single">Club Locator</a></li>
+                      <li><a href="service-single">Focus Areas</a></li>
                     </ul>
                   </div>
                   <div class="col-md-6">
                     <ul class="list-arrow">
-                      <li><a href="service-single.html">Gallery</a></li>
-                      <li><a href="service-single.html">District Directory</a></li>
-                      <li><a href="service-single.html">Core Projects</a></li>
-                      <li><a href="service-single.html">Newsletter</a></li>
-                      <li><a href="service-single.html">Blog</a></li>
+                      <li><a href="service-single">Gallery</a></li>
+                      <li><a href="service-single">District Directory</a></li>
+                      <li><a href="service-single">Core Projects</a></li>
+                      <li><a href="service-single">Newsletter</a></li>
+                      <li><a href="service-single">Blog</a></li>
                     </ul>
                   </div>
                 </div>
@@ -1421,11 +1421,11 @@
               <!-- <div class="col-md-6">
                 <div class="footer-menu text-center text-md-right">
                   <ul class="list-unstyled">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="team.html">Our Learders</a></li>
-                    <li><a href="faq.html">News</a></li>
-                    <li><a href="news-left-sidebar.html">Blog</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="team">Our Learders</a></li>
+                    <li><a href="faq">News</a></li>
+                    <li><a href="news-left-sidebar">Blog</a></li>
+                    <li><a href="pricing">Pricing</a></li>
                   </ul>
                 </div>
               </div> -->
