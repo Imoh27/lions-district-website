@@ -51,7 +51,7 @@ include("assets/home-slider.php");
             <!-- Col end -->
             <div class="col-lg-6 mt-5 mt-lg-0">
               <div id="page-slider" class="page-slider small-bg mt-5">
-                <div class="item" style="background-image:url(images/slider-pages/slide-page1.JPG)">
+                <div class="item" style="background-image:url(images/slider-pages/slide-page1.jpg)">
                   <div class="container">
                     <div class="box-slider-content">
                       <!-- <div class="box-slider-text">
@@ -79,7 +79,7 @@ include("assets/home-slider.php");
             <!-- Col end -->
             <div class="col-lg-6 mt-5 mt-lg-0 order-lg-1">
               <div id="page-slider" class="page-slider small-bg mt-5">
-                <div class="item" style="background-image:url(images/slider-pages/service-08.JPG)">
+                <div class="item" style="background-image:url(images/slider-pages/service-08.jpg)">
                   <div class="container">
                     <div class="box-slider-content">
                       <!-- <div class="box-slider-text">
@@ -448,13 +448,13 @@ include("assets/home-slider.php");
             <!-- Col end -->
 
             <div class="col-md-8">
-              <div class="ts-newsletter row align-items-center">
+              <div class="ts-newsletter row align-items-center justify-content-center">
                 <div class="col-md-5 newsletter-introtext">
                   <h4 class="text-white mb-0">Join Us</h4>
                   <p class="text-white">Make a difference today</p>
                 </div>
-                <div class="call-to-action-btn"></div>
-                  <a class="btn btn-alt" href="#">Join Now</a>
+                <div class="call-to-action-btn "></div>
+                  <a class="btn btn-alt " href="#">Join Now</a>
                 </div>
 
                 <!-- <div class="col-md-7 newsletter-form">
