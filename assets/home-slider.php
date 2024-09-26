@@ -1,8 +1,9 @@
 <div class="banner-carousel banner-carousel-2 mb-0">
         <div
           class="banner-carousel-item"
-          style="background-image: url(images/slider-main/service-01.JPG)"
-        >
+          style="background:linear-gradient(0deg, rgba(2, 18, 111, 0.332), rgba(2, 18, 111, 0.332)), url(images/slider-main/service-01.JPG) !important;
+              min-height:100% !important;
+              background-size:cover !important;">
           <div class="container">
             <div class="box-slider-content">
               <div class="box-slider-text">
@@ -22,8 +23,9 @@
 
         <div
           class="banner-carousel-item"
-          style="background-image: url(images/slider-main/service-02.JPG)"
-        >
+          style="background:linear-gradient(0deg, rgba(2, 18, 111, 0.332), rgba(2, 18, 111, 0.332)), url(images/slider-main/service-02.JPG) !important;
+              min-height:100% !important;
+              background-size:cover !important;" >
           <div class="slider-content text-left">
             <div class="container">
               <div class="box-slider-content">
@@ -47,7 +49,9 @@
         </div>
         <div
           class="banner-carousel-item"
-          style="background-image: url(images/slider-main/service-07.JPG)"
+          style="background:linear-gradient(0deg, rgba(2, 18, 111, 0.332), rgba(2, 18, 111, 0.332)), url(images/slider-main/service-07.JPG) !important;
+              min-height:100% !important;
+              background-size:cover !important;"
         >
           <div class="slider-content text-left">
             <div class="container">
