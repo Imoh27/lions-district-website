@@ -27,7 +27,7 @@ include("assets/topheader.php");
 				<thead>
 					<tr>
 						<th class="center">#</th>
-						<th>Service YEar</th>
+						<th>Service Year</th>
 						<th >Service Theme</th>
 						<th>Service Logo </th>
 						<th>Start Date </th>
@@ -46,8 +46,8 @@ include("assets/topheader.php");
 							<td class="center"><?php echo $cnt;?>.</td>
 							<td><?php echo $row['serviceYr'];?></td>
 							<td><?php echo $row['service_theme'];?></td>
-							<td><?php echo $row['service_logo'];?>
-							<td><?php echo $row['start_date'];?>
+							<td><img class="user-profile" src="sylogo/<?php echo $row['service_logo'];?>" alt=""></td>
+							<td><?php echo $row['start_date'];?></td>
 							<td><?php echo $row['stop_date'];?>
 						</td>
 						<td >

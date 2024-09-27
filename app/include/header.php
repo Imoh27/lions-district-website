@@ -51,7 +51,7 @@
 					<ul class=" navbar-right">
 						<li class="nav-item dropdown open" style="padding-left: 15px;">
 							<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-								<img src="../assets/images/img.jpg" alt=""><?php echo $_SESSION['login']; ?>
+								<img src="assets/images/img.jpg" alt=""><?php echo $_SESSION['login']; ?>
 							</a>
 							<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item"  href="change-password.php"> Change Password</a>
