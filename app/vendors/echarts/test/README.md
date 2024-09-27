@@ -16,10 +16,10 @@ Our test strategy is to compare the rendered canvas of current version with last
 
 When a test case fails, it doesn't necessary to be a bug since the rendering method may be changed intentionally in a commit. So in this case, we output the rendering result of both versions and the diff result.
 
-Make sure `../dist/echarts.js` is the built based on current source files by:
+Make sure `dist/echarts.js` is the built based on current source files by:
 
 ```bash
-cd ../build
+cd build
 npm install
 bash build.sh
 ```
@@ -27,7 +27,7 @@ bash build.sh
 By default, we compare current version with last release version. To run the test, you should first download last release using:
 
 ```bash
-cd ../test/ut
+cd test/ut
 ./configure
 ```
 

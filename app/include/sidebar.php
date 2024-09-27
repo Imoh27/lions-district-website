@@ -11,7 +11,7 @@
 					<li><a href="manage-doctors.php">Offices</a></li>
 					<li><a><i class="fa fa-user-md"></i> Leaders <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="manage-doctors.php">Interational Leaders</a></li>
+							<li><a href="international-leaders.php">International Leaders</a></li>
 							<li><a href="manage-doctors.php">Past District Governors</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
@@ -50,9 +50,10 @@
 			</li>
 			<li><a href="doctor-logs.php"><i class="fa fa-line-chart"></i> Doctor Session Logs</a></li>
 			<li><a href="user-logs.php"><i class="fa fa-line-chart"></i> User Session Logs</a></li>
-			<li><a><i class="fa fa-bar-chart"></i> Reports <span class="fa fa-chevron-down"></span></a>
+			<li><a><i class="fa fa-bar-chart"></i> Other Settings <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="between-dates-reports.php">B/w dates reports </a></li>
+					<li><a href="manage-service-year.php">Service Year </a></li>
+					<!-- <li><a href="between-dates-reports.php">B/w dates reports </a></li> -->
 				</ul>
 			</li>
 			<li><a href="patient-search.php"><i class="fa fa-hospital-o"></i> Patient Search</a></li>
