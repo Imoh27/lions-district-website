@@ -76,8 +76,8 @@ if (isset($_POST['update'])) {
 
 include("assets/topheader.php");
 ?>
-<title>Admin | Dashboard</title>
-<script>
+	<title>Admin | International Leaders</title>
+	<script>
 	function checkemailAvailability() {
 		$("#loaderIcon").show();
 		jQuery.ajax({

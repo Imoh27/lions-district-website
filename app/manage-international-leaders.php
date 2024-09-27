@@ -15,20 +15,20 @@ include("assets/topheader.php");
 </head>
 <body class="nav-md">
 	<?php
-	$page_title = 'Admin | Manage Service Years';
+	$page_title = 'Admin | Manage International Leaders';
 	$x_content = true;
 	?>
 	<?php include('include/header.php');?>
 	<div class="row">
 		<div class="col-md-12">
-			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">Service Years</span></h5> 
-			<a href="service-year.php" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Create Service Year"><i class="fa fa-plus"></i></a>
+			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">International Leaders</span></h5> 
+			<a href="international-leaders.php" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
 			<table class="table table-hover" id="sample-table-1">
 				<thead>
 					<tr>
 						<th class="center">#</th>
-						<th>Service Year</th>
-						<th >Service Theme</th>
+						<th>Name</th>
+						<th >Position</th>
 						<th>Service Logo </th>
 						<th>Start Date </th>
 						<th>End Date </th>
@@ -46,14 +46,14 @@ include("assets/topheader.php");
 							<td class="center"><?php echo $cnt;?>.</td>
 							<td><?php echo $row['serviceYr'];?></td>
 							<td><?php echo $row['service_theme'];?></td>
-							<td><img class="user-profile" src="sylogo/<?php echo $row['service_logo'];?>" alt=""></td>
-							<td><?php echo $row['start_date'];?></td>
+							<td class="user-profile img-fluid"><img  src="sylogo/<?php echo $row['service_logo'];?>" alt=""></td>
+							<td><?php echo $row['from_date'];?></td>
 							<td><?php echo $row['stop_date'];?>
 						</td>
 						<td >
 							<div class="visible-md visible-lg">
-								<a href="service-year.php?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-								<a href="manage-doctors.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+								<a href="service-year.php?id=<?php echo $row['serviceYrID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+								<a href="manage-doctors.php?id=<?php echo $row['serviceYrID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 							</div>
 						</td>
 					</tr>
