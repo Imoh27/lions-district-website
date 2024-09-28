@@ -22,7 +22,7 @@ include("assets/topheader.php");
 	<div class="row">
 		<div class="col-md-12">
 			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">Past District Governors</span></h5> 
-			<a href="add-past-district-governors" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
+			<a href="add-past-district-governors" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Past DG"><i class="fa fa-plus"></i></a>
 			<table class="table table-hover" id="sample-table-1">
 				<thead>
 					<tr>
@@ -48,7 +48,6 @@ include("assets/topheader.php");
 							<td><?php echo $row['lci_awards'];?></td>
 							<td><?php echo $row['service_year'];?></td>
 							<td><?php echo $row['service_theme'];?></td>
-							<td><?php echo $row['position'];?></td>
 							<td class="user-profile img-fluid"><img src="pdgs_photos/<?php echo $row['pdgPhoto'];?>" alt=""></td>
 						
 						</td>

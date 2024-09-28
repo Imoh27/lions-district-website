@@ -4,7 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$leadersID = $_GET['id'];
+$pdgID = $_GET['id'];
 
 $sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
 $lsyrow=mysqli_fetch_array($sql);
@@ -34,14 +34,14 @@ if (isset($_POST['submit'])) {
 		//rename the image file
 		$newpdgPhoto = $fullname . '_' . $pdgPhoto;
 
-		$leader_insert_sql = "INSERT into tblinternationalleaders values(null,'$fullname','$position', '$lci_awards','$serviceYrID','$newpdgPhoto','$leaderProfile', now(), '$loggedin')";
+		$leader_insert_sql = "INSERT into tblpdg values(null,'$fullname','$service_year', '$service_theme', '$lci_awards','$newpdgPhoto','$pdgProfile', now(), '$loggedin')";
 		// echo ($leader_insert_sql);
 		// exit;
 		$leader_result = mysqli_query($con, $leader_insert_sql);
 		if ($leader_result) {
-			move_uploaded_file($_FILES["pdgPhoto"]["tmp_name"], "LCI_leaders_Photos/" . $newpdgPhoto);
-			echo "<script>alert('Lions Leader Added Successfully');</script>";
-			echo "<script>window.location.href ='manage-international-leaders'</script>";
+			move_uploaded_file($_FILES["pdgPhoto"]["tmp_name"], "pdgs_photos/" . $newpdgPhoto);
+			echo "<script>alert('Past DG Added Successfully');</script>";
+			echo "<script>window.location.href ='manage-past-district-governors'</script>";
 		}
 	}
 }
@@ -62,22 +62,23 @@ if (isset($_POST['update'])) {
 	}
 }
 
-		$sql = "UPDATE tblinternationalleaders  SET fullName = '$fullname', position = '$position', lci_awards = '$lci_awards', leaderProfile = '$leaderProfile', 
+		$sql = "UPDATE tblpdg  SET fullName = '$fullname', service_year = '$service_year',  service_theme = '$service_theme', 
+		lci_awards = '$lci_awards', pdgProfile = '$pdgProfile', 
 		dateUpdated = now(), updatedBy = '$loggedin'";
 		// echo ($sql);
 		// exit;
 		if(!empty($pdgPhoto)) {
 			$sql .= " pdgPhoto = '$newpdgPhoto'";
 		}
-		$sql .= " WHERE leadersID = $leadersID";
+		$sql .= " WHERE pdgID = $pdgID";
 		// echo $sql; exit;
 		$result = mysqli_query($con, $sql);
 		if ($result) {
 			if(!empty($pdgPhoto)) {
-			move_uploaded_file($_FILES["pdgPhoto"]["tmp_name"], "LCI_leaders_Photos/" . $newpdgPhoto);
+			move_uploaded_file($_FILES["pdgPhoto"]["tmp_name"], "pdgs_photos/" . $newpdgPhoto);
 			}
-			echo "<script>alert('Leader Updated Successfully');</script>";
-			echo "<script>window.location.href ='manage-international-leaders'</script>";
+			echo "<script>alert('Past DG Updated Successfully');</script>";
+			echo "<script>window.location.href ='manage-past-district-governors'</script>";
 		}
 	}
 
@@ -110,8 +111,8 @@ include("assets/topheader.php");
 	<?php include('include/header.php'); 
 
 	// For Editing
-	if(!empty($leadersID)) {
-	$leaders_sql=mysqli_query($con,"select * from pdg where pdgID = $pdgID");
+	if(!empty($pdgID)) {
+	$leaders_sql=mysqli_query($con,"select * from tblpdg where pdgID = $pdgID");
 	$row=mysqli_fetch_array($leaders_sql);
 	}
 	?>
@@ -130,37 +131,44 @@ include("assets/topheader.php");
 									<label for="fullname">
 										Full Name
 									</label>
-									<input type="text" name="fullname" id="fullname" class="form-control" <?php if(!empty($leadersID) || $leadersID)
+									<input type="text" name="fullname" id="fullname" class="form-control" <?php if(!empty($pdgID) || $pdgID)
 									{?>value ="<?php echo $row['fullName']; ?>"<?php } else{?> placeholder="Enter Full name"<?php } ?> required="true"
 									onBlur="checkpdgAvailability()">
 									<span id="pdg-availability-status"></span>
 								</div>
 
 								<div class="form-group">
+									<label for="service_year">
+										Service Year
+									</label>
+									<input name="service_year" id="service_year" class="form-control"<?php if(!empty($pdgID) || $pdgID)
+									{?>value ="<?php echo $row['service_year']; ?>"<?php } else{?>
+									 placeholder="2024/2025" <?php } ?> required="true">
+								</div>
+								<div class="form-group">
+									<label for="service_theme">
+										Service Theme
+									</label>
+									<input name="service_theme" id="service_theme" class="form-control"<?php if(!empty($pdgID) || $pdgID)
+									{?>value ="<?php echo $row['service_theme']; ?>"<?php } else{?>
+									 placeholder="Enter Service Year Theme" <?php } ?> required="true">
+								</div>
+								<div class="form-group">
 									<label for="lci_awards">
 										LCI Awards
 									</label>
-									<input name="lci_awards" id="lci_awards" class="form-control"<?php if(!empty($leadersID) || $leadersID)
+									<input name="lci_awards" id="lci_awards" class="form-control"<?php if(!empty($pdgID) || $pdgID)
 									{?>value ="<?php echo $row['lci_awards']; ?>"<?php } else{?>
 									 placeholder="MJF, NLCF" <?php } ?> required="true">
 								</div>
 
-								<div class="form-group">
-									<label for="position">
-										Position
-									</label>
-									<input name="position" id="position" class="form-control"<?php if(!empty($leadersID) || $leadersID)
-									{?>value ="<?php echo $row['position']; ?>"<?php } else{?>
-									 placeholder="Enter Postion title" <?php } ?> required="true">
-								</div>
-
 
 								<div class="form-group">
-									<label for="leaderProfile">
+									<label for="pdgProfile">
 										Detailed Profile
 									</label>
-									<input type="text" name="leaderProfile" placeholder="Describe detailed profile" class="form-control"  <?php if(!empty($leadersID) || $leadersID)
-									{?>value ="<?php echo $row['leaderProfile']; ?>"<?php } ?>
+									<input type="text" name="pdgProfile" placeholder="Describe detailed profile" class="form-control"  <?php if(!empty($pdgID) || $pdgID)
+									{?>value ="<?php echo $row['pdgProfile']; ?>"<?php } ?>
 									>
 								</div>
 								
@@ -168,15 +176,15 @@ include("assets/topheader.php");
 									<label for="pdgPhoto">
 										Select Photo
 									</label>
-									<input type="file" name="pdgPhoto" class="form-control" <?php if(empty($leadersID) || !$leadersID)
-									{?>required="true"<?php } ?>> <?php if(!empty($leadersID) || $leadersID)
-									{?><div class="d-inline user-profile img-fluid"><img  src="LCI_leaders_Photos/<?php echo $row['pdgPhoto'];?>" alt=""></div><?php } ?>
+									<input type="file" name="pdgPhoto" class="form-control" <?php if(empty($pdgID) || !$pdgID)
+									{?>required="true"<?php } ?>> <?php if(!empty($pdgID) || $pdgID)
+									{?><div class="d-inline user-profile img-fluid"><img  src="pdgProfile/<?php echo $row['pdgPhoto'];?>" alt=""></div><?php } ?>
 								</div>
 
 
-								<button type="submit"  <?php if(!empty($leadersID) || $leadersID)
+								<button type="submit"  <?php if(!empty($pdgID) || $pdgID)
 								{?> name="update" id="update" <?php } else {?> name="submit" id="submit" <?php } ?> class="btn btn-o btn-primary">
-								<?php if(!empty($leadersID) || $leadersID)
+								<?php if(!empty($pdgID) || $pdgID)
 								{?>Update <?php } else {?> Submit <?php } ?>
 								</button>
 							</form>
