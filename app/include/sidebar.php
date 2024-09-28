@@ -11,8 +11,8 @@
 					<li><a href="all-district-offices">Offices</a></li>
 					<li><a><i class="fa fa-user-md"></i> Leaders <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="manage-international-leaders.php">International Leaders</a></li>
-							<li><a href="manage-doctors.php">Past District Governors</a></li>
+							<li><a href="manage-international-leaders">International Leaders</a></li>
+							<li><a href="manage-past-district-governors">Past District Governors</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
 							<li><a href="manage-doctors.php">DG's Team</a></li>

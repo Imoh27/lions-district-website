@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['del']))
 {
-	mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
+	mysqli_query($con,"delete from tblinternationalleaders where leadersID = '".$_GET['id']."'");
 	$_SESSION['msg']="data deleted !!";
 }
 include("assets/topheader.php");
@@ -22,38 +22,37 @@ include("assets/topheader.php");
 	<div class="row">
 		<div class="col-md-12">
 			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">International Leaders</span></h5> 
-			<a href="international-leaders.php" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
+			<a href="add-international-leaders" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
 			<table class="table table-hover" id="sample-table-1">
 				<thead>
 					<tr>
 						<th class="center">#</th>
-						<th>Name</th>
+						<th>Full Name</th>
+						<th>Honors</th>
 						<th >Position</th>
-						<th>Service Logo </th>
-						<th>Start Date </th>
-						<th>End Date </th>
+						<th>Photo </th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$sql=mysqli_query($con,"select * from tblserviceyr");
+					$sql=mysqli_query($con,"select * from tblinternationalleaders");
 					$cnt=1;
 					while($row=mysqli_fetch_array($sql))
 					{
 						?>
 						<tr>
 							<td class="center"><?php echo $cnt;?>.</td>
-							<td><?php echo $row['serviceYr'];?></td>
-							<td><?php echo $row['service_theme'];?></td>
-							<td class="user-profile img-fluid"><img  src="sylogo/<?php echo $row['service_logo'];?>" alt=""></td>
-							<td><?php echo $row['from_date'];?></td>
-							<td><?php echo $row['stop_date'];?>
+							<td><?php echo $row['fullName'];?></td>
+							<td><?php echo $row['lci_awards'];?></td>
+							<td><?php echo $row['position'];?></td>
+							<td class="user-profile img-fluid"><img src="LCI_leaders_Photos/<?php echo $row['leaderPhoto'];?>" alt=""></td>
+						
 						</td>
 						<td >
 							<div class="visible-md visible-lg">
-								<a href="service-year.php?id=<?php echo $row['serviceYrID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-								<a href="manage-doctors.php?id=<?php echo $row['serviceYrID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+								<a href="add-international-leaders.php?id=<?php echo $row['leadersID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+								<a href="manage-international-leaders.php?id=<?php echo $row['leadersID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 							</div>
 						</td>
 					</tr>
