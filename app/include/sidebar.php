@@ -8,7 +8,7 @@
 				<ul class="nav child_menu">
 					<!-- <li><a href="doctor-specilization.php">Doctor Specialization</a></li> -->
 					<!-- <li><a href="add-doctor.php">Add Doctor</a></li> -->
-					<li><a href="manage-doctors.php">Offices</a></li>
+					<li><a href="all-district-offices">Offices</a></li>
 					<li><a><i class="fa fa-user-md"></i> Leaders <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="manage-international-leaders.php">International Leaders</a></li>
@@ -52,7 +52,7 @@
 			<li><a href="user-logs.php"><i class="fa fa-line-chart"></i> User Session Logs</a></li>
 			<li><a><i class="fa fa-bar-chart"></i> Other Settings <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="manage-service-year.php">Service Year </a></li>
+					<li><a href="manage-service-year">Service Year </a></li>
 					<!-- <li><a href="between-dates-reports.php">B/w dates reports </a></li> -->
 				</ul>
 			</li>

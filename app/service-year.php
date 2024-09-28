@@ -76,9 +76,9 @@ if (isset($_POST['update'])) {
 
 include("assets/topheader.php");
 ?>
-<title>Admin | Dashboard</title>
+<title>Admin | Service Year</title>
 <script>
-	function checkemailAvailability() {
+	function checkServiceYearAvailability() {
 		$("#loaderIcon").show();
 		jQuery.ajax({
 			url: "assets/check_sy.php",
@@ -118,8 +118,9 @@ include("assets/topheader.php");
 									<label for="lsy">
 										Service Year
 									</label>
-									<input type="text" name="lsy" class="form-control" <?php if(!empty($serviceYrID) || $serviceYrID)
-									{?>value ="<?php echo $row['serviceYr']; ?>"<?php } else{?> placeholder="Example 2024/2025"<?php } ?> required="true">
+									<input type="text" name="lsy" id="lsy" class="form-control" <?php if(!empty($serviceYrID) || $serviceYrID)
+									{?>value ="<?php echo $row['serviceYr']; ?>"<?php } else{?> placeholder="Example 2024/2025"<?php } ?> required="true"
+									onBlur="checkServiceYearAvailability()">
 									<span id="lsy-availability-status"></span>
 								</div>
 

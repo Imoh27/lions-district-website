@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,3 +19,17 @@
 	<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 	<!-- Custom Theme Style -->
 	<link href="assets/css/custom.min.css" rel="stylesheet">
+
+	<?php
+	include_once('../include/config.php');
+	$select = "SELECT * FROM tblserviceyr";
+	// echo $select; exit;
+	$sql=mysqli_query($con,$select);
+	$row=mysqli_fetch_array($sql);
+	// if($row){
+	// 	echo "good"; exit;
+	// }
+	?>
+	  <!-- Favicon
+================================================== -->
+<link rel="icon" type="image/png" href="sylogo/<?php echo $row['service_logo'];?>" />
