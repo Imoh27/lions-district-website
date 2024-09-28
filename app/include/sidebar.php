@@ -23,7 +23,7 @@
 			</li>
 			<li><a><i class="fa fa-users"></i> Region <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="manage-users.php">Manage Regions</a></li>
+					<li><a href="manage-regions.php">Manage Regions</a></li>
 				</ul>
 			</li>
 			<li><a><i class="fa fa-group"></i> Clubs <span class="fa fa-chevron-down"></span></a>
