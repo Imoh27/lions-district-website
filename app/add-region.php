@@ -10,7 +10,7 @@ $sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIM
 $lsyrow=mysqli_fetch_array($sql);
 
 
-$region = $_POST['region'];
+$region = strip_tags($_POST['region']);
 $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
 
@@ -66,7 +66,7 @@ include("assets/topheader.php");
 
 	// For Editing
 	if(!empty($regionID)) {
-	$region_sql=mysqli_query($con,"select * from tblregion where region = $regionID");
+	$region_sql=mysqli_query($con,"select * from tblregion where regionID = $regionID");
 	$row=mysqli_fetch_array($region_sql);
 	}
 	?>

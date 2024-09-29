@@ -10,10 +10,10 @@ $sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIM
 $lsyrow=mysqli_fetch_array($sql);
 
 
-$fullname = $_POST['fullname'];
-$position = strtolower($_POST['position']);
-$lci_awards = strtoupper($_POST['lci_awards']);
-$leaderProfile = $_POST['leaderProfile'];
+$fullname = strip_tags($_POST['fullname']);
+$position = strtolower(strip_tags($_POST['position']));
+$lci_awards = strtoupper(strip_tags($_POST['lci_awards']));
+$leaderProfile = strip_tags($_POST['leaderProfile']);
 $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;
 $leaderPhoto =  strtolower($_FILES["leaderPhoto"]["name"]);

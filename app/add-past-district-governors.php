@@ -10,11 +10,11 @@ $sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIM
 $lsyrow=mysqli_fetch_array($sql);
 
 
-$fullname = $_POST['fullname'];
-$lci_awards = strtoupper($_POST['lci_awards']);
-$service_year = strtoupper($_POST['service_year']);
-$service_theme = strtoupper($_POST['service_theme']);
-$pdgProfile = $_POST['pdgProfile'];
+$fullname = strip_tags($_POST['fullname']);
+$lci_awards = strtoupper(strip_tags($_POST['lci_awards']));
+$service_year = strtoupper(strip_tags($_POST['service_year']));
+$service_theme = strtoupper(strip_tags($_POST['service_theme']));
+$pdgProfile = strip_tags($_POST['pdgProfile']);
 // $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;
 $pdgPhoto =  strtolower($_FILES["pdgPhoto"]["name"]);

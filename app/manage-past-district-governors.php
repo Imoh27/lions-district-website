@@ -24,7 +24,7 @@ include("assets/topheader.php");
 			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">Past District Governors</span></h5> 
 			<a href="add-past-district-governors" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Past DG"><i class="fa fa-plus"></i></a>
 			<table class="table table-hover" id="sample-table-1">
-				<thead>app/manage-past-district-governors.php
+				<thead>
 					<tr>
 						<th class="center">#</th>
 						<th>Full Name</th>

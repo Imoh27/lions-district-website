@@ -19,5 +19,24 @@ echo "<span style='color:red'> Region already exists .</span>";
 }
 }
 
+if(!empty($_POST["rcname"])) {
+	$rcname= $_POST["rcname"];
+	
+		$sql = 	"SELECT * FROM tblregionchairperson WHERE fullName='$rcname'";
+		$result =mysqli_query($con, $sql);
+		if ($result || !empty($result)) {
+			$count=mysqli_num_rows($result);
+		}
+if($count>0)
+{
+echo "<span style='color:red'> Region Chairperson already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Region Chairperson available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
 
 ?>

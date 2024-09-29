@@ -6,8 +6,8 @@ include('include/checklogin.php');
 check_login();
 $officeID = $_GET['id'];
 
-$office = $_POST['office'];
-$abbr = $_POST['abbr'];
+$office = strip_tags($_POST['office']);
+$abbr = strip_tags($_POST['abbr']);
 $loggedin = $_SESSION['login'];
 
 
