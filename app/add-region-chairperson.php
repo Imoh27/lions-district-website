@@ -6,8 +6,8 @@ include('include/checklogin.php');
 check_login();
 $rcID = $_GET['id'];
 
-$sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
-$lsyrow=mysqli_fetch_array($sql);
+$sql = mysqli_query($con, "SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
+$lsyrow = mysqli_fetch_array($sql);
 
 
 $fullname = strip_tags($_POST['fullname']);
@@ -21,7 +21,7 @@ $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
 
 	// echo $rcPhoto; exit;
-// echo $_SESSION['login']; exit;
+	// echo $_SESSION['login']; exit;
 	// get the image extension
 	$extension = substr($rcPhoto, strlen($rcPhoto) - 4, strlen($rcPhoto));
 	// allowed extensions
@@ -46,39 +46,39 @@ if (isset($_POST['submit'])) {
 }
 if (isset($_POST['update'])) {
 	// echo $lsy_theme; exit;
-	if(!empty($rcPhoto)) {
-	// get the image extension
-	$extension = substr($rcPhoto, strlen($rcPhoto) - 4, strlen($rcPhoto));
-	// allowed extensions
-	$allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
-	if (!in_array($extension, $allowed_extensions)) {
-		$error = "Invalid format. Only jpg / jpeg/ png /gif format allowed";
-		// echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-	
-	} else {
-		//rename the image file
-		$newrcPhoto = $fullname . '_' . $rcPhoto;
+	if (!empty($rcPhoto)) {
+		// get the image extension
+		$extension = substr($rcPhoto, strlen($rcPhoto) - 4, strlen($rcPhoto));
+		// allowed extensions
+		$allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
+		if (!in_array($extension, $allowed_extensions)) {
+			$error = "Invalid format. Only jpg / jpeg/ png /gif format allowed";
+			// echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+
+		} else {
+			//rename the image file
+			$newrcPhoto = $fullname . '_' . $rcPhoto;
+		}
+	}
+
+	$sql = "UPDATE tblregionchairperson  SET regionID = $region, fullName = '$fullname', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
+		dateUpdated = now(), updatedBy = '$loggedin'";
+	// echo ($sql);
+	// exit;
+	if (!empty($rcPhoto)) {
+		$sql .= " rcPhoto = '$newrcPhoto'";
+	}
+	$sql .= " WHERE rcID = $rcID";
+	// echo $sql; exit;
+	$result = mysqli_query($con, $sql);
+	if ($result) {
+		if (!empty($rcPhoto)) {
+			move_uploaded_file($_FILES["rcPhoto"]["tmp_name"], "rc_Photos/" . $newrcPhoto);
+		}
+		echo "<script>alert('Region Chairperson Updated Successfully');</script>";
+		echo "<script>window.location.href ='manage-region-chairpersons'</script>";
 	}
 }
-
-		$sql = "UPDATE tblregionchairperson  SET regionID = $region, fullName = '$fullname', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
-		dateUpdated = now(), updatedBy = '$loggedin'";
-		// echo ($sql);
-		// exit;
-		if(!empty($rcPhoto)) {
-			$sql .= " rcPhoto = '$newrcPhoto'";
-		}
-		$sql .= " WHERE rcID = $rcID";
-		// echo $sql; exit;
-		$result = mysqli_query($con, $sql);
-		if ($result) {
-			if(!empty($rcPhoto)) {
-			move_uploaded_file($_FILES["rcPhoto"]["tmp_name"], "rc_Photos/" . $newrcPhoto);
-			}
-			echo "<script>alert('Region Chairperson Updated Successfully');</script>";
-			echo "<script>window.location.href ='manage-region-chairpersons'</script>";
-		}
-	}
 
 include("assets/topheader.php");
 ?>
@@ -103,20 +103,20 @@ include("assets/topheader.php");
 <body class="nav-md">
 	<?php
 
-	$page_title = 'Add Region Chairperson ('. $lsyrow['serviceYr'].')';
+	$page_title = 'Add Region Chairperson (' . $lsyrow['serviceYr'] . ')';
 	$x_content = true;
 	?>
-	<?php include('include/header.php'); 
+	<?php include('include/header.php');
 
 	// SELECT REGIONS
-	$region_sql=mysqli_query($con,"select * from tblregion");
-	
+	$region_sql = mysqli_query($con, "select * from tblregion");
+
 
 	// For Editing
-	if(!empty($rcID)) {
-	$rc_sql=mysqli_query($con,"SELECT * from tblregionchairperson rc
+	if (!empty($rcID)) {
+		$rc_sql = mysqli_query($con, "SELECT * from tblregionchairperson rc
 	INNER JOIN  tblregion r ON r.regionID=rc.regionID where rc.rcID = $rcID");
-	$row=mysqli_fetch_array($rc_sql);
+		$row = mysqli_fetch_array($rc_sql);
 	}
 	?>
 
@@ -134,30 +134,27 @@ include("assets/topheader.php");
 									<label for="region">
 										Select Region
 									</label>
-									<select name="region" id="region" class="form-control" required = "true">
-										<?php if(!empty($rcID) || $rcID)
-										{?>
-										<option value="<?php echo $row['regionID']; ?>"> Region <?php echo $row['region']; ?></option>
+									<select name="region" id="region" class="form-control" required="true">
+										<?php if (!empty($rcID) || $rcID) { ?>
+											<option value="<?php echo $row['regionID']; ?>"> Region <?php echo $row['region']; ?></option>
 										<?php } else { ?>
-										<option value=""></option>
-										
+											<option value=""></option>
+
 										<?php }
-										while($region_row=mysqli_fetch_array($region_sql))
-										{?>
+										while ($region_row = mysqli_fetch_array($region_sql)) { ?>
 											<option value="<?php echo $region_row['regionID']; ?>"> Region <?php echo $region_row['region']; ?></option>
-										<?php } 
+										<?php }
 										?>
 									</select>
-								
+
 								</div>
 
 								<div class="form-group">
 									<label for="fullname">
 										Full Name
 									</label>
-									<input type="text" name="fullname" id="fullname" class="form-control" <?php if(!empty($rcID) || $rcID)
-									{?>value ="<?php echo $row['fullName']; ?>"<?php } else{?> placeholder="Enter Full name"<?php } ?> required="true"
-									onBlur="checkRcAvailability()">
+									<input type="text" name="fullname" id="fullname" class="form-control" <?php if (!empty($rcID) || $rcID) { ?>value="<?php echo $row['fullName']; ?>" <?php } else { ?> placeholder="Enter Full name" <?php } ?> required="true"
+										onBlur="checkRcAvailability()">
 									<span id="rc-availability-status"></span>
 								</div>
 
@@ -165,34 +162,28 @@ include("assets/topheader.php");
 									<label for="lci_awards">
 										Honors?Awards
 									</label>
-									<input name="lci_awards" id="lci_awards" class="form-control"<?php if(!empty($rcID) || $rcID)
-									{?>value ="<?php echo $row['lions_awards']; ?>"<?php } else{?>
-									 placeholder="MJF, NLCF" <?php } ?>>
+									<input name="lci_awards" id="lci_awards" class="form-control" <?php if (!empty($rcID) || $rcID) { ?>value="<?php echo $row['lions_awards']; ?>" <?php } else { ?>
+										placeholder="MJF, NLCF" <?php } ?>>
 								</div>
 
 								<div class="form-group">
 									<label for="phoneNo">
 										Phone No
 									</label>
-									<input name="phoneNo" id="phoneNo" class="form-control"<?php if(!empty($rcID) || $rcID)
-									{?>value ="<?php echo $row['phoneNo']; ?>"<?php } else{?>
-									 placeholder="+2348133314846" <?php } ?>>
+									<input name="phoneNo" id="phoneNo" class="form-control" <?php if (!empty($rcID) || $rcID) { ?>value="<?php echo $row['phoneNo']; ?>" <?php } else { ?>
+										placeholder="+2348133314846" <?php } ?>>
 								</div>
-								
+
 								<div class="form-group">
 									<label for="rcPhoto">
 										Select Photo
 									</label>
-									<input type="file" name="rcPhoto" class="form-control" <?php if(empty($rcID) || !$rcID)
-									{?>required="true"<?php } ?>> <?php if(!empty($rcID) || $rcID)
-									{?><div class="d-inline user-profile img-fluid"><img  src="rc_Photos/<?php echo $row['rcPhoto'];?>" alt=""></div><?php } ?>
+									<input type="file" name="rcPhoto" class="form-control" <?php if (empty($rcID) || !$rcID) { ?>required="true" <?php } ?>> <?php if (!empty($rcID) || $rcID) { ?><div class="d-inline user-profile img-fluid"><img src="rc_Photos/<?php echo $row['rcPhoto']; ?>" alt=""></div><?php } ?>
 								</div>
 
 
-								<button type="submit"  <?php if(!empty($rcID) || $rcID)
-								{?> name="update" id="update" <?php } else {?> name="submit" id="submit" <?php } ?> class="btn btn-o btn-primary">
-								<?php if(!empty($rcID) || $rcID)
-								{?>Update <?php } else {?> Submit <?php } ?>
+								<button type="submit" <?php if (!empty($rcID) || $rcID) { ?> name="update" id="update" <?php } else { ?> name="submit" id="submit" <?php } ?> class="btn btn-o btn-primary">
+									<?php if (!empty($rcID) || $rcID) { ?>Update <?php } else { ?> Submit <?php } ?>
 								</button>
 							</form>
 						</div>

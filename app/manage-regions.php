@@ -5,7 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_GET['del'])) {
-	mysqli_query($con, "delete from tblpdg where pdgID = '" . $_GET['id'] . "'");
+	mysqli_query($con, "delete from tblregion where regionID = '" . $_GET['id'] . "'");
 	$_SESSION['msg'] = "data deleted !!";
 }
 include("assets/topheader.php");
