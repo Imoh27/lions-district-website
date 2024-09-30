@@ -4,7 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$rcID = $_GET['id'];
+$cpID = $_GET['id'];
 
 $sql = mysqli_query($con, "SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
 $lsyrow = mysqli_fetch_array($sql);
@@ -33,14 +33,14 @@ if (isset($_POST['submit'])) {
 		//rename the image file
 		$newcpPhoto = $fullname . '_' . $cpPhoto;
 
-		$rc_insert_sql = "INSERT into tblregionchairperson values(null, $club,'$fullname', '$lci_awards', '$phoneNo', $serviceYrID,'$newcpPhoto', now(), '$loggedin')";
-		// echo ($rc_insert_sql);
+		$cp_insert_sql = "INSERT into tblclubpresidents values(null, $club,'$fullname', '$lci_awards', '$phoneNo', $serviceYrID,'$newcpPhoto', now(), '$loggedin')";
+		// echo ($cp_insert_sql);
 		// exit;
-		$rc_result = mysqli_query($con, $rc_insert_sql);
-		if ($rc_result) {
-			move_uploaded_file($_FILES["cpPhoto"]["tmp_name"], "rc_Photos/" . $newcpPhoto);
-			echo "<script>alert('Club President Added Successfully');</script>";
-			echo "<script>window.location.href ='manage-region-chairpersons'</script>";
+		$cp_result = mysqli_query($con, $cp_insert_sql);
+		if ($cp_result) {
+			move_uploaded_file($_FILES["cpPhoto"]["tmp_name"], "cp_photos/" . $newcpPhoto);
+			echo "<script>alert('President Added Successfully');</script>";
+			echo "<script>window.location.href ='manage-club-presidents'</script>";
 		}
 	}
 }
@@ -61,49 +61,80 @@ if (isset($_POST['update'])) {
 		}
 	}
 
-	$sql = "UPDATE tblregionchairperson  SET regionID = $region, fullName = '$fullname', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
-		dateUpdated = now(), updatedBy = '$loggedin'";
+	$sql = "UPDATE tblclubpresidents  SET clubID = $club, fullName = '$fullname', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
+		serviceYrID = $serviceYrID,  dateUpdated = now(), updatedBy = '$loggedin'";
 	// echo ($sql);
 	// exit;
 	if (!empty($cpPhoto)) {
 		$sql .= " cpPhoto = '$newcpPhoto'";
 	}
-	$sql .= " WHERE rcID = $rcID";
+	$sql .= " WHERE cpID = $cpID";
 	// echo $sql; exit;
 	$result = mysqli_query($con, $sql);
 	if ($result) {
 		if (!empty($cpPhoto)) {
-			move_uploaded_file($_FILES["cpPhoto"]["tmp_name"], "rc_Photos/" . $newcpPhoto);
+			move_uploaded_file($_FILES["cpPhoto"]["tmp_name"], "cp_photos/" . $newcpPhoto);
 		}
-		echo "<script>alert('Region Chairperson Updated Successfully');</script>";
-		echo "<script>window.location.href ='manage-region-chairpersons'</script>";
+		echo "<script>alert('President Updated Successfully');</script>";
+		echo "<script>window.location.href ='manage-club-presidents'</script>";
 	}
 }
 
 include("assets/topheader.php");
 ?>
-<title>Admin | Region Chairperson</title>
+<title>Admin | Club  President</title>
 <script>
-	function checkRcAvailability() {
+	function checkcpAvailability() {
 		$("#loaderIcon").show();
 		jQuery.ajax({
 			url: "assets/check_all_others.php",
-			data: 'rcname=' + $("#fullname").val(),
+			data: 'cpname=' + $("#fullname").val(),
 			type: "POST",
 			success: function(data) {
-				$("#rc-availability-status").html(data);
+				$("#cp-availability-status").html(data);
 				$("#loaderIcon").hide();
 			},
 			error: function() {}
 		});
 	}
+
+	function fetchZones() {
+		$("#loaderIcon").show();
+		jQuery.ajax({
+			url: "assets/get_fields.php",
+			data: 'region=' + $("#region").val(),
+			type: "POST",
+			success: function(data) {
+				$("#zone").html(data);
+				$("#loaderIcon").hide();
+			},
+			error: function() {}
+		});
+	}
+
+	function fetchClubs() {
+		$("#loaderIcon").show();
+		jQuery.ajax({
+			url: "assets/get_fields.php",
+			data: 'zone=' + $("#zone").val(),
+			type: "POST",
+			success: function(data) {
+				$("#club").html(data);
+				$("#loaderIcon").hide();
+			},
+			error: function() {}
+		});
+	}
+
+
+
 </script>
 </head>
 
 <body class="nav-md">
 	<?php
 
-	$page_title = 'Add Region Chairperson (' . $lsyrow['serviceYr'] . ')';
+	$page_title = 'Add Club President (' . $lsyrow['serviceYr'] . ')';
 	$x_content = true;
 	?>
 	<?php include('include/header.php');
@@ -113,10 +144,13 @@ include("assets/topheader.php");
 
 
 	// For Editing
-	if (!empty($rcID)) {
-		$rc_sql = mysqli_query($con, "SELECT * from tblregionchairperson rc
-	INNER JOIN  tblregion r ON r.regionID=rc.regionID where rc.rcID = $rcID");
-		$row = mysqli_fetch_array($rc_sql);
+	if (!empty($cpID)) {
+		$query = "SELECT * from tblclubpresidents cp
+	JOIN  tblclubs c ON c.clubID=cp.clubID  INNER JOIN tblzone z ON z.zoneID = c.zoneID
+	INNER JOIN tblregion r ON r.regionID = z.regionID where cp.cpID = $cpID";
+	// echo $query; exit;
+		$cp_sql = mysqli_query($con, $query);
+		$row = mysqli_fetch_array($cp_sql);
 	}
 	?>
 
@@ -128,17 +162,18 @@ include("assets/topheader.php");
 					<div class="panel panel-white">
 						<div class="panel-body">
 
-							<form role="form" name="addrcs" action="" enctype="multipart/form-data" method="post" onSubmit="return valid();">
+							<form role="form" name="addcp" action="" enctype="multipart/form-data" method="post" onSubmit="return valid();">
 
 								<div class="form-group">
 									<label for="region">
 										Select Region
 									</label>
-									<select name="region" id="region" class="form-control" required="true">
-										<?php if (!empty($rcID) || $rcID) { ?>
+									<select name="region" id="region" class="form-control" 
+									onChange="fetchZones()" required="true">
+										<?php if (!empty($cpID) || $cpID) { ?>
 											<option value="<?php echo $row['regionID']; ?>"> Region <?php echo $row['region']; ?></option>
 										<?php } else { ?>
-											<option value=""></option>
+											<option value="">Select</option>
 
 										<?php }
 										while ($region_row = mysqli_fetch_array($region_sql)) { ?>
@@ -148,21 +183,48 @@ include("assets/topheader.php");
 									</select>
 
 								</div>
+								<div class="form-group">
+									<label for="zone">
+										Select Zones
+									</label>
+									<select name="zone" id="zone" class="form-control"
+									onChange="fetchClubs()"   required="true">
+										<?php if(!empty($cpID) || $cpID)
+										{?>
+										<option value="<?php echo ($row['zoneID']); ?>">Zone <?php echo ($row['zoneName']); ?></option>
+											<?php } ?>
+									</select>
+
+								</div>
+
+								<div class="form-group">
+									<label for="club">
+										Select Club
+									</label>
+									<select name="club" id="club" class="form-control"
+									  required="true">
+										<?php if(!empty($cpID) || $cpID)
+										{?>
+										<option value="<?php echo ($row['clubID']); ?>"><?php echo ($row['clubName']); ?></option>
+											<?php } ?>
+									</select>
+
+								</div>
 
 								<div class="form-group">
 									<label for="fullname">
 										Full Name
 									</label>
-									<input type="text" name="fullname" id="fullname" class="form-control" <?php if (!empty($rcID) || $rcID) { ?>value="<?php echo $row['fullName']; ?>" <?php } else { ?> placeholder="Enter Full name" <?php } ?> required="true"
-										onBlur="checkRcAvailability()">
-									<span id="rc-availability-status"></span>
+									<input type="text" name="fullname" id="fullname" class="form-control" <?php if (!empty($cpID) || $cpID) { ?>value="<?php echo $row['fullName']; ?>" <?php } else { ?> placeholder="Enter Full name" <?php } ?> required="true"
+										onBlur="checkcpAvailability()">
+									<span id="cp-availability-status"></span>
 								</div>
 
 								<div class="form-group">
 									<label for="lci_awards">
 										Honors?Awards
 									</label>
-									<input name="lci_awards" id="lci_awards" class="form-control" <?php if (!empty($rcID) || $rcID) { ?>value="<?php echo $row['lions_awards']; ?>" <?php } else { ?>
+									<input name="lci_awards" id="lci_awards" class="form-control" <?php if (!empty($cpID) || $cpID) { ?>value="<?php echo $row['lions_awards']; ?>" <?php } else { ?>
 										placeholder="MJF, NLCF" <?php } ?>>
 								</div>
 
@@ -170,7 +232,7 @@ include("assets/topheader.php");
 									<label for="phoneNo">
 										Phone No
 									</label>
-									<input name="phoneNo" id="phoneNo" class="form-control" <?php if (!empty($rcID) || $rcID) { ?>value="<?php echo $row['phoneNo']; ?>" <?php } else { ?>
+									<input name="phoneNo" id="phoneNo" class="form-control" <?php if (!empty($cpID) || $cpID) { ?>value="<?php echo $row['phoneNo']; ?>" <?php } else { ?>
 										placeholder="+2348133314846" <?php } ?>>
 								</div>
 
@@ -178,12 +240,12 @@ include("assets/topheader.php");
 									<label for="cpPhoto">
 										Select Photo
 									</label>
-									<input type="file" name="cpPhoto" class="form-control" <?php if (empty($rcID) || !$rcID) { ?>required="true" <?php } ?>> <?php if (!empty($rcID) || $rcID) { ?><div class="d-inline user-profile img-fluid"><img src="rc_Photos/<?php echo $row['cpPhoto']; ?>" alt=""></div><?php } ?>
+									<input type="file" name="cpPhoto" class="form-control" <?php if (empty($cpID) || !$cpID) { ?>required="true" <?php } ?>> <?php if (!empty($cpID) || $cpID) { ?><div class="d-inline user-profile img-fluid"><img scp="cp_Photos/<?php echo $row['cpPhoto']; ?>" alt=""></div><?php } ?>
 								</div>
 
 
-								<button type="submit" <?php if (!empty($rcID) || $rcID) { ?> name="update" id="update" <?php } else { ?> name="submit" id="submit" <?php } ?> class="btn btn-o btn-primary">
-									<?php if (!empty($rcID) || $rcID) { ?>Update <?php } else { ?> Submit <?php } ?>
+								<button type="submit" <?php if (!empty($cpID) || $cpID) { ?> name="update" id="update" <?php } else { ?> name="submit" id="submit" <?php } ?> class="btn btn-o btn-primary">
+									<?php if (!empty($cpID) || $cpID) { ?>Update <?php } else { ?> Submit <?php } ?>
 								</button>
 							</form>
 						</div>

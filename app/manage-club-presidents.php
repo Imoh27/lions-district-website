@@ -21,7 +21,7 @@ include("assets/topheader.php");
 	<?php include('include/header.php');?>
 	<div class="row">
 		<div class="col-md-12">
-			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">Club Presidents</span></h5> 
+			<h5 class="over-title margin-bottom-15 d-inline"><span class="text-bold">Club Presidents</span></h5> 
 			<a href="add-president" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
 			<table class="table table-hover" id="sample-table-1">
 				<thead>
@@ -29,15 +29,16 @@ include("assets/topheader.php");
 						<th class="center">#</th>
 						<th>Full Name</th>
 						<th>Honors</th>
-						<th >Region</th>
+						<th >Club</th>
+						<th >Phone</th>
 						<th>Photo </th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$sql=mysqli_query($con,"select * from tblregionchairperson
-					rc INNER JOIN  tblregion r ON r.regionID=rc.regionID"
+					$sql=mysqli_query($con,"SELECT * from tblclubpresidents cp
+					JOIN tblclubs c On cp.clubID = c.clubID "
 				);
 					$cnt=1;
 					while($row=mysqli_fetch_array($sql))
@@ -47,14 +48,15 @@ include("assets/topheader.php");
 							<td class="center"><?php echo $cnt;?>.</td>
 							<td><?php echo $row['fullName'];?></td>
 							<td><?php echo $row['lions_awards'];?></td>
-							<td>Region <?php echo $row['region'];?></td>
-							<td class="user-profile img-fluid"><img src="rc_photos/<?php echo $row['rcPhoto'];?>" alt=""></td>
+							<td><?php echo $row['clubName'];?></td>
+							<td><?php echo $row['phoneNo'];?></td>
+							<td class="user-profile img-fluid"><img src="cp_photos/<?php echo $row['cpPhoto'];?>" alt=""></td>
 						
 						</td>
 						<td >
 							<div class="visible-md visible-lg">
-								<a href="add-region-chairperson?id=<?php echo $row['rcID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-								<a href="manage-region-chairperson?id=<?php echo $row['rcID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+								<a href="add-president?id=<?php echo $row['cpID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+								<a href="manage-club-president?id=<?php echo $row['cpID']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 							</div>
 						</td>
 					</tr>
@@ -65,8 +67,9 @@ include("assets/topheader.php");
 		</table>
 	</div>
 </div>
-<?php include('include/footer.php');
-	include('assets/app-footer.php');
+<?php 
+include('include/footer.php');
+include('assets/app-footer.php');
 ?>
 
 </body>

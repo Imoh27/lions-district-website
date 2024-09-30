@@ -65,4 +65,45 @@ echo "<span style='color:red'> Club already exists .</span>";
 }
 
 
+
+// CHECK CLUB PRESIDENTS AVAILABILITY
+if(!empty($_POST["cpname"])) {
+	$cpname= $_POST["cpname"];
+	
+		$sql = 	"SELECT * FROM tblclubs WHERE clubName	='$cpname'";
+		$result =mysqli_query($con, $sql);
+		if ($result || !empty($result)) {
+			$count=mysqli_num_rows($result);
+		}
+if($count>0)
+{
+echo "<span style='color:red'> Club President already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Name available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+// CHECK CLUBS AVAILABILITY
+if(!empty($_POST["club"])) {
+	$club= $_POST["club"];
+	
+		$sql = 	"SELECT * FROM tblclubs WHERE clubName	='$club'";
+		$result =mysqli_query($con, $sql);
+		if ($result || !empty($result)) {
+			$count=mysqli_num_rows($result);
+		}
+if($count>0)
+{
+echo "<span style='color:red'> Club already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Club available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>
