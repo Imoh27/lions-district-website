@@ -23,13 +23,14 @@
 			</li>
 			<li><a><i class="fa fa-users"></i> Region <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="manage-regions">Regions</a></li>
+					<li><a href="manage-regions-and-zones">Regions/Zones</a></li>
 					<li><a href="manage-region-chairpersons">Regions Chairpersons</a></li>
 				</ul>
 			</li>
 			<li><a><i class="fa fa-group"></i> Clubs <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
-					<li><a href="manage-clubs">Manage Clubs</a></li>
+					<li><a href="manage-clubs">Clubs</a></li>
+					<li><a href="manage-club-presidents">Club Presidents</a></li>
 				</ul>
 			</li>
 			<li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>

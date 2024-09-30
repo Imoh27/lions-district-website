@@ -18,7 +18,14 @@ include("assets/topheader.php");
 	$page_title = 'Admin | Manage Clubs';
 	$x_content = true;
 	?>
-	<?php include('include/header.php'); ?>
+	<?php include('include/header.php'); 
+	
+		$query = "SELECT * from tblclubs c JOIN tblzone z ON z.zoneID = c.zoneID
+		INNER JOIN tblregion r ON r.regionID = z.regionID";
+		$sql = mysqli_query($con, $query);
+		// echo $query; exit;
+	
+	?>
 	<div class="row">
 		<div class="col-md-12">
 			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">Clubs</span></h5>
@@ -37,7 +44,7 @@ include("assets/topheader.php");
 				</thead>
 				<tbody>
 					<?php
-					$sql = mysqli_query($con, "SELECT * from tblclubs c INNER JOIN tblregion r ON r.regionID = c.regionID");
+				
 					$cnt = 1;
 					while ($row = mysqli_fetch_array($sql)) {
 					?>
@@ -45,6 +52,7 @@ include("assets/topheader.php");
 							<td class="center"><?php echo $cnt; ?>.</td>
 							<td> <?php echo $row['clubName']; ?> Lions Club</td>
 							<td>Region <?php echo $row['region']; ?></td>
+							<td>Zone <?php echo $row['zoneName']; ?></td>
 							<td> <?php echo $row['indexNo']; ?></td>
 							<td> <?php echo $row['charterDate']; ?></td>
 

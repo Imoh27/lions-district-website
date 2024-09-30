@@ -10,14 +10,14 @@ $sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIM
 $lsyrow=mysqli_fetch_array($sql);
 
 
-$region = strip_tags($_POST['region']);
+$zone = strip_tags($_POST['zone']);
 $club = strip_tags($_POST['club']);
 $indexNo = strip_tags($_POST['indexo']);
 $charterDate = strip_tags($_POST['charterDate']);
 $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
 
-		$club_insert_sql = "INSERT into tblclubs values(null, $region, '$club', '$indexo', '$charterDate', now(), '$loggedin')";
+		$club_insert_sql = "INSERT into tblclubs values(null, $zone, '$club', '$indexo', '$charterDate', now(), '$loggedin')";
 		// echo ($club_insert_sql);
 		// exit;
 		$club_result = mysqli_query($con, $club_insert_sql);
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['update'])) {
 	
 
-		$sql = "UPDATE tblclubs  SET regionID = $region, clubName = '$club', indexNo = '$indexNo', charterDate = '$charterDate',
+		$sql = "UPDATE tblclubs  SET zoneID = $zone, clubName = '$club', indexNo = '$indexNo', charterDate = '$charterDate',
 		dateUpdated = now(), updatedBy = '$loggedin' WHERE clubID = $clubID";
 		// echo $sql; exit;
 		$result = mysqli_query($con, $sql);
@@ -56,6 +56,24 @@ include("assets/topheader.php");
 			error: function() {}
 		});
 	}
+
+
+	
+	function getZones(val) {
+    $.ajax({
+        type: "POST",
+        url: "assets/get_fields.php",
+        data: 'region=' + val,
+        beforeSend: function() {
+            $("#zone").html('Fetching, Please Wait...');
+        },
+        success: function(data) {
+            $("#zone").html(data);
+        }
+    });
+}
+
+
 </script>
 </head>
 
@@ -71,8 +89,9 @@ include("assets/topheader.php");
 		$region_sql = mysqli_query($con, "select * from tblregion");
 	// For Editing
 	if(!empty($clubID)) {
-	$club_sql=mysqli_query($con,"select * from tblclubs c
-	INNER JOIN  tblregion r ON r.regionID=c.regionID where c.clubID = $clubID");
+	$club_sql=mysqli_query($con,"SELECT * from tblclubs c
+	JOIN  tblzone z ON z.zoneID=c.zoneID 
+	INNER JOIN  tblregion r ON r.regionID=z.regionID where c.clubID = $clubID");
 	// echo $club_sql; exit;
 	$row=mysqli_fetch_array($club_sql);
 	}
@@ -89,11 +108,12 @@ include("assets/topheader.php");
 							<form role="form" name="addinternationalleaders" action="" enctype="multipart/form-data" method="post" onSubmit="return valid(); enc">
 
 								
-							<div class="form-group">
+								<div class="form-group">
 									<label for="region">
 										Select Region
 									</label>
-									<select name="region" id="region" class="form-control" required="true">
+									<select name="region" id="region" class="form-control" 
+									onChange="getZones(this.value);" required="true">
 										<?php if (!empty($clubID) || $clubID) { ?>
 											<option value="<?php echo $row['regionID']; ?>"> Region <?php echo $row['region']; ?></option>
 										<?php } else { ?>
@@ -107,7 +127,21 @@ include("assets/topheader.php");
 									</select>
 
 								</div>
+								
+								<div class="form-group">
+									<label for="zone">
+										Select Zones
+									</label>
+									<select name="zone" id="zone" class="form-control"  required="true">
+										<?php if(!empty($clubID) || $clubID)
+										{?>
+										<option value="<?php echo ($row['zoneID']); ?>">Zone <?php echo ($row['zoneName']); ?></option>
+											<?php } ?>
+									</select>
 
+								</div>
+
+								
 								<div class="form-group">
 									<label for="club">
 										Club
