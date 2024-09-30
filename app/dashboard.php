@@ -8,29 +8,30 @@ include("assets/topheader.php");
 ?>
 <title>Admin | Dashboard</title>
 </head>
+
 <body class="nav-md">
-  <?php include('include/header.php');?>
+  <?php include('include/header.php'); ?>
   <div class="tile_count">
-    <div class="row">
+    <!-- <div class="row">
       <?php
 
-      $result = mysqli_query($con,"SELECT * FROM users ");
+      $result = mysqli_query($con, "SELECT * FROM users ");
       $num_rows = mysqli_num_rows($result);
       $total_users = htmlentities($num_rows);
 
-      $result1 = mysqli_query($con,"SELECT * FROM doctors ");
+      $result1 = mysqli_query($con, "SELECT * FROM doctors ");
       $num_rows1 = mysqli_num_rows($result1);
       $total_doctors = htmlentities($num_rows1);
 
-      $sql= mysqli_query($con,"SELECT * FROM appointment");
+      $sql = mysqli_query($con, "SELECT * FROM appointment");
       $num_rows2 = mysqli_num_rows($sql);
       $total_appointments = htmlentities($num_rows2);
 
-      $result = mysqli_query($con,"SELECT * FROM tblpatient ");
+      $result = mysqli_query($con, "SELECT * FROM tblpatient ");
       $num_rows = mysqli_num_rows($result);
       $total_patients = htmlentities($num_rows);
 
-      $sql= mysqli_query($con,"SELECT * FROM tblcontactus where  IsRead is null");
+      $sql = mysqli_query($con, "SELECT * FROM tblcontactus where  IsRead is null");
       $num_rows22 = mysqli_num_rows($sql);
       $total_queries = htmlentities($num_rows22);
 
@@ -70,11 +71,11 @@ include("assets/topheader.php");
           <span class="count_bottom">View all queries</span>
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 
 
-  <?php include('include/footer.php');?>
+  <?php include('include/footer.php'); ?>
   <!-- jQuery -->
   <script src="vendors/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
@@ -115,4 +116,5 @@ include("assets/topheader.php");
   <!-- Custom Theme Scripts -->
   <script src="assets/js/custom.min.js"></script>
 </body>
+
 </html>

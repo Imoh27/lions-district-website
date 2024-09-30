@@ -128,4 +128,25 @@ echo "<span style='color:red'> Club already exists .</span>";
 }
 
 
+// CHECK CATEGORY AVAILABILITY
+if(!empty($_POST["category"])) {
+	$category= $_POST["category"];
+	
+		$sql = 	"SELECT * FROM tblcategory WHERE categoryName='$category'";
+		$result =mysqli_query($con, $sql);
+		if ($result || !empty($result)) {
+			$count=mysqli_num_rows($result);
+		}
+if($count>0)
+{
+echo "<span style='color:red'> category already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> category available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>

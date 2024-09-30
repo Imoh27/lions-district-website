@@ -33,7 +33,14 @@
 					<li><a href="manage-club-presidents">Club Presidents</a></li>
 				</ul>
 			</li>
-			<li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
+			<li><a><i class="fa fa-trophy"></i> Event <span class="fa fa-chevron-down"></span></a>
+				<ul class="nav child_menu">
+					<li><a href="manage-category">Events Category</a></li>
+					<li><a href="manage-events">Events</a></li>
+					<li><a href="manage-events-gallery">Events Gallery</a></li>
+				</ul>
+			</li>
+			<!-- <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
 					<li><a href="manage-users.php">Manage Users</a></li>
 				</ul>
@@ -43,14 +50,14 @@
 					<li><a href="manage-patient.php">Manage Patients</a></li>
 				</ul>
 			</li>
-			<li><a href="appointment-history.php"><i class="fa fa-folder-open"></i> Appointment History</a></li>
+			<li><a href="appointment-history.php"><i class="fa fa-folder-open"></i> Appointment History</a></li> -->
 			<li><a><i class="fa fa-table"></i> Conatct Us Queries <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
 					<li><a href="unread-queries.php">Unread Query</a></li>
 					<li><a href="read-query.php">Read Query</a></li>
 				</ul>
 			</li>
-			<li><a href="doctor-logs.php"><i class="fa fa-line-chart"></i> Doctor Session Logs</a></li>
+			<!-- <li><a href="doctor-logs.php"><i class="fa fa-line-chart"></i> Session Logs</a></li> -->
 			<li><a href="user-logs.php"><i class="fa fa-line-chart"></i> User Session Logs</a></li>
 			<li><a><i class="fa fa-bar-chart"></i> Other Settings <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
@@ -58,7 +65,7 @@
 					<!-- <li><a href="between-dates-reports.php">B/w dates reports </a></li> -->
 				</ul>
 			</li>
-			<li><a href="patient-search.php"><i class="fa fa-hospital-o"></i> Patient Search</a></li>
+			<li><a href="patient-search.php"><i class="fa fa-hospital-o"></i>  Search</a></li>
 
 
 		</ul>
