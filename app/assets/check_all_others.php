@@ -44,6 +44,28 @@ echo "<span style='color:red'> Region Chairperson already exists .</span>";
 }
 
 
+
+// ZONE CHAIR AVAILABILITY
+if(!empty($_POST["zcname"])) {
+	$zcname= $_POST["zcname"];
+	
+		$sql = 	"SELECT * FROM tblzonechairperson WHERE fullName='$zcname'";
+		$result =mysqli_query($con, $sql);
+		if ($result || !empty($result)) {
+			$count=mysqli_num_rows($result);
+		}
+if($count>0)
+{
+echo "<span style='color:red'> Zone Chairperson already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Zone Chairperson available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 // CHECK CLUBS AVAILABILITY
 if(!empty($_POST["club"])) {
 	$club= $_POST["club"];

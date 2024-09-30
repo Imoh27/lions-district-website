@@ -746,7 +746,7 @@ ul.navbar-nav > li.active > a {
 /*-- Logo --*/
 .logo img {
   /* width: auto; */
-  height: 85px !important;
+  height: 75px !important;
 }
 /*-- Logo --*/
 .menu-logo img {
@@ -776,6 +776,10 @@ ul.top-info-box {
 }
 
 @media (max-width: 767px) {
+  .logo img {
+    /* width: auto; */
+    height: 55px !important;
+  }
   ul.top-info-box {
     display: flex;
     justify-content: center;

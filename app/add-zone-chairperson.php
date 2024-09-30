@@ -12,7 +12,7 @@ $lsyrow = mysqli_fetch_array($sql);
 
 $fullname = strip_tags($_POST['fullname']);
 $phoneNo = strtolower(strip_tags($_POST['phoneNo']));
-$region = strtolower(strip_tags($_POST['zone']));
+$zone = strtolower(strip_tags($_POST['zone']));
 $lci_awards = strtoupper(strip_tags($_POST['lci_awards']));
 $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;
@@ -33,14 +33,14 @@ if (isset($_POST['submit'])) {
 		//rename the image file
 		$newrcPhoto = $fullname . '_' . $zcPhoto;
 
-		$zc_insert_sql = "INSERT into tblzonechairperson values(null, $region,'$fullname', '$lci_awards', '$phoneNo', $serviceYrID,'$newrcPhoto', now(), '$loggedin')";
+		$zc_insert_sql = "INSERT into tblzonechairperson values(null, $zone,'$fullname', '$lci_awards', '$phoneNo', $serviceYrID,'$newrcPhoto', now(), '$loggedin')";
 		// echo ($zc_insert_sql);
 		// exit;
 		$zc_result = mysqli_query($con, $zc_insert_sql);
 		if ($zc_result) {
-			move_uploaded_file($_FILES["rcPhoto"]["tmp_name"], "rc_Photos/" . $newrcPhoto);
+			move_uploaded_file($_FILES["rcPhoto"]["tmp_name"], "zc_Photos/" . $newrcPhoto);
 			echo "<script>alert('Zone Chairperson Added Successfully');</script>";
-			echo "<script>window.location.href ='manage-region-and-chairpersons'</script>";
+			echo "<script>window.location.href ='manage-region-and-zone-chairpersons'</script>";
 		}
 	}
 }
@@ -61,7 +61,7 @@ if (isset($_POST['update'])) {
 		}
 	}
 
-	$sql = "UPDATE tblzonechairperson  SET regionID = $region, fullName = '$fullname', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
+	$sql = "UPDATE tblzonechairperson  SET zoneID = $zone, fullName = '$fullname', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
 		dateUpdated = now(), updatedBy = '$loggedin'";
 	// echo ($sql);
 	// exit;
@@ -73,10 +73,10 @@ if (isset($_POST['update'])) {
 	$result = mysqli_query($con, $sql);
 	if ($result) {
 		if (!empty($zcPhoto)) {
-			move_uploaded_file($_FILES["rcPhoto"]["tmp_name"], "rc_Photos/" . $newrcPhoto);
+			move_uploaded_file($_FILES["rcPhoto"]["tmp_name"], "zc_Photos/" . $newrcPhoto);
 		}
 		echo "<script>alert('Zone Chairperson Updated Successfully');</script>";
-		echo "<script>window.location.href ='manage-region-and-chairpersons'</script>";
+		echo "<script>window.location.href ='manage-region-and-zone-chairpersons'</script>";
 	}
 }
 
@@ -84,14 +84,29 @@ include("assets/topheader.php");
 ?>
 <title>Admin | Zone Chairperson</title>
 <script>
-	function checkRcAvailability() {
+	function checkZcAvailability() {
 		$("#loaderIcon").show();
 		jQuery.ajax({
 			url: "assets/check_all_others.php",
-			data: 'rcname=' + $("#fullname").val(),
+			data: 'zcname=' + $("#fullname").val(),
 			type: "POST",
 			success: function(data) {
-				$("#rc-availability-status").html(data);
+				$("#zc-availability-status").html(data);
+				$("#loaderIcon").hide();
+			},
+			error: function() {}
+		});
+	}
+
+	
+	function fetchZones() {
+		$("#loaderIcon").show();
+		jQuery.ajax({
+			url: "assets/get_fields.php",
+			data: 'region=' + $("#region").val(),
+			type: "POST",
+			success: function(data) {
+				$("#zone").html(data);
 				$("#loaderIcon").hide();
 			},
 			error: function() {}
@@ -115,7 +130,8 @@ include("assets/topheader.php");
 	// For Editing
 	if (!empty($zcID)) {
 		$zc_sql = mysqli_query($con, "SELECT * from tblzonechairperson zc
-	JIONINNER JOIN  tblregion r ON r.regionID=rc.regionID where rc.zcID = $zcID");
+	JOIN tblzone z ON z.zoneID=zc.zoneID INNER JOIN tblregion r ON r.regionID = z.regionID where zc.zcID = $zcID");
+	// echo $zc_sql; exit;
 		$row = mysqli_fetch_array($zc_sql);
 	}
 	?>
@@ -134,9 +150,10 @@ include("assets/topheader.php");
 									<label for="region">
 										Select Region
 									</label>
-									<select name="region" id="region" class="form-control" required="true">
+									<select name="region" id="region" class="form-control"
+									 onChange="fetchZones()"  required="true">
 										<?php if (!empty($zcID) || $zcID) { ?>
-											<option value="<?php echo $row['regionID']; ?>"> Region <?php echo $row['region']; ?></option>
+											<option value="<?php echo $row['zoneID']; ?>"> Region <?php echo $row['region']; ?></option>
 										<?php } else { ?>
 											<option value=""></option>
 
@@ -150,12 +167,26 @@ include("assets/topheader.php");
 								</div>
 
 								<div class="form-group">
+									<label for="zone">
+										Select Zone
+									</label>
+									<select name="zone" id="zone" class="form-control"
+									onChange="fetchClubs()"   required="true">
+										<?php if(!empty($zcID) || $zcID)
+										{?>
+										<option value="<?php echo ($row['zoneID']); ?>">Zone <?php echo ($row['zoneName']); ?></option>
+											<?php } ?>
+									</select>
+
+								</div>
+
+								<div class="form-group">
 									<label for="fullname">
 										Full Name
 									</label>
 									<input type="text" name="fullname" id="fullname" class="form-control" <?php if (!empty($zcID) || $zcID) { ?>value="<?php echo $row['fullName']; ?>" <?php } else { ?> placeholder="Enter Full name" <?php } ?> required="true"
-										onBlur="checkRcAvailability()">
-									<span id="rc-availability-status"></span>
+										onBlur="checkZcAvailability()">
+									<span id="zc-availability-status"></span>
 								</div>
 
 								<div class="form-group">
@@ -178,7 +209,7 @@ include("assets/topheader.php");
 									<label for="rcPhoto">
 										Select Photo
 									</label>
-									<input type="file" name="rcPhoto" class="form-control" <?php if (empty($zcID) || !$zcID) { ?>required="true" <?php } ?>> <?php if (!empty($zcID) || $zcID) { ?><div class="d-inline user-profile img-fluid"><img src="rc_Photos/<?php echo $row['rcPhoto']; ?>" alt=""></div><?php } ?>
+									<input type="file" name="rcPhoto" class="form-control" <?php if (empty($zcID) || !$zcID) { ?>required="true" <?php } ?>> <?php if (!empty($zcID) || $zcID) { ?><div class="d-inline user-profile img-fluid"><img src="zc_Photos/<?php echo $row['zcPhoto']; ?>" alt=""></div><?php } ?>
 								</div>
 
 

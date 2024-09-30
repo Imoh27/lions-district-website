@@ -83,26 +83,25 @@ include("assets/topheader.php");
 				</thead>
 				<tbody>
 					<?php
-					$sql = mysqli_query(
-						$con,
-						"SELECT * from tblzonechairperson 
-					zc JOIN tblzone z ON z.zoneID = zc.zoneID INNER JOIN  tblregion r ON r.regionID=zc.regionID"
-					);
+					$query = "SELECT * from tblzonechairperson 
+					zc JOIN tblzone z ON z.zoneID = zc.zoneID INNER JOIN  tblregion r ON r.regionID=z.regionID";
+					// echo $query; exit;
+					$sql = mysqli_query($con,$query);
 					$cnt = 1;
 					while ($row = mysqli_fetch_array($sql)) {
 					?>
 						<tr>
 							<td class="center"><?php echo $cnt; ?>.</td>
 							<td><?php echo $row['fullName'] . ' '.$row['lions_awards']; ?></td>
-							<td>Region <?php echo $row['zoneName']; ?></td>
+							<td>Zone <?php echo $row['zoneName']; ?></td>
 							<td>Region <?php echo $row['region']; ?></td>
-							<td class="user-profile img-fluid"><img src="rc_photos/<?php echo $row['rcPhoto']; ?>" alt=""></td>
+							<td class="user-profile img-fluid"><img src="zc_Photos/<?php echo $row['zcPhoto']; ?>" alt=""></td>
 
 							</td>
 							<td>
 								<div class="visible-md visible-lg">
-									<a href="add-region-chairperson?id=<?php echo $row['rcID']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-									<a href="manage-region-chairperson?id=<?php echo $row['rcID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+									<a href="add-zone-chairperson?id=<?php echo $row['zcID']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+									<a href="manage-region-and-zone-chairperson?id=<?php echo $row['zcID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 								</div>
 							</td>
 						</tr>

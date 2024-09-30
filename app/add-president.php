@@ -240,7 +240,8 @@ include("assets/topheader.php");
 									<label for="cpPhoto">
 										Select Photo
 									</label>
-									<input type="file" name="cpPhoto" class="form-control" <?php if (empty($cpID) || !$cpID) { ?>required="true" <?php } ?>> <?php if (!empty($cpID) || $cpID) { ?><div class="d-inline user-profile img-fluid"><img scp="cp_Photos/<?php echo $row['cpPhoto']; ?>" alt=""></div><?php } ?>
+									
+									<input type="file" name="cpPhoto" class="d-inline form-control" <?php if (empty($cpID) || !$cpID) { ?>required="true" <?php } ?>> <?php if (!empty($cpID) || $cpID) { ?><div class="d-inline user-profile img-fluid"><img src="cp_Photos/<?php echo $row['cpPhoto']; ?>" alt=""></div><?php } ?>
 								</div>
 
 
