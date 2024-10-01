@@ -14,18 +14,18 @@
               <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                 <ul class="list-unstyled">
                     <li>
-                      <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                      <a title="Facebook" href="https://facebbok.com/lionsdistrict404a2">
                           <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
                       </a>
-                      <a title="Twitter" href="https://twitter.com/themefisher.com">
+                      <a title="Twitter" href="https://twitter.com/lionsdistrict404a2">
                           <span class="social-icon"><i class="fab fa-twitter"></i></span>
                       </a>
-                      <a title="Instagram" href="https://instagram.com/themefisher.com">
+                      <a title="Instagram" href="https://instagram.com/lionsdistrict404a2">
                           <span class="social-icon"><i class="fab fa-instagram"></i></span>
                       </a>
-                      <a title="Linkdin" href="https://github.com/themefisher.com">
+                      <!-- <a title="Linkdin" href="https://github.com/lionsdistrict404a2">
                           <span class="social-icon"><i class="fab fa-github"></i></span>
-                      </a>
+                      </a> -->
                     </li>
                 </ul>
               </div>
@@ -43,7 +43,7 @@
       <div class="logo-area">
           <div class="row align-items-center">
             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                <a class="d-block" href="index.html">
+                <a class="d-block" href="index">
                   <img loading="lazy" src="images/logo.png" alt="Lions District 404A2" />
                 </a>
             </div><!-- logo end -->

@@ -45,7 +45,7 @@
                             <a href="about">District 404A2 </a>
                           </li>
                           <li>
-                            <a href="#">International Leaders </a>
+                            <a href="lci-leaders">International Leaders </a>
                           </li>
                           <li>
                             <a href="#">Past District Governors</a>

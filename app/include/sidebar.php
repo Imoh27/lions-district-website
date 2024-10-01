@@ -15,7 +15,7 @@
 							<li><a href="manage-past-district-governors">Past District Governors</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
-							<li><a href="manage-doctors.php">DG's Team</a></li>
+							<li><a href="manage-dgteam">DG's Team</a></li>
 						</ul>
 					<!-- <li><a href="manage-doctors.php">Manage Doctors</a></li>
 					<li><a href="manage-doctors.php">Manage Doctors</a></li> -->

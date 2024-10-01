@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['del']))
 {
-	mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
+	mysqli_query($con,"delete from tbloffices where officeID = '".$_GET['id']."'");
 	$_SESSION['msg']="data deleted !!";
 }
 include("assets/topheader.php");

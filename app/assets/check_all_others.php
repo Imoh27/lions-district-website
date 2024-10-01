@@ -148,5 +148,25 @@ echo "<span style='color:red'> category already exists .</span>";
 }
 }
 
+// CHECK DG TEAM AVAILABILITY
+if(!empty($_POST["dgteam"])) {
+	$dgteam= $_POST["dgteam"];
+	
+		$sql = 	"SELECT * FROM tbldgteam WHERE fullName='$dgteam'";
+		$result =mysqli_query($con, $sql);
+		if ($result || !empty($result)) {
+			$count=mysqli_num_rows($result);
+		}
+if($count>0)
+{
+echo "<span style='color:red'> Team Member already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Team Member available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
 
 ?>
