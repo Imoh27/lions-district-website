@@ -74,10 +74,7 @@ $eventID = $_GET["eid"];
 
           <div class="gap-40"></div>
 
-        
-          <!--2nd row end -->
-
-          <div class="gap-40"></div>
+      
 
         </div><!-- Content inner end -->
       </div><!-- Content Col end -->
