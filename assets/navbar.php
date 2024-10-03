@@ -180,12 +180,11 @@ $cat_query = mysqli_query($con, $cat_select);
                     class="nav-link dropdown-toggle"
                     data-toggle="dropdown">Events <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Events</a></li>
                     <li class="dropdown-submenu">
                       <a
                         href="#"
                         class="dropdown-toggle"
-                        data-toggle="dropdown">Events Gallery</a>
+                        data-toggle="dropdown">Events</a>
                       <ul class="dropdown-menu">
                         <?php
                         while ($row = mysqli_fetch_array($cat_query)) { ?>
@@ -193,7 +192,7 @@ $cat_query = mysqli_query($con, $cat_select);
                         <?php } ?>
                       </ul>
                     </li>
-
+                    <li><a href="#">Events Gallery</a></li>
                   </ul>
                 </li>
 

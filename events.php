@@ -44,7 +44,7 @@ $catID = $_GET["cid"];
   <div class="container">
     <div class="row">
       <?php
-      $events_select="SELECT * FROM tblevents e WHERE catID = $catID";
+      $events_select="SELECT * FROM tblevents WHERE catID = $catID";
       $events_query=mysqli_query($con,$events_select);
     while(  $events = mysqli_fetch_array($events_query)){
       ?>

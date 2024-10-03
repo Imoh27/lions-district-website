@@ -144,19 +144,7 @@
                        <?php } ?>
                      </ul>
                    </li>
-                   <li class="dropdown-submenu">
-                     <a
-                       href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown">Events Gallery</a>
-                     <ul class="dropdown-menu">
-                       <?php
-                        $cat_query = mysqli_query($con, $cat_select);
-                        while ($row = mysqli_fetch_array($cat_query)) { ?>
-                         <li><a href="events?cid=<?php echo $row['catID']; ?>"><?php echo $row['categoryName']; ?></a></li>
-                       <?php } ?>
-                     </ul>
-                   </li>
+                <li><a href="#">Events Gallery</a></li>
                  </ul>
                </li>
 
