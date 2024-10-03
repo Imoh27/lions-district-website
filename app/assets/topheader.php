@@ -19,6 +19,12 @@
 	<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 	<!-- Custom Theme Style -->
 	<link href="assets/css/custom.min.css" rel="stylesheet">
+	<!-- Summernote css -->
+    <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
+
+    <!-- Select2 -->
+    <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
 
 	<?php
 	include_once('../include/config.php');

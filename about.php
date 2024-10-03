@@ -1,5 +1,13 @@
 <?php
 include("assets/main-header.php");
+include("app/include/config.php");
+// $service_sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
+// $lsyrow=mysqli_fetch_array($service_sql);
+// $serviceYrID=$lsyrow["serviceYrID"];
+
+// $dg_sql=mysqli_query($con,"SELECT * from tbldgteam d JOIN tbloffices o ON o.officeID = d.officeID
+// WHERE o.position  = 'District Governor' AND serviceRrID =$serviceYrID ");
+// $dgrow=mysqli_fetch_array($dg_sql);
 ?>
  <title>About Us - Lions District 404A2</title>
 
@@ -102,6 +110,82 @@ include("assets/other-pages-nav.php");
         
 
         </div><!-- Col end -->
+    </div><!-- Content row end -->
+    <div class="row mt-5">
+      <div class="col-lg-5 mt-5 mt-lg-0 mb-4">
+        
+        <div id="page-slider" class="page-slider small-bg mt-5">
+
+            <div class="item" style="background-image:url(images/dg.jpg); " >
+              <div class="container">
+                  <div class="box-slider-content">
+                  
+                  </div>
+              </div>
+            </div><!-- Item 1 end -->
+
+        </div><!-- Page slider end-->          
+      
+
+      </div><!-- Col end -->
+
+        <div class="col-lg-7 ">
+          <h3 class="column-title text-default ">District Governor's Acceptance Speech</h3>
+          <p class="dg-speech">
+          Distinguish Lions and Leos, it is my honour 
+to formally accept the position and 
+responsibility of the office of the District 
+Governor of Lions Clubs International District 
+404A2, Nigeria for the 2024/2025 Lions year. 
+As your District Governor, I promise to coordinate 
+the district leadership to address the huge 
+challenges affecting the growth of the Clubs in the 
+District as regards membership increase. We shall 
+strive to encourage retention and rekindle 
+commitment to recruiting quality persons into our 
+noble association. 
+<br><br>
+This is the time to close ranks to shape, reshape, and build on the gains of our past leaders 
+for a strong and high performing district. Running a voluntary office is not limited to the 
+ideas of the current office holder. In you are all leaders beginning at your club level and 
+should contribute to the way the district is being managed. Our association is evolving and 
+there are many new perspectives regarding the office of the DG, therefore, I sincerely invite 
+you to bring up great ideas, feedback and suggestions on ways we can continually 
+improve our services to impact our communities positively. 
+<br><br>To this end, we shall open feedback loops in all the regions where you can all share your 
+novel ideas on how best we can grow our district and improve our service to humanity. 
+Offering needed services is the driving force behind our service activities this Lions year. 
+Our concern as a pragmatic vessel of service is to encourage clubs and individuals to focus 
+on finding practical solutions to the felt needs of our communities rather than providing 
+services for the sake of carrying out service activities. Clubs, therefore, are enjoined to 
+conduct community needs assessments, involve community members in identifying their 
+expressed needs, and apply the most effective course of action to achieve desired outcomes.
+ As Bill de Blasio holds "you are either a dreamer or a realist". Do not just tick the 
+box for service, impact on the lives of the people we serve. Be pragmatic in your service 
+pursuit in order to meet our communities at the point of their felt needs. I am thankful to all 
+Lions and Leos for the confidence and trust to hand over the mantle of leadership of our 
+district to me. On my honor, I promise not to disappoint you.
+<br><br>My sincere gratitude goes to God Almighty, who made it possible at the appointed time for 
+me to assume the office of the District Governor. I return all glory to him alone. 
+May I passionately thank my dear wife Elfreda and my lovely children for standing by me 
+throughout the electioneering and succession period. Your prayers and moral support 
+created the needed atmosphere for this achievement. My deep appreciation goes to the 
+Director General and members of the MOI team for putting up a robust campaign effort and 
+succession plan. You are a team to work with. I also extend my gratitude to the president 
+and members of Calabar Atakpa Lions Club for supporting my ambition for this position. I 
+promise that I will not let you down. 
+<br><br>Finally, I am most thankful to the Elders forum of our district who are always willing to help 
+and whose experiences will be required to steer the Pragmatic vessel of service to a safe 
+shore.
+Thank you all and God bless
+
+          </p>
+          <img src="dg-sign.png" height="60" width="100" alt="">
+          <p class="signature mb-0">Lion Sir (Dr) Maurice Ibok Ph.D, PMJF, NLCF </p>
+          <p >District Governor 2024/2025</p>
+              
+        </div><!-- Col end -->
+
     </div><!-- Content row end -->
 
   </div><!-- Container end -->

@@ -14,7 +14,7 @@ $fullname = strip_tags($_POST['fullname']);
 $lci_awards = strtoupper(strip_tags($_POST['lci_awards']));
 $service_year = strtoupper(strip_tags($_POST['service_year']));
 $service_theme = strtoupper(strip_tags($_POST['service_theme']));
-$pdgProfile = strip_tags($_POST['pdgProfile']);
+// $pdgProfile = strip_tags($_POST['pdgProfile']);
 // $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;
 $pdgPhoto =  strtolower($_FILES["pdgPhoto"]["name"]);
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 		//rename the image file
 		$newpdgPhoto = $fullname . '_' . $pdgPhoto;
 
-		$leader_insert_sql = "INSERT into tblpdg values(null,'$fullname','$service_year', '$service_theme', '$lci_awards','$newpdgPhoto','$pdgProfile', now(), '$loggedin')";
+		$leader_insert_sql = "INSERT into tblpdg values(null,'$fullname','$service_year', '$service_theme', '$lci_awards','$newpdgPhoto', now(), '$loggedin')";
 		// echo ($leader_insert_sql);
 		// exit;
 		$leader_result = mysqli_query($con, $leader_insert_sql);
@@ -63,7 +63,7 @@ if (isset($_POST['update'])) {
 }
 
 		$sql = "UPDATE tblpdg  SET fullName = '$fullname', service_year = '$service_year',  service_theme = '$service_theme', 
-		lci_awards = '$lci_awards', pdgProfile = '$pdgProfile', 
+		lci_awards = '$lci_awards',
 		dateUpdated = now(), updatedBy = '$loggedin'";
 		// echo ($sql);
 		// exit;
@@ -162,7 +162,7 @@ include("assets/topheader.php");
 									 placeholder="MJF, NLCF" <?php } ?> required="true">
 								</div>
 
-
+<!-- 
 								<div class="form-group">
 									<label for="pdgProfile">
 										Detailed Profile
@@ -170,7 +170,7 @@ include("assets/topheader.php");
 									<input type="text" name="pdgProfile" placeholder="Describe detailed profile" class="form-control"  <?php if(!empty($pdgID) || $pdgID)
 									{?>value ="<?php echo $row['pdgProfile']; ?>"<?php } ?>
 									>
-								</div>
+								</div> -->
 								
 								<div class="form-group">
 									<label for="pdgPhoto">

@@ -166,6 +166,27 @@ echo "<span style='color:red'> Team Member already exists .</span>";
 	echo "<span style='color:green'> Team Member available for Registration .</span>";
  echo "<script>$('#submit').prop('disabled',false);</script>";
 }
+
+
+}
+// CHECK EVENTS AVAILABILITY
+if(!empty($_POST["eventTitle"])) {
+	$eventTitle= $_POST["eventTitle"];
+	
+		$sql = 	"SELECT * FROM  tblevents WHERE eventTitle='$eventTitle'";
+		$eventTitleresult =mysqli_query($con, $sql);
+		if ($eventTitleresult || !empty($eventTitleresult)) {
+			$eventTitlecount=mysqli_num_rows($eventTitleresult);
+		}
+if($eventTitlecount>0)
+{
+echo "<span style='color:red'> Event already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Event available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
 }
 
 

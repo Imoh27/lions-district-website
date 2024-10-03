@@ -25,18 +25,18 @@
                 <div class="row">
                   <div class="col-md-6">
                     <ul class="list-arrow">
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Our Leaders</a></li>
-                      <li><a href="#">Events</a></li>
+                      <li><a href="about">About Us</a></li>
+                      <li><a href="lci-leaders">Lions Leaders</a></li>
+                      <li><a href="#">Past DG's</a></li>
                       <li><a href="#">Core Projects</a></li>
                     </ul>
                   </div>
                   <div class="col-md-6">
                     <ul class="list-arrow">
+                      <li><a href="#">Events</a></li>
                       <li><a href="#">Gallery</a></li>
                       <li><a href="#">District Directory</a></li>
                       <li><a href="#">Newsletter</a></li>
-                      <li><a href="#">Blog</a></li>
                     </ul>
                   </div>
                 </div>

@@ -40,7 +40,7 @@ include("assets/main-header.php");
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12">
-          <h3 class="section-sub-title">Our International Leaders</h3>
+          <h3 class="section-sub-title">International Leaders</h3>
         </div>
       </div>
       <!--/ Title row end -->
@@ -60,7 +60,7 @@ include("assets/main-header.php");
               <div class="ts-team-wrapper">
                 <a href="leaders-details?check=<?php echo $row['leadersID']?>&detail = <?php echo $row['fullName']; ?>">
                   <div class="team-img-wrapper">
-                    <img loading="lazy" src="app/LCI_leaders_Photos/<?php echo $row['leaderPhoto']; ?>" width="400" height="450" style="width: 400px; height: 450px;" alt="team-img" class="img-fluid">
+                    <img loading="lazy" src="app/LCI_leaders_Photos/<?php echo $row['leaderPhoto']; ?>" alt="team-img" class="img-guard img-fluid">
                   </div>
                
                   <div class="ts-team-content">

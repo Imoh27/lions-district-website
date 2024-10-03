@@ -13,13 +13,13 @@ $lsyrow=mysqli_fetch_array($sql);
 $fullname = strip_tags($_POST['fullname']);
 $position = strtolower(strip_tags($_POST['position']));
 $lci_awards = strtoupper(strip_tags($_POST['lci_awards']));
-$dgteamProfile = strip_tags( str_replace(array( '\'', '"',
-';','*' ), ' ', $_POST['dgteamProfile']));
+$dgteamProfile =  str_replace(array( '\'', '"',
+';','*' ), ' ', $_POST['dgteamProfile']);
 $serviceYrID = $lsyrow['serviceYrID'];
 $dgteamPhoto =  strtolower($_FILES["dgteamPhoto"]["name"]);
 $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
-	// echo $serviceYrID; exit;
+	// echo $dgteamProfile; exit;
 
 	// echo $dgteamPhoto; exit;
 // echo $_SESSION['login']; exit;
@@ -35,8 +35,8 @@ if (isset($_POST['submit'])) {
 		$newdgteamPhoto = $fullname . '_' . $dgteamPhoto;
 
 		$dgteam_insert_sql = "INSERT into tbldgteam values(null,'$fullname', $position, '$lci_awards','$serviceYrID','$newdgteamPhoto','$dgteamProfile', now(), '$loggedin')";
-		echo ($dgteam_insert_sql);
-		exit;
+		// echo ($dgteam_insert_sql);
+		// exit;
 		$dgteam_result = mysqli_query($con, $dgteam_insert_sql);
 		if ($dgteam_result) {
 			move_uploaded_file($_FILES["dgteamPhoto"]["tmp_name"], "dgteam_Photos/" . $newdgteamPhoto);
@@ -62,7 +62,7 @@ if (isset($_POST['update'])) {
 	}
 }
 
-		$sql = "UPDATE tbldgteam  SET fullName = '$fullname', position = '$position', lci_awards = '$lci_awards', dgteamProfile = '$dgteamProfile', 
+		$sql = "UPDATE tbldgteam  SET fullName = '$fullname', officeID =$position, lci_awards = '$lci_awards', dgteamProfile = '$dgteamProfile', 
 		dateUpdated = now(), updatedBy = '$loggedin'";
 		// echo ($sql);
 		// exit;
@@ -83,6 +83,8 @@ if (isset($_POST['update'])) {
 
 include("assets/topheader.php");
 ?>
+
+    
 <title>Admin | Add District Governors TEam</title>
 <script>
 	function checkdgteamAvailability() {
@@ -111,7 +113,8 @@ include("assets/topheader.php");
 
 	// For Editing
 	if(!empty($dgteamID)) {
-	$dgteams_sql=mysqli_query($con,"select * from tbldgteam where dgteamID = $dgteamID");
+	$dgteams_sql=mysqli_query($con,"SELECT * from tbldgteam d
+	JOIN tbloffices o ON o.officeID = d.officeID where dgteamID = $dgteamID");
 	$row=mysqli_fetch_array($dgteams_sql);
 	}
 
@@ -174,9 +177,9 @@ include("assets/topheader.php");
 									<label for="dgteamProfile">
 										Detailed Profile
 									</label>
-									<input type="text" name="dgteamProfile" placeholder="Describe detailed profile" class="form-control"  <?php if(!empty($dgteamID) || $dgteamID)
+									<textarea type="text" name="dgteamProfile" placeholder="Describe detailed profile" class="summernote"  <?php if(!empty($dgteamID) || $dgteamID)
 									{?>value ="<?php echo $row['dgteamProfile']; ?>"<?php } ?>
-									>
+									></textarea>
 								</div>
 								
 								<div class="form-group">
@@ -212,7 +215,7 @@ include("assets/topheader.php");
 	<?php include('include/footer.php');
 	include('assets/app-footer.php');
 	?>
-
+       
 </body>
 
 </html>

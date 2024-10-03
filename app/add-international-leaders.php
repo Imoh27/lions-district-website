@@ -13,8 +13,8 @@ $lsyrow=mysqli_fetch_array($sql);
 $fullname = strip_tags($_POST['fullname']);
 $position = strtolower(strip_tags($_POST['position']));
 $lci_awards = strtoupper(strip_tags($_POST['lci_awards']));
-$leaderProfile = strip_tags(str_replace(array( '\'', '"',
-    ';','*' ), ' ', $_POST['leaderProfile']));
+$leaderProfile = str_replace(array( '\'', '"',
+    ';','*' ), ' ', $_POST['leaderProfile']);
 $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;
 $leaderPhoto =  strtolower($_FILES["leaderPhoto"]["name"]);
@@ -159,9 +159,9 @@ include("assets/topheader.php");
 									<label for="leaderProfile">
 										Detailed Profile
 									</label>
-									<input type="text" name="leaderProfile" placeholder="Describe detailed profile" class="form-control"  <?php if(!empty($leadersID) || $leadersID)
+									<textarea type="text" name="leaderProfile" placeholder="Describe detailed profile" class="summernote"  <?php if(!empty($leadersID) || $leadersID)
 									{?>value ="<?php echo $row['leaderProfile']; ?>"<?php } ?>
-									>
+									></textarea>
 								</div>
 								
 								<div class="form-group">

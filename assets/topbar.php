@@ -21,26 +21,26 @@
                 <li>
                   <a
                     title="Facebook"
-                    href="https://facebbok.com/themefisher.com"
+                    href="https://facebbok.com/"
                   >
                     <span class="social-icon"
                       ><i class="fab fa-facebook-f"></i
                     ></span>
                   </a>
-                  <a title="Twitter" href="https://twitter.com/themefisher.com">
+                  <a title="Twitter" href="https://twitter.com/">
                     <span class="social-icon"
                       ><i class="fab fa-twitter"></i
                     ></span>
                   </a>
                   <a
                     title="Instagram"
-                    href="https://instagram.com/themefisher.com"
+                    href="https://instagram.com/"
                   >
                     <span class="social-icon"
                       ><i class="fab fa-instagram"></i
                     ></span>
                   </a>
-                  <a title="Linkdin" href="https://github.com/themefisher.com">
+                  <a title="Linkdin" href="https://github.com/">
                     <span class="social-icon"
                       ><i class="fab fa-github"></i
                     ></span>

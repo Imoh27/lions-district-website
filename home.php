@@ -68,13 +68,14 @@ include("assets/home-slider.php");
           <!-- Second Row with Reversed Order -->
           <div class="row">
             <div class="col-lg-6 order-lg-2">
-              <h3 class="column-title mb-2 mt-4">District Governor</h3>
+              <h3 class="column-title mb-2 mt-4">DG'S WELCOME NOTE</h3>
               <p>Dear Lions and Friends,</p>
               <p>Welcome to Lions Clubs International District 404A2 Nigeria. I am thrilled to invite you on this journey of service, leadership, and community impact.</p>
               <p>As District Governor, it is both a privilege and a responsibility to work with such committed individuals in driving meaningful change within our communities. Together, we are not just fulfilling a mission we are shaping a future of hope, unity, and empowerment for those we serve. Your dedication and passion are the heart of our district's success, and I am confident that our efforts will continue to transform lives for the better.</p>
               <p>Let’s build a legacy of service and compassion, one act at a time.</p>
-              <p class="signature">Lion Maurice Ibok</p>
-              <!-- <p>District Governor 2024/2025</p> -->
+              <!-- <p class="item" ><img src="dg-sign.png" alt="" srcset=""></p> -->
+              <p class="signature mb-0">Lion Sir Maurice Ibok Ph.D, PMJF, NLCF </p>
+              <p >District Governor 2024/2025</p>
             </div>
             <!-- Col end -->
             <div class="col-lg-6 mt-5 mt-lg-0 order-lg-1">

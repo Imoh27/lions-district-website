@@ -514,7 +514,10 @@ a[href^=tel] {
 .text-default {
   color: #112e57 !important;
 }
-
+.dg-speech{
+  height: 400px !important;
+  overflow-y:scroll;
+}
 @media (max-width: 767px) {
   .btn-primary,
   .btn-alt
@@ -632,6 +635,9 @@ ul.top-info li p.info-text {
 }
 
 @media (max-width: 767px) {
+  #top-bar {
+    display: none !important;
+  }
   .top-social ul {
     margin-right: 0;
   }
@@ -692,6 +698,9 @@ ul.top-info li p.info-text {
 @media (max-width: 991px) {
   .navbar-collapse.collapse {
     overflow-y: auto;
+  }
+  .top-bar {
+   display: hidden !important;
   }
 }
 
@@ -2902,10 +2911,20 @@ img.testimonial-thumb {
   position: relative;
   overflow: hidden;
 }
+.img-guard{
+  height: 300px !important;
+  width: 600px !important;
+  position: relative;
+}
 
 @media (max-width: 575px) {
   .ts-team-wrapper {
     text-align: center;
+  }
+  .img-guard{
+    height: auto !important;
+    width: 100% !important;
+    position: relative;
   }
 }
 

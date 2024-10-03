@@ -46,7 +46,7 @@ include("assets/topheader.php");
 							<td><?php echo $row['fullName'];?></td>
 							<td><?php echo $row['lci_awards'];?></td>
 							<td><?php echo $row['position'];?></td>
-							<td class="user-profile img-fluid"><img src="LCI_leaders_Photos/<?php echo $row['leaderPhoto'];?>" alt=""></td>
+							<td class="user-profile img-fluid"><img src="dgteam_Photos/<?php echo $row['dgteamPhoto'];?>" alt=""></td>
 						
 						</td>
 						<td >

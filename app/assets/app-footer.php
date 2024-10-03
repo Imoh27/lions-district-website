@@ -37,3 +37,24 @@
 <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="assets/js/custom.min.js"></script>
+ <!--Summernote js-->
+ <script src="../plugins/summernote/summernote.min.js"></script>
+        <!-- Select 2 -->
+        <script src="../plugins/select2/js/select2.min.js"></script>
+<script>
+            jQuery(document).ready(function () {
+
+                $('.summernote').summernote({
+                    height: 240, // set editor height
+                    minHeight: null, // set minimum height of editor
+                    maxHeight: null, // set maximum height of editor
+                    focus: false // set focus to editable area after initializing summernote
+                });
+                // Select2
+                $(".select2").select2();
+
+                $(".select2-limiting").select2({
+                    maximumSelectionLength: 2
+                });
+            });
+        </script>

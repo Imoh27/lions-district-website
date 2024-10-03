@@ -1,4 +1,9 @@
 <?php
+// define('DB_SERVER','localhost');
+// define('DB_USER','leodistr_lionsd404a2');
+// define('DB_PASS' ,'uniqueOnes3');
+// define('DB_NAME', 'leodistr_lionsd404a2');
+
 define('DB_SERVER','localhost');
 define('DB_USER','root');
 define('DB_PASS' ,'');
