@@ -17,6 +17,7 @@ $endDate = strtolower(strip_tags($_POST['endDate']));
 $eventLocation = strtolower(strip_tags($_POST['eventLocation']));
 $cordinatorName = strtolower(strip_tags($_POST['cordinatorName']));
 $cordinatorPhone = strtolower(strip_tags($_POST['cordinatorPhone']));
+$eventAmount = strtolower(strip_tags($_POST['eventAmount']));
 $eventDesc = str_replace(array( '\'', '"',
     ';','*' ), ' ', $_POST['eventDesc']);
 $serviceYrID = $lsyrow['serviceYrID'];
@@ -44,7 +45,7 @@ if (isset($_POST['submit'])) {
 		$newpreviewPhoto = $eventTitle . '_' . $previewPhoto;
 		$newcordinatorPhoto = $newcordinatorName. '_' .$cordinatorPhoto;
 
-		$event_insert_sql = "INSERT into tblevents values(null, $catID , $serviceYrID, '$eventTitle','$eventDesc', '$eventLocation','$cordinatorName',
+		$event_insert_sql = "INSERT into tblevents values(null, $catID , $serviceYrID, '$eventTitle','$eventDesc', '$eventAmount', '$eventLocation','$cordinatorName',
 		'$cordinatorPhone','$newcordinatorPhoto', '$startDate', '$endDate','$newpreviewPhoto', now(), '$loggedin')";
 		// echo ($event_insert_sql);
 		// exit;
@@ -76,7 +77,7 @@ if (isset($_POST['update'])) {
 	}
 }
 
-		$sql = "UPDATE tblevents  SET catID = $catID, eventTitle = '$eventTitle', eventDesc = '$eventDesc', eventLocation = '$eventLocation', 
+		$sql = "UPDATE tblevents  SET catID = $catID, eventTitle = '$eventTitle', eventDesc = '$eventDesc', eventAmount = '$eventAmount', eventLocation = '$eventLocation', 
 		cordinatorName = '$cordinatorName', cordinatorPhone = '$cordinatorPhone', startDate = '$startDate', endDate = '$endDate', 
 		dateUpdated = now(), updatedBy = '$loggedin'";
 		// echo ($sql);
@@ -214,13 +215,25 @@ include("assets/topheader.php");
 									{?>value ="<?php echo $row['cordinatorName']; ?>"<?php } else{?>
 									 placeholder="Enter Name of Cordinator" <?php } ?> >
 								</div>
-								<div class="form-group">
-									<label for="cordinatorPhone">
-										Cordinator Phone
-									</label>
-									<input name="cordinatorPhone" id="cordinatorPhone" class="form-control"<?php if(!empty($eventID) || $eventID)
-									{?>value ="<?php echo $row['cordinatorPhone']; ?>"<?php } else{?>
-									 placeholder="Enter Phone Number of Cordinator" <?php } ?> >
+								<div class="row">
+
+									<div class="col-6 form-group">
+										<label for="cordinatorPhone">
+											Cordinator Phone
+										</label>
+										<input name="cordinatorPhone" id="cordinatorPhone" class="form-control"<?php if(!empty($eventID) || $eventID)
+										{?>value ="<?php echo $row['cordinatorPhone']; ?>"<?php } else{?>
+										 placeholder="Enter Phone Number of Cordinator" <?php } ?> >
+									</div>
+
+									<div class="col-6 form-group">
+										<label for="eventAmount">
+											Registration Amount
+										</label>
+										<input name="eventAmount" id="eventAmount" class="form-control"<?php if(!empty($eventID) || $eventID)
+										{?>value ="<?php echo $row['eventAmount']; ?>"<?php } else{?>
+										 placeholder="Optional" <?php } ?> >
+									</div>
 								</div>
 
 

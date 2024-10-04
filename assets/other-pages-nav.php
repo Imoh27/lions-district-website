@@ -144,7 +144,7 @@
                        <?php } ?>
                      </ul>
                    </li>
-                <li><a href="#">Events Gallery</a></li>
+                <li><a href="events-gallery">Events Gallery</a></li>
                  </ul>
                </li>
 
