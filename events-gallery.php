@@ -59,7 +59,7 @@ if (!empty($_GET["vid"])) {
   <section id="main-container" class="main-container">
     <div class="container">
       <div class="row">
-        <div class="col-12" style="overflow-y:scroll !important; height:40% !important">
+        <div class="col-12 new-overflow">
 
 
           <div class="row shuffle-wrapper">
