@@ -14,11 +14,16 @@
 							<li><a href="manage-international-leaders">International Leaders</a></li>
 							<li><a href="manage-past-district-governors">Past District Governors</a></li>
 							<li><a href="manage-doctors.php">Core Officers</a></li>
-							<li><a href="manage-doctors.php">Core Officers</a></li>
 							<li><a href="manage-dgteam">DG's Team</a></li>
 						</ul>
-					<!-- <li><a href="manage-doctors.php">Manage Doctors</a></li>
-					<li><a href="manage-doctors.php">Manage Doctors</a></li> -->
+					</li>
+					<li><a href="manage-core-projects">Core Project</a></li>
+					<!-- <li><a><i class="fa fa-calendar"></i> Core Projects <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="manage-focus-areas">Focus Areas</a></li>
+							<li><a href="manage-core-projects">Core Projects</a></li>
+						</ul>
+					</li> -->
 				</ul>
 			</li>
 			<li><a><i class="fa fa-users"></i> Region <span class="fa fa-chevron-down"></span></a>
@@ -65,7 +70,7 @@
 					<!-- <li><a href="between-dates-reports.php">B/w dates reports </a></li> -->
 				</ul>
 			</li>
-			<li><a href="patient-search.php"><i class="fa fa-hospital-o"></i>  Search</a></li>
+			<li><a href="patient-search.php"><i class="fa fa-hospital-o"></i> Search</a></li>
 
 
 		</ul>

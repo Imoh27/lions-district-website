@@ -3,7 +3,7 @@
 include("assets/main-header.php");
 $eventID = $_GET["eid"];
 ?>
-<title>Our International Leaders - Lions District 404A2</title>
+<title>Our Activities - Lions District 404A2</title>
 
 </head>
 
@@ -11,7 +11,7 @@ $eventID = $_GET["eid"];
   <?php
   include("assets/other-pages-topbar.php");
   include("assets/other-pages-nav.php");
-  $cat_select= "SELECT * FROM tblevents e JOIN tblcategory c ON c.catID = e.catID WHERE eventID = $eventID ";
+  $cat_select= "SELECT * FROM tblevents e JOIN tblcategory c ON c.catID = e.catID WHERE e.eventID = $eventID ";
   // echo $eventID; exit;
   $cat_query=mysqli_query($con,$cat_select);
   $newrow = mysqli_fetch_array($cat_query);

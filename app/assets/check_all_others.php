@@ -92,7 +92,7 @@ echo "<span style='color:red'> Club already exists .</span>";
 if(!empty($_POST["cpname"])) {
 	$cpname= $_POST["cpname"];
 	
-		$sql = 	"SELECT * FROM tblclubs WHERE clubName	='$cpname'";
+		$sql = 	"SELECT * FROM tblclubpresidents WHERE fullName	='$cpname'";
 		$result =mysqli_query($con, $sql);
 		if ($result || !empty($result)) {
 			$count=mysqli_num_rows($result);

@@ -3,6 +3,8 @@
 include("app/include/config.php");
 $cat_select =  "SELECT * FROM tblcategory";
 $cat_query = mysqli_query($con, $cat_select);
+
+$area_select =  "SELECT * FROM tblcorereas";
 ?>
 <header id="header" class="header-two">
   <div class="site-navigation">
@@ -161,9 +163,22 @@ $cat_query = mysqli_query($con, $cat_select);
                         </li>
                       </ul>
                     </li>
-                    <li class="nav-item nav-itemactive">
+                    <!-- <li class="nav-item nav-itemactive">
                       <a href="#">Core Projects</a>
-                    </li>
+                    </li> -->
+                    <li class="dropdown-submenu">
+                     <a
+                       href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown">Core Projects</a>
+                     <ul class="dropdown-menu">
+                       <?php
+                        $area_query = mysqli_query($con, $area_select);
+                        while ($row = mysqli_fetch_array($area_query)) { ?>
+                         <li><a href="coreprojects?aid=<?php echo $row['areaID']; ?>"><?php echo $row['coreArea']; ?></a></li>
+                       <?php } ?>
+                     </ul>
+                   </li>
                   </ul>
                 </li>
                 <!-- <li class="nav-item dropdown">
