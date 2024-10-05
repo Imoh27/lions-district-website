@@ -121,10 +121,12 @@ $areaID = $_GET["aid"];
                   </div>
 
                 </div>
+                <br>
+                <button name="donate" class="btn btn-alt solid blank" type="submit">Donate Now</button>
 
-                <div class="text-right"><br>
-                  <button name="donate" class="btn btn-primary solid blank" type="submit">Donate Now</button>
-                </div>
+                <!-- <div class="text-center"><br>
+                  <button name="donate" class="btn btn-alt solid blank" type="submit">Donate Now</button>
+                </div> -->
               </form>
             </div><!-- Sidebar end -->
           </div><!-- Sidebar Col end -->
