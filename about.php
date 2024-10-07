@@ -180,9 +180,18 @@ shore.
 Thank you all and God bless
 
           </p>
+          <?php
+          $sql = mysqli_query($con, "SELECT * from tblacceptancespeech");
+					$cnt = 1;
+					$row = mysqli_fetch_array($sql);
+          ?>
+         
           <img src="dg-sign.png" height="60" width="100" alt="">
           <p class="signature mb-0">Lion Sir (Dr) Maurice Ibok Ph.D, PMJF, NLCF </p>
           <p >District Governor 2024/2025</p>
+          <div class="my-2">
+           <a href="app/speechDoc_Photos/<?php echo $row['doc'] ?>"><img src="images/icon-image/pdficon.jpg" height="60" width="50" class="img-fluid" alt="">Download Full Acceptance Speech Here </a> 
+          </div>
               
         </div><!-- Col end -->
 

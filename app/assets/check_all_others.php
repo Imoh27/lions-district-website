@@ -190,4 +190,25 @@ echo "<span style='color:red'> Event already exists .</span>";
 }
 
 
+// CHECK ACCEPTANCE SPEECH AVAILABILITY
+if(!empty($_POST["docName"])) {
+	$docName= $_POST["docName"];
+	
+		$sql = 	"SELECT * FROM  tblacceptancespeech WHERE docName='$docName'";
+		$docNameresult =mysqli_query($con, $sql);
+		if ($docNameresult || !empty($docNameresult)) {
+			$docNamecount=mysqli_num_rows($docNameresult);
+		}
+if($docNamecount>0)
+{
+echo "<span style='color:red'> Document already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Document available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>

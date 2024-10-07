@@ -67,6 +67,7 @@
 			<li><a><i class="fa fa-bar-chart"></i> Other Settings <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
 					<li><a href="manage-service-year">Service Year </a></li>
+					<li><a href="upload-acceptance-speech">Upload Acceptance-speech </a></li>
 					<!-- <li><a href="between-dates-reports.php">B/w dates reports </a></li> -->
 				</ul>
 			</li>
