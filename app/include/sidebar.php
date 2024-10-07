@@ -13,8 +13,8 @@
 						<ul class="nav child_menu">
 							<li><a href="manage-international-leaders">International Leaders</a></li>
 							<li><a href="manage-past-district-governors">Past District Governors</a></li>
-							<li><a href="manage-doctors.php">Core Officers</a></li>
 							<li><a href="manage-dgteam">DG's Team</a></li>
+							<li><a href="manage-core-officers.php">Core Officers</a></li>
 						</ul>
 					</li>
 					<li><a href="manage-core-projects">Core Project</a></li>

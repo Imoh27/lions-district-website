@@ -17,6 +17,7 @@ $dgteamProfile =  str_replace(array( '\'', '"',
 ';','*' ), ' ', $_POST['dgteamProfile']);
 $serviceYrID = $lsyrow['serviceYrID'];
 $dgteamPhoto =  strtolower($_FILES["dgteamPhoto"]["name"]);
+$dgteamPhotosize =  strtolower($_FILES["dgteamPhoto"]["size"]);
 $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
 	// echo $dgteamProfile; exit;
@@ -27,7 +28,9 @@ if (isset($_POST['submit'])) {
 	$extension = substr($dgteamPhoto, strlen($dgteamPhoto) - 4, strlen($dgteamPhoto));
 	// allowed extensions
 	$allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
-	if (!in_array($extension, $allowed_extensions)) {
+	if($dgteamPhotosize > 1000000){
+		echo "<script>alert('OOPs!. Maximum File Size of 1mb Exceeded');</script>"; 
+	}else if (!in_array($extension, $allowed_extensions)) {
 		$error = "Invalid format. Only jpg / jpeg/ png /gif format allowed";
 		// echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
 	} else {

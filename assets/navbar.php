@@ -61,8 +61,9 @@ $area_select =  "SELECT * FROM tblcorereas";
                         data-toggle="dropdown">District Team</a>
                       <ul class="dropdown-menu">
                         <li><a href="district-governor-team">DG Team</a></li>
-                        <li><a href="core-officers">Core Officers</a></li>
+                        <li><a href="core-district-officers">Core Officers</a></li>
                         <li><a href="#">District Officers</a></li>
+                        <li><a href="club-presidents">club Presidents</a></li>
                       </ul>
                     </li>
                     <li class="nav-item nav-itemactive">

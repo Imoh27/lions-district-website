@@ -13,13 +13,17 @@ $lsyrow=mysqli_fetch_array($sql);
 $docName = strip_tags($_POST['docName']);
 $serviceYrID = $lsyrow['serviceYrID'];
 $speechDoc =  strtolower($_FILES["speechDoc"]["name"]);
+$speechDocsize =  $_FILES["speechDoc"]["size"];
 $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
+	// echo $speechDocsize; exit;
 	// echo $dgteamProfile; exit;
 	$extension = substr($speechDoc, strlen($speechDoc) - 4, strlen($speechDoc));
 	// allowed extensions
 	$allowed_extensions = array(".pdf");
-	if (!in_array($extension, $allowed_extensions)) {
+	if($speechDocsize > 10000000){
+		echo "<script>alert('OOPs!. Maximum File Size of 10mb Exceeded');</script>"; 
+	}else if (!in_array($extension, $allowed_extensions)) {
 		echo "<script>alert('Invalid format. Only PDF format allowed');</script>";
 	} else {
 		//rename the image file

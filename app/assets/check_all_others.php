@@ -211,4 +211,25 @@ echo "<span style='color:red'> Document already exists .</span>";
 }
 
 
+// CHECK CORE OFFICER AVAILABILITY
+if(!empty($_POST["coreofficers"])) {
+	$coreofficers= $_POST["coreofficers"];
+	
+		$sql = 	"SELECT * FROM  tblcoreofficers WHERE fullName='$coreofficers'";
+		$coreofficersresult =mysqli_query($con, $sql);
+		if ($coreofficersresult || !empty($coreofficersresult)) {
+			$coreofficerscount=mysqli_num_rows($coreofficersresult);
+		}
+if($coreofficerscount>0)
+{
+echo "<span style='color:red'> Core officer already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Core officer available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>

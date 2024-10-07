@@ -5,7 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_GET['del'])) {
-	mysqli_query($con, "delete from tblacceptancespeech where leadersID = '" . $_GET['id'] . "'");
+	mysqli_query($con, "delete from tblacceptancespeech where speechID = '" . $_GET['id'] . "'");
 	$_SESSION['msg'] = "data deleted !!";
 }
 include("assets/topheader.php");
@@ -22,7 +22,7 @@ include("assets/topheader.php");
 	<div class="row">
 		<div class="col-md-12">
 			<h5 class="over-title margin-bottom-15 d-inline">Manage <span class="text-bold">Acceptance Speech</span></h5>
-			<a href="add-acceptance-speech" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
+			<a href="upload-acceptance-speech" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Add Leader"><i class="fa fa-plus"></i></a>
 			<table class="table table-hover" id="sample-table-1">
 				<thead>
 					<tr>

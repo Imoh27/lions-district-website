@@ -18,6 +18,7 @@ $service_theme = strtoupper(strip_tags($_POST['service_theme']));
 // $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;
 $pdgPhoto =  strtolower($_FILES["pdgPhoto"]["name"]);
+$pdgPhotosize =  strtolower($_FILES["pdgPhoto"]["size"]);
 $loggedin = $_SESSION['login'];
 if (isset($_POST['submit'])) {
 
@@ -27,7 +28,9 @@ if (isset($_POST['submit'])) {
 	$extension = substr($pdgPhoto, strlen($pdgPhoto) - 4, strlen($pdgPhoto));
 	// allowed extensions
 	$allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
-	if (!in_array($extension, $allowed_extensions)) {
+	if($pdgPhotosize > 1000000){
+		echo "<script>alert('OOPs!. Maximum File Size of 1mb Exceeded');</script>"; 
+	}else if (!in_array($extension, $allowed_extensions)) {
 		$error = "Invalid format. Only jpg / jpeg/ png /gif format allowed";
 		// echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
 	} else {

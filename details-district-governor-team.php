@@ -5,7 +5,7 @@ include("assets/main-header.php");
 $dgteamID = $_GET['tid'];
 
 ?>
-<title>Leader Details - Lions District 404A2</title>
+<title>District Governor's Team - Lions District 404A2</title>
 
 </head>
 
