@@ -2,7 +2,7 @@
 error_reporting(0);
 include("app/include/config.php");
 include("assets/main-header.php");
-$leaderID = $_GET['check'];
+$dgteamID = $_GET['tid'];
 
 ?>
 <title>Leader Details - Lions District 404A2</title>
@@ -13,12 +13,15 @@ $leaderID = $_GET['check'];
   <?php
   include("assets/other-pages-topbar.php");
   include("assets/other-pages-nav.php");
+  $sql = mysqli_query($con, "SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
+  $lsyrow = mysqli_fetch_array($sql);
+  $serviceYrID = $lsyrow['serviceYrID'];
   ?>
 </header>
 <?php
-        $leadersql = "SELECT * FROM tblinternationalleaders  WHERE leadersID = $leaderID";
-        $leaderquery = mysqli_query($con, $leadersql);
-        $row = mysqli_fetch_assoc($leaderquery)
+        $dgteamsql = "SELECT * FROM  tbldgteam d JOIN tbloffices o ON o.officeID = d.officeID WHERE serviceYrID = $serviceYrID AND dgteamID = $dgteamID";
+        $dgteamquery = mysqli_query($con, $dgteamsql);
+        $row = mysqli_fetch_assoc($dgteamquery)
 ?>
 <section id="main-container" class="main-container">
   <div class="container">
@@ -27,7 +30,7 @@ $leaderID = $_GET['check'];
       <div class="col-lg-4">
         <div id="page-slider">
           <div class="item justify-content-center mt-lg-2">
-            <img loading="lazy" class="img-fluid" src="app/LCI_leaders_Photos/<?php echo $row['leaderPhoto']; ?>" alt="project-image" />
+            <img loading="lazy" class="img-guard img-fluid" src="app/dgteam_Photos/<?php echo $row['dgteamPhoto']; ?>" alt="team-image" />
           </div>
 
         </div><!-- Page slider end -->
@@ -36,40 +39,11 @@ $leaderID = $_GET['check'];
       <div class="col-lg-8 mt-5 mt-lg-3">
 
         <h2 class="d-inline column-title mrt-0 text-default"><?php echo $row['fullName']; ?> <h4 class="d-inline text-default"><?php echo $row['lci_awards']; ?></h4></h2>
-        <h4 class="mt-2 mb-4"><?php echo $row['position']; ?></h4>
-        <p class="text-justify"><?php echo $row['leaderProfile']; ?></p>
-       
-          <li>
-            <p class="project-info-label">Client</p>
-            <p class="project-info-content">Pransbay Powers Authority</p>
-          </li>
-          <li>
-            <p class="project-info-label">Architect</p>
-            <p class="project-info-content">Dlarke Pelli Incorp</p>
-          </li>
-          <li>
-            <p class="project-info-label">Location</p>
-            <p class="project-info-content">McLean, VA</p>
-          </li>
-          <li>
-            <p class="project-info-label">Size</p>
-            <p class="project-info-content">65,000 SF</p>
-          </li>
-          <li>
-            <p class="project-info-label">Year Completed</p>
-            <p class="project-info-content">2015</p>
-          </li>
-          <li>
-            <p class="project-info-label">Categories</p>
-            <p class="project-info-content">Commercial, Interiors</p>
-          </li>
-          <li>
-            <p class="project-link">
-              <a class="btn btn-primary" target="_blank" href="#">View Project</a>
-            </p>
-          </li>
-        </ul> -->
-
+        <h4 class="mt-2 mb-2"><?php echo $row['position']; ?></h4>
+        <div class="new-overflow" style="height: 300px !important;">
+          <p class="text-justify"><?php echo $row['dgteamProfile']; ?></p>
+        </div>
+        
       </div><!-- Content col end -->
 
     </div><!-- Row end -->

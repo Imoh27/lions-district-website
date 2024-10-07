@@ -2933,15 +2933,18 @@ img.testimonial-thumb {
   position: relative;
 }
 
-@media (max-width: 575px) {
-  .ts-team-wrapper {
-    text-align: center;
-  }
+@media (max-width: 997px) {
   .img-guard{
     height: auto !important;
     width: 100% !important;
     position: relative;
   }
+}
+@media (max-width: 575px) {
+  .ts-team-wrapper {
+    text-align: center;
+  }
+
 }
 
 .ts-team-wrapper .ts-team-content {

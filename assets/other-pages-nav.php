@@ -40,6 +40,7 @@
                        class="dropdown-toggle"
                        data-toggle="dropdown">District Team</a>
                      <ul class="dropdown-menu">
+                     <li><a href="district-governor-team">DG Team</a></li>
                        <li><a href="#!">Core Team</a></li>
                        <li><a href="#!">District Officers</a></li>
                      </ul>
