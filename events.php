@@ -1,7 +1,10 @@
 <?php
 // include("app/include/config.php");
 include("assets/main-header.php");
-$catID = $_GET["cid"];
+if (!empty($_GET["cid"])) {
+  $catID = $_GET["cid"];
+  // echo $catID; exit;
+}
 ?>
 <title>Our International Leaders - Lions District 404A2</title>
 
@@ -11,7 +14,12 @@ $catID = $_GET["cid"];
   <?php
   include("assets/other-pages-topbar.php");
   include("assets/other-pages-nav.php");
-  $cat_select= "SELECT * FROM tblcategory WHERE catID = $catID ";
+
+  $cat_select= "SELECT * FROM tblcategory";
+  if(!empty($catID)){
+    $cat_select .= " WHERE catID = $catID ";
+  }
+  $cat_select .=" ORDER BY catID DESC";
   $cat_query=mysqli_query($con,$cat_select);
   // echo $cat_select; exit;
   $newrow = mysqli_fetch_array($cat_query);
@@ -44,7 +52,11 @@ $catID = $_GET["cid"];
   <div class="container">
     <div class="row">
       <?php
-      $events_select="SELECT * FROM tblevents WHERE catID = $catID ORDER BY eventID DESC";
+      $events_select="SELECT * FROM tblevents";
+      if(!empty($catID)){
+        $events_select .= " WHERE catID = $catID ";
+      } 
+      $events_select .= " ORDER BY startDate DESC";
       $events_query=mysqli_query($con,$events_select);
     while(  $events = mysqli_fetch_array($events_query)){
       ?>

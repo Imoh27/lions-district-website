@@ -17,7 +17,8 @@ $endDate = strtolower(strip_tags($_POST['endDate']));
 $eventLocation = strtolower(strip_tags($_POST['eventLocation']));
 $cordinatorName = strtolower(strip_tags($_POST['cordinatorName']));
 $cordinatorPhone = strtolower(strip_tags($_POST['cordinatorPhone']));
-$eventAmount = strtolower(strip_tags($_POST['eventAmount']));
+$lionsAmount = strtolower(strip_tags($_POST['lionsAmount']));
+$leosAmount = strtolower(strip_tags($_POST['leosAmount']));
 $eventDesc = str_replace(array( '\'', '"',
     ';','*' ), ' ', $_POST['eventDesc']);
 $serviceYrID = $lsyrow['serviceYrID'];
@@ -45,7 +46,7 @@ if (isset($_POST['submit'])) {
 		$newpreviewPhoto = $eventTitle . '_' . $previewPhoto;
 		$newcordinatorPhoto = $newcordinatorName. '_' .$cordinatorPhoto;
 
-		$event_insert_sql = "INSERT into tblevents values(null, $catID , $serviceYrID, '$eventTitle','$eventDesc', '$eventAmount', '$eventLocation','$cordinatorName',
+		$event_insert_sql = "INSERT into tblevents values(null, $catID , $serviceYrID, '$eventTitle','$eventDesc', '$lionsAmount', '$leosAmount',  '$eventLocation','$cordinatorName',
 		'$cordinatorPhone','$newcordinatorPhoto', '$startDate', '$endDate','$newpreviewPhoto', now(), '$loggedin')";
 		// echo ($event_insert_sql);
 		// exit;
@@ -77,21 +78,21 @@ if (isset($_POST['update'])) {
 	}
 }
 
-		$sql = "UPDATE tblevents  SET catID = $catID, eventTitle = '$eventTitle', eventAmount = '$eventAmount', eventLocation = '$eventLocation', 
+		$sql = "UPDATE tblevents  SET catID = $catID, eventTitle = '$eventTitle', lionsAmount = '$lionsAmount', leosAmount = '$leosAmount', eventLocation = '$eventLocation', 
 		cordinatorName = '$cordinatorName', cordinatorPhone = '$cordinatorPhone', startDate = '$startDate', endDate = '$endDate', 
-		dateUpdated = now(), updatedBy = '$loggedin'";
+		";
 		// echo ($sql);
 		// exit;
+		if(!empty($eventDesc)) {
+			$sql .= " eventDesc = '$eventDesc', ";
+		}
 		if(!empty($previewPhoto)) {
 			$sql .= " previewPhoto = '$newpreviewPhoto'";
 		}
 		if(!empty($cordinatorPhoto)) {
 			$sql .= " cordinatorPhoto = '$newcordinatorPhoto'";
 		}
-		if(!empty($eventDesc)) {
-			$sql .= "  eventDesc = '$eventDesc'";
-		}
-		$sql .= " WHERE eventID = $eventID";
+		$sql .= " dateUpdated = now(), updatedBy = '$loggedin' WHERE eventID = $eventID";
 		// echo $sql; exit;
 		$result = mysqli_query($con, $sql);
 		if ($result) {
@@ -220,7 +221,7 @@ include("assets/topheader.php");
 								</div>
 								<div class="row">
 
-									<div class="col-6 form-group">
+									<div class="col-4 form-group">
 										<label for="cordinatorPhone">
 											Cordinator Phone
 										</label>
@@ -229,12 +230,20 @@ include("assets/topheader.php");
 										 placeholder="Enter Phone Number of Cordinator" <?php } ?> >
 									</div>
 
-									<div class="col-6 form-group">
-										<label for="eventAmount">
-											Registration Amount
+									<div class="col-4 form-group">
+										<label for="lionsAmount">
+											Lions Amount
 										</label>
-										<input name="eventAmount" id="eventAmount" class="form-control"<?php if(!empty($eventID) || $eventID)
-										{?>value ="<?php echo $row['eventAmount']; ?>"<?php } else{?>
+										<input name="lionsAmount" id="lionsAmount" class="form-control"<?php if(!empty($eventID) || $eventID)
+										{?>value ="<?php echo $row['lionsAmount']; ?>"<?php } else{?>
+										 placeholder="Optional" <?php } ?> >
+									</div>
+									<div class="col-4 form-group">
+										<label for="leosAmount">
+											Leos Amount
+										</label>
+										<input name="leosAmount" id="leosAmount" class="form-control"<?php if(!empty($eventID) || $eventID)
+										{?>value ="<?php echo $row['leosAmount']; ?>"<?php } else{?>
 										 placeholder="Optional" <?php } ?> >
 									</div>
 								</div>

@@ -2331,7 +2331,9 @@ img.testimonial-thumb {
 .new-overflow{
   overflow-y: scroll !important; 
   height: 50em !important;
+  overflow-x: hidden !important;
 }
+
 .new-overflow::-webkit-scrollbar {
   width: 5px !important;
 }
@@ -2343,7 +2345,23 @@ img.testimonial-thumb {
   border-radius: 20px;  
   border: 3px solid #ffb600;  /* creates padding around scroll thumb */
 }
+.register-overflow{
+  overflow-y: scroll !important; 
+  height: 20em !important;
+  overflow-x: hidden !important;
 }
+.register-overflow::-webkit-scrollbar {
+  width: 5px !important;
+}
+.register-overflow::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255); 
+}
+.register-overflow::-webkit-scrollbar-thumb {
+  background-color: #ffb600;    
+  border-radius: 20px;  
+  border: 3px solid #ffb600;  /* creates padding around scroll thumb */
+}
+
 
 .quote-item-footer {
   margin-top: 0;

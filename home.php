@@ -288,7 +288,7 @@ include("assets/home-slider.php");
           <div class="row">
           <?php
           $today = date("Y-m-d");
-          $events_sql= "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate >= now() ORDER BY e.eventID DESC LIMIT 3";
+          $events_sql= "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate >= now() ORDER BY e.startDate DESC LIMIT 3";
           // echo $events_sql; exit;
           $events_query = mysqli_query($con, $events_sql);
           // $row=mysqli_fetch_array($events_sql);
@@ -373,7 +373,7 @@ include("assets/home-slider.php");
           <div class="row">
           <?php
           $today = date("Y-m-d");
-          $events_sql= "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate < now() ORDER BY e.eventID DESC LIMIT 3";
+          $events_sql= "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate < now() ORDER BY e.startDate DESC LIMIT 3";
           // echo $events_sql; exit;
           $events_query = mysqli_query($con, $events_sql);
           // $row=mysqli_fetch_array($events_sql);
