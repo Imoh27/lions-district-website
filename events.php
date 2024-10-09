@@ -44,7 +44,7 @@ $catID = $_GET["cid"];
   <div class="container">
     <div class="row">
       <?php
-      $events_select="SELECT * FROM tblevents WHERE catID = $catID";
+      $events_select="SELECT * FROM tblevents WHERE catID = $catID ORDER BY eventID DESC";
       $events_query=mysqli_query($con,$events_select);
     while(  $events = mysqli_fetch_array($events_query)){
       ?>
@@ -58,7 +58,9 @@ $catID = $_GET["cid"];
                 </div>
                 <div class="ts-team-content-classic">
                   <h2 class="service-box-title"><a href="event-details?eid=<?php echo $events['eventID']; ?>"><?php echo $events['eventTitle']; ?></a></h2>
-               
+                  <p style="margin-top: -5px">
+                    <b>Date: </b><?php echo $events['startDate'];?>
+                  </p>
                 </div>
               </div>
               </div>

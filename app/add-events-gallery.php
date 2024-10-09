@@ -14,7 +14,7 @@ $eventID = strip_tags($_POST['eventID']);
 $serviceYrID = $lsyrow['serviceYrID'];
 $galleryPhotos =  str_replace(array("JPG"), 'jpg', $_FILES["galleryPhotos"]["name"]);
 $galleryPhotos =  str_replace(array( '\'', '"',
-    ';','*' ), ' ', $galleryPhotos);
+    ';','*',' ' ), '_', $galleryPhotos);
 // var_dump($galleryPhotos); exit;
 $galleryPhotossize =  $_FILES["galleryPhotos"]["size"];
 
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
 
 include("assets/topheader.php");
 ?>
-<title>Admin | Create Event</title>
+<title>Admin | Create Event Gallery</title>
 <script>
 	function checkEventAvailability() {
 		$("#loaderIcon").show();
@@ -83,7 +83,7 @@ include("assets/topheader.php");
 <body class="nav-md">
 	<?php
 
-	$page_title = 'Create Event ('. $lsyrow['serviceYr'].')';
+	$page_title = 'Create Event Gallery('. $lsyrow['serviceYr'].')';
 	$x_content = true;
 	?>
 	<?php include('include/header.php'); 

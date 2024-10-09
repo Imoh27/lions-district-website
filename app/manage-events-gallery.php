@@ -45,7 +45,7 @@ include("assets/topheader.php");
 							<td class="center"><?php echo $cnt;?>.</td>
 							<td><?php echo $row['categoryName'];?></td>
 							<td><?php echo $row['eventTitle'];?></td>
-							<td><?php echo $row['eventPhoto'];?></td>
+							<td class="user-profile img-fluid"><a href="events_gallery/<?php echo $row['eventPhoto'];?>"><img src="events_gallery/<?php echo $row['eventPhoto'];?>" alt=""></a></td>
 						
 						</td>
 						<td >

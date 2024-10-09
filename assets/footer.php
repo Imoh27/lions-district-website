@@ -27,14 +27,14 @@
                     <ul class="list-arrow">
                       <li><a href="about">About Us</a></li>
                       <li><a href="lci-leaders">Lions Leaders</a></li>
-                      <li><a href="#">Past DG's</a></li>
-                      <li><a href="#">Core Projects</a></li>
+                      <li><a href="past-district-governors">Past DG's</a></li>
+                      <li><a href="coreprojects">Core Projects</a></li>
                     </ul>
                   </div>
                   <div class="col-md-6">
                     <ul class="list-arrow">
-                      <li><a href="#">Events</a></li>
-                      <li><a href="#">Gallery</a></li>
+                      <li><a href="events">Events</a></li>
+                      <li><a href="events-gallery">Gallery</a></li>
                       <li><a href="#">District Directory</a></li>
                       <li><a href="#">Newsletter</a></li>
                     </ul>

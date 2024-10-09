@@ -77,7 +77,7 @@ if (isset($_POST['update'])) {
 	}
 }
 
-		$sql = "UPDATE tblevents  SET catID = $catID, eventTitle = '$eventTitle', eventDesc = '$eventDesc', eventAmount = '$eventAmount', eventLocation = '$eventLocation', 
+		$sql = "UPDATE tblevents  SET catID = $catID, eventTitle = '$eventTitle', eventAmount = '$eventAmount', eventLocation = '$eventLocation', 
 		cordinatorName = '$cordinatorName', cordinatorPhone = '$cordinatorPhone', startDate = '$startDate', endDate = '$endDate', 
 		dateUpdated = now(), updatedBy = '$loggedin'";
 		// echo ($sql);
@@ -87,6 +87,9 @@ if (isset($_POST['update'])) {
 		}
 		if(!empty($cordinatorPhoto)) {
 			$sql .= " cordinatorPhoto = '$newcordinatorPhoto'";
+		}
+		if(!empty($eventDesc)) {
+			$sql .= "  eventDesc = '$eventDesc'";
 		}
 		$sql .= " WHERE eventID = $eventID";
 		// echo $sql; exit;
@@ -136,8 +139,8 @@ include("assets/topheader.php");
 	$cat_sql = mysqli_query($con, "select * from  tblcategory");
 	// For Editing
 	if(!empty($eventID)) {
-	$leaders_sql=mysqli_query($con,"select * from blevents where eventID = $eventID");
-	$row=mysqli_fetch_array($leaders_sql);
+	$events_sql=mysqli_query($con,"select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.eventID = $eventID");
+	$row=mysqli_fetch_array($events_sql);
 	}
 	?>
 
@@ -157,7 +160,7 @@ include("assets/topheader.php");
 										Select Category
 									</label>
 									<select name="catID" id="catID" class="form-control" required="true">
-										<?php if (!empty($clubID) || $clubID) { ?>
+										<?php if (!empty($eventID) || $eventID) { ?>
 											<option value="<?php echo $row['catID']; ?>">  <?php echo $row['categoryName']; ?></option>
 										<?php } else { ?>
 											<option value=""></option>

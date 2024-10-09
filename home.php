@@ -168,18 +168,12 @@ include("assets/home-slider.php");
             <div class="col-lg-3 col-sm-6 mb-5">
               <div class="ts-team-wrapper">
                 <div class="team-img-wrapper">
-                  <img loading="lazy" src="images/team/Oliveira_Fabricio_2024.jpg" class="img-fluid" alt="team-img">
+                  <img loading="lazy" src="images/team/Oliveira_Fabricio_2024.jpg" class="img-guard img-fluid" alt="team-img">
                 </div>
                 <div class="ts-team-content-classic">
                   <h3 class="ts-name">Fabrício Oliveira</h3>
                   <p class="ts-designation">International President</p>
-                  <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
-                  <div class="team-social-icons">
-                    <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                  <!--/ social-icons-->
+                 
                 </div>
               </div>
               <!--/ Team wrapper 1 end -->
@@ -189,18 +183,26 @@ include("assets/home-slider.php");
             <div class="col-lg-3 col-sm-6 mb-5">
               <div class="ts-team-wrapper">
                 <div class="team-img-wrapper">
-                  <img loading="lazy" src="images/team/ln_eno.jpg" class="img-fluid" alt="team-img">
+                  <img loading="lazy" src="images/team/ID-ADETOPE-TYCHUS-1-2.jpg" class="img-guard img-fluid" alt="team-img">
                 </div>
                 <div class="ts-team-content-classic">
-                  <h3 class="ts-name">ANO ANYANWU</h3>
+                  <h3 class="ts-name">PRINCESS ADETOPE TYCHUS</h3><h6>PMJF NLCF</h6>
+                  <p class="ts-designation">INTERNATIONAL DIRECTOR</p>
+                
+                </div>
+              </div>
+              <!--/ Team wrapper 2 end -->
+            </div><!-- Col end -->
+
+            <div class="col-lg-3 col-sm-6 mb-5">
+              <div class="ts-team-wrapper">
+                <div class="team-img-wrapper">
+                  <img loading="lazy" src="images/team/ln_eno.jpg" class="img-guard img-fluid" alt="team-img">
+                </div>
+                <div class="ts-team-content-classic">
+                  <h3 class="ts-name">ANO ANYANWU</h3><h6>PMJF NLCF FCA HCIB</h6>
                   <p class="ts-designation">MULTIPLE COUNCIL CHAIRPERSON</p>
-                  <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
-                  <div class="team-social-icons">
-                    <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                  <!--/ social-icons-->
+                
                 </div>
               </div>
               <!--/ Team wrapper 2 end -->
@@ -213,19 +215,12 @@ include("assets/home-slider.php");
             <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
               <div class="ts-team-wrapper">
                 <div class="team-img-wrapper">
-                  <img loading="lazy" src="images/team/DG.JPG" class="img-fluid" alt="team-img">
+                  <img loading="lazy" src="images/team/DG.JPG" class="img-guard img-fluid" alt="team-img">
                 </div>
                 <div class="ts-team-content-classic">
-                  <h3 class="ts-name">Maurice Ibok</h3>
+                  <h3 class="ts-name">Sir (Dr) Maurice Okon Ibok</h3><h6>Ph.D PMJF NLCF</h6>
                   <p class="ts-designation">District Governor</p>
-                  <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
-                  <div class="team-social-icons">
-                    <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                  <!--/ social-icons-->
+                 
                 </div>
               </div>
               <!--/ Team wrapper 6 end -->
@@ -234,19 +229,12 @@ include("assets/home-slider.php");
             <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
               <div class="ts-team-wrapper">
                 <div class="team-img-wrapper">
-                  <img loading="lazy" src="images/team/ipdg.jpg" class="img-fluid" alt="team-img">
+                  <img loading="lazy" src="images/team/ipdg.jpg" class="img-guard img-fluid" alt="team-img">
                 </div>
                 <div class="ts-team-content-classic">
-                  <h3 class="ts-name">Charles Itu</h3>
+                  <h3 class="ts-name">Charles Itu</h3><h6>PMJF NLCF</h6>
                   <p class="ts-designation">Immediate Past District Governor</p>
-                  <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
-                  <div class="team-social-icons">
-                    <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                  <!--/ social-icons-->
+                 
                 </div>
               </div>
               <!--/ Team wrapper 3 end -->
@@ -255,18 +243,12 @@ include("assets/home-slider.php");
             <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
               <div class="ts-team-wrapper">
                 <div class="team-img-wrapper">
-                  <img loading="lazy" src="images/team/fvdg.jpg" class="img-fluid" alt="team-img">
+                  <img loading="lazy" src="images/team/fvdg.jpg" class="img-guard img-fluid" alt="team-img">
                 </div>
                 <div class="ts-team-content-classic">
-                  <h3 class="ts-name">Ezikiel Umoh</h3>
+                  <h3 class="ts-name">Ezekiel Umoh</h3><h6>PMJF NLCF</h6>
                   <p class="ts-designation">First Vice District Governor </p>
-                  <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
-                  <div class="team-social-icons">
-                    <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                  <!--/ social-icons-->
+                 
                 </div>
               </div>
               <!--/ Team wrapper 4 end -->
@@ -276,18 +258,12 @@ include("assets/home-slider.php");
             <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
               <div class="ts-team-wrapper">
                 <div class="team-img-wrapper">
-                  <img loading="lazy" src="images/team/Edward-Aigbedion.jpg" class="img-fluid" alt="team-img">
+                  <img loading="lazy" src="images/team/Edward-Aigbedion.jpg" class="img-guard img-fluid" alt="team-img">
                 </div>
                 <div class="ts-team-content-classic">
-                  <h3 class="ts-name">Edward Aigbedion</h3>
+                  <h3 class="ts-name">Edward Aigbedion</h3><h6>PMJF NLCF</h6>
                   <p class="ts-designation">Second Vice District Governor</p>
-                  <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
-                  <div class="team-social-icons">
-                    <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                    <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                  <!--/ social-icons-->
+                
                 </div>
               </div>
               <!--/ Team wrapper 5 end -->
@@ -304,129 +280,45 @@ include("assets/home-slider.php");
           <!-- Section Title -->
           <div class="row">
             <div class="col-12">
-              <h2 class="section-sub-title text-center mb-5">Upcoming Events</h2>
+              <h2 class="section-sub-title text-center mb-5">Upcoming aCTIVITIES</h2>
             </div>
           </div>
           <!-- Section Title End -->
-          
+        
           <div class="row">
+          <?php
+          $today = date("Y-m-d");
+          $events_sql= "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate >= now() ORDER BY e.eventID DESC LIMIT 3";
+          // echo $events_sql; exit;
+          $events_query = mysqli_query($con, $events_sql);
+          // $row=mysqli_fetch_array($events_sql);
+          while($events_row=mysqli_fetch_array($events_query)){?>
             <div class="col-lg-4 col-md-6 mb-5">
               <div class="ts-service-box">
                 <div class="ts-service-image-wrapper">
                   <img
                     loading="lazy"
-                    class="w-100"
-                    src="images/services/service10.JPG"
+                    class="img-guard img-fluid"
+                    src="app/event_previews/<?php echo $events_row['previewPhoto'];?>"
                     alt="service-image"
                   />
                 </div>
                 <div class="d-flex">
-                  <!-- <div class="ts-service-box-img">
-                    <img
-                      loading="lazy"
-                      src="images/icon-image/service-icon1.png"
-                      alt="service-icon"
-                    />
-                  </div> -->
                   <div class="ts-service-info">
                     <h3 class="service-box-title">
-                      <a href="#">Thinksgiving Service</a>
+                      <a href="event-details?eid=<?php echo $events_row['eventID'];?>"><?php echo $events_row['eventTitle'];?></a>
                     </h3>
-                    <p>
-                      The District Governor, District 404A2 Nigeria, Lion Sir Maurice Ibom have kicked-start the 2024/2025 Lions Service 
-                      Year with a Thanksgiving Mass held at St. Peter's Catholic Church, Ediba Road, Calabar, on Sunday, July 7, 2024.
-                    </p>
-                    <a
-                      class="learn-more d-inline-block"
-                      href="#"
-                      aria-label="service-details"
-                      ><i class="fa fa-caret-right"></i> Learn more</a
-                    >
+                    <p style="margin-top: -5px">
+                    <b>Date: </b> <?php echo $events_row['startDate'];?>
+                  </p>
+                    
                   </div>
                 </div>
               </div>
               <!-- Service1 end -->
             </div>
             <!-- Col 1 end -->
-      
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="ts-service-box">
-                <div class="ts-service-image-wrapper">
-                  <img
-                    loading="lazy"
-                    class="w-100"
-                    src="images/services/service9.JPG"
-                    alt="service-image"
-                  />
-                </div>
-                <div class="d-flex">
-                  <!-- <div class="ts-service-box-img">
-                    <img
-                      loading="lazy"
-                      src="images/icon-image/service-icon2.png"
-                      alt="service-icon"
-                    />
-                  </div> -->
-                  <div class="ts-service-info">
-                    <h3 class="service-box-title">
-                      <a href="#">Hunger Relief</a>
-                    </h3>
-                    <p>
-                      16 Clubs of Lions Regions 4, 5 and 6 on Thursday, August 29, 2024 carried out Hunger Relief Project in some areas in 
-                      Calabar namely: Oando Filling Station Opposite U. J. Esuene Stadium, Caltural Centre, and Fidelity Bank Opposite 
-                      University of Calabar, all in Calabar, Cross River State.
-                    </p>
-                    <a
-                      class="learn-more d-inline-block"
-                      href="#"
-                      aria-label="service-details"
-                      ><i class="fa fa-caret-right"></i> Learn more</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- Service2 end -->
-            </div>
-            <!-- Col 2 end -->
-      
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="ts-service-box">
-                <div class="ts-service-image-wrapper">
-                  <img
-                    loading="lazy"
-                    class="w-100"
-                    src="images/services/service8.JPG"
-                    alt="service-image"
-                  />
-                </div>
-                <div class="d-flex">
-                  <!-- <div class="ts-service-box-img">
-                    <img
-                      loading="lazy"
-                      src="images/icon-image/service-icon3.png"
-                      alt="service-icon"
-                    />
-                  </div> -->
-                  <div class="ts-service-info">
-                    <h3 class="service-box-title">
-                      <a href="#">International Training</a>
-                    </h3>
-                    <p>
-                      The First Vice District Governor, District 404A2 Nigeria, Lion Sir Dr Maurice Ibok PMJF, NLCF was in attendance at 
-                      the training recently organised for District Governor-Elect for 2024/2025 Lions Service Year held in Chicago, USA
-                    </p>
-                    <a
-                      class="learn-more d-inline-block"
-                      href="#"
-                      aria-label="service-details"
-                      ><i class="fa fa-caret-right"></i> Learn more</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- Service3 end -->
-            </div>
-            <!-- Col 3 end -->
+      <?php } ?>
           </div>
           <!-- Content row end -->
         </div>
@@ -473,97 +365,44 @@ include("assets/home-slider.php");
           <div class="row text-center">
             <div class="col-12">
               <h2 class="section-title">Service to Humanity</h2>
-              <h3 class="section-sub-title">Recent Projects</h3>
+              <h3 class="section-sub-title">Recent activities</h3>
             </div>
           </div>
           <!--/ Title row end -->
 
           <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="latest-post">
-                <div class="latest-post-media">
-                  <a href="#" class="latest-post-img">
-                    <img
-                      loading="lazy"
-                      class="img-fluid"
-                      src="images/news/recent_project-03.JPG"
-                      alt="img"
-                    />
-                  </a>
+          <?php
+          $today = date("Y-m-d");
+          $events_sql= "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate < now() ORDER BY e.eventID DESC LIMIT 3";
+          // echo $events_sql; exit;
+          $events_query = mysqli_query($con, $events_sql);
+          // $row=mysqli_fetch_array($events_sql);
+          while($events_row=mysqli_fetch_array($events_query)){?>
+            <div class="col-lg-4 col-md-6 mb-5">
+              <div class="ts-service-box">
+                <div class="ts-service-image-wrapper">
+                  <img
+                    loading="lazy"
+                    class="img-guard img-fluid"
+                    src="app/event_previews/<?php echo $events_row['previewPhoto'];?>"
+                    alt="service-image"
+                  />
                 </div>
-                <div class="post-body">
-                  <h4 class="post-title">
-                    <a href="#" class="d-inline-block"
-                      >Hunger Relief Project: Abuja Prestige Metro Lions Club have distributed cooked food to Internally Displaced Persons, IDP Camp in Durumi, Abuja.</a>
-                  </h4>
-                  <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> July 20, 2017
-                    </span>
+                <div class="d-flex">
+                  <div class="ts-service-info">
+                    <h3 class="service-box-title">
+                      <a href="event-details?eid=<?php echo $events_row['eventID'];?>"><?php echo $events_row['eventTitle'];?></a>
+                    </h3>
+                    <p style="margin-top: -5px">
+                    <b>Date: </b><?php echo $events_row['startDate'];?>
+                  </p>
+                    
                   </div>
                 </div>
               </div>
-              <!-- Latest post end -->
+              <!-- Service1 end -->
             </div>
-            <!-- 1st post col end -->
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="latest-post">
-                <div class="latest-post-media">
-                  <a href="#" class="latest-post-img">
-                    <img
-                      loading="lazy"
-                      class="img-fluid"
-                      src="images/news/recent_project-02.JPG"
-                      alt="img"
-                    />
-                  </a>
-                </div>
-                <div class="post-body">
-                  <h4 class="post-title">
-                    <a href="#" class="d-inline-block"
-                      >Niger Delta Lions Club extended a helping hand to the sick at the Federal Medical Center (FMC) Yenagoa, Bayelsa State.</a
-                    >
-                  </h4>
-                  <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> June 17, 2017
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- Latest post end -->
-            </div>
-            <!-- 2nd post col end -->
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="latest-post">
-                <div class="latest-post-media">
-                  <a href="#" class="latest-post-img">
-                    <img
-                      loading="lazy"
-                      class="img-fluid"
-                      src="images/news/recent_project-01.JPG"
-                      alt="img"
-                    />
-                  </a>
-                </div>
-                <div class="post-body">
-                  <h4 class="post-title">
-                    <a href="#" class="d-inline-block"
-                      >HUNGER RELIEF: The Committee on Diaspora Matters and International Relations, District 404A2 Nigeria of Lions International</a
-                    >
-                  </h4>
-                  <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> Aug 13, 2017
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- Latest post end -->
-            </div>
-            <!-- 3rd post col end -->
+      <?php } ?>
           </div>
           <!--/ Content row end -->
 
