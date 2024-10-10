@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include("app/include/config.php");
+
 include("assets/main-header.php");
 $leaderID = $_GET['check'];
 
@@ -11,8 +11,8 @@ $leaderID = $_GET['check'];
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
   ?>
 </header>
 <?php

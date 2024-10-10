@@ -6,8 +6,8 @@ include("assets/main-header.php");
 </head>
 <body>
 <?php
-include("assets/other-pages-topbar.php");
-include("assets/other-pages-nav.php");
+include("assets/topbar.php");
+include("assets/navbar.php");
 ?>
   
 </header>

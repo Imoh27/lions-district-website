@@ -1,5 +1,5 @@
 <?php
-include("app/include/config.php");
+
 include("assets/main-header.php");
 ?>
 <title>Club Presidents - Lions District 404A2</title>
@@ -8,8 +8,8 @@ include("assets/main-header.php");
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
   ?>
 
   <!--/ Navigation end -->

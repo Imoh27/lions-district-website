@@ -1,5 +1,5 @@
 <?php
-include("app/include/config.php");
+
 include("assets/main-header.php");
 ?>
 <title>Our International Leaders - Lions District 404A2</title>
@@ -8,8 +8,8 @@ include("assets/main-header.php");
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
   ?>
 
   <!--/ Navigation end -->
@@ -45,6 +45,8 @@ include("assets/main-header.php");
       </div>
       <!--/ Title row end -->
       <?php
+      // include_once("app/include/config.php");
+
       // $firstsql = "SELECT * FROM tblinternationalleaders ORDER BY leadersID LIMIT 2";
       $firstsql = "SELECT * FROM tblinternationalleaders ";
       $query = mysqli_query($con, $firstsql);

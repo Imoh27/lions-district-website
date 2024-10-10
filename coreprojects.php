@@ -1,5 +1,5 @@
 <?php
-// include("app/include/config.php");
+// 
 include("assets/main-header.php");
 $areaID = $_GET["aid"];
 ?>
@@ -9,8 +9,8 @@ $areaID = $_GET["aid"];
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
   $project_select = "SELECT * FROM  tblcoreprojects c JOIN tblcorereas a ON c.areaID = a.areaID WHERE c.areaID = $areaID ";
   // echo $project_select; exit;
   $project_query = mysqli_query($con, $project_select);

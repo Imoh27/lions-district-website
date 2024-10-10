@@ -1,5 +1,5 @@
 <?php
-// include("app/include/config.php");
+// 
 include("assets/main-header.php");
 $eventID = $_GET["eid"];
 // $registerAmount = 0;
@@ -41,8 +41,8 @@ if (isset($_POST["register"])) {
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
 
   ?>
 

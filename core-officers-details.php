@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include("app/include/config.php");
+
 include("assets/main-header.php");
 $coreofficersID = $_GET['coid'];
 
@@ -11,8 +11,8 @@ $coreofficersID = $_GET['coid'];
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
   $sql = mysqli_query($con, "SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
   $lsyrow = mysqli_fetch_array($sql);
   $serviceYrID = $lsyrow['serviceYrID'];

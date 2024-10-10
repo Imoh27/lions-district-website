@@ -1,6 +1,6 @@
 <?php
 include("assets/main-header.php");
-include("app/include/config.php");
+// include("app/include/config.php");
 // $service_sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
 // $lsyrow=mysqli_fetch_array($service_sql);
 // $serviceYrID=$lsyrow["serviceYrID"];
@@ -14,8 +14,8 @@ include("app/include/config.php");
 </head>
 <body>
 <?php
-include("assets/other-pages-topbar.php");
-include("assets/other-pages-nav.php");
+include("assets/topbar.php");
+include("assets/navbar.php");
 ?>
   
 

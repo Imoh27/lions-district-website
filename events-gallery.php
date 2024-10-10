@@ -1,5 +1,5 @@
 <?php
-// include("app/include/config.php");
+// 
 include("assets/main-header.php");
 if (!empty($_GET["vid"])) {
   $vid = $_GET["vid"];
@@ -12,8 +12,8 @@ if (!empty($_GET["vid"])) {
 
 <body>
   <?php
-  include("assets/other-pages-topbar.php");
-  include("assets/other-pages-nav.php");
+  include("assets/topbar.php");
+  include("assets/navbar.php");
   // $cat_select= "SELECT * FROM tblcategory WHERE catID = $catID ";
   // $cat_query=mysqli_query($con,$cat_select);
   // echo $cat_select; exit;
