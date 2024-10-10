@@ -58,70 +58,59 @@
 								<a class="dropdown-item"  href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 							</div>
 						</li>
-						<!-- <li role="presentation" class="nav-item dropdown open">
+						<?php
+ 						$contact_sql="SELECT * FROM  tblcontactus WHERE isRead =0";
+						//  echo $contact_sql; exit;
+						 $contact_query = mysqli_query($con, $contact_sql);
+						
+						 $count = mysqli_num_rows($contact_query);
+						//  echo $count; exit;
+
+						?>
+						<li role="presentation" class="nav-item dropdown open">
+
 							<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 								<i class="fa fa-envelope-o"></i>
-								<span class="badge bg-green">6</span>
+								<span class="badge bg-red"><?php echo  $count ?></span>
 							</a>
 							<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-								<li class="nav-item">
-									<a class="dropdown-item">
-										<span class="image"><img src="../assets/images/img.jpg" alt="Profile Image" /></span>
+								<?php 
+								while($contact_row = mysqli_fetch_array($contact_query)){
+
+// echo round(abs($to_time - $from_time) / 60,2). " minute";
+									// $datetime = date('H:i:s');
+									// $totime = strtotime(date('Y-m-d H:i:s')) ;
+									// $fromtime = strtotime($contact_row["contactDate"]);
+									// $tohr = round(abs($totime - $fromtime));
+
+									// $actutaltime = round(abs($totime - $fromtime) / 60,2). " minute";
+									// $actutalhr = ceil($actutaltime / 60). " hrs";
+									// echo $dateDiff; exit;
+
+								?>
+								<li class="nav-item" >
+									<a class="dropdown-item" href="query-details?id=<?php echo $contact_row['id'] ?>">
+										
 										<span>
-											<span>John Smith</span>
-											<span class="time">3 mins ago</span>
+											<span><?php echo $contact_row['fullname'] ?></span>
+											<span class="time"><?php echo date('d-m-Y H:m:s', strtotime($contact_row['contactDate']))?></span>
 										</span>
-										<span class="message">
-											Film festivals used to be do-or-die moments for movie makers. They were where...
+										<span class="message" style="font-weight:bold !important">
+										<?php echo $contact_row['messageSubject'];?>
 										</span>
 									</a>
 								</li>
-								<li class="nav-item">
-									<a class="dropdown-item">
-										<span class="image"><img src="../assets/images/img.jpg" alt="Profile Image" /></span>
-										<span>
-											<span>John Smith</span>
-											<span class="time">3 mins ago</span>
-										</span>
-										<span class="message">
-											Film festivals used to be do-or-die moments for movie makers. They were where...
-										</span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="dropdown-item">
-										<span class="image"><img src="../assets/images/img.jpg" alt="Profile Image" /></span>
-										<span>
-											<span>John Smith</span>
-											<span class="time">3 mins ago</span>
-										</span>
-										<span class="message">
-											Film festivals used to be do-or-die moments for movie makers. They were where...
-										</span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="dropdown-item">
-										<span class="image"><img src="../assets/images/img.jpg" alt="Profile Image" /></span>
-										<span>
-											<span>John Smith</span>
-											<span class="time">3 mins ago</span>
-										</span>
-										<span class="message">
-											Film festivals used to be do-or-die moments for movie makers. They were where...
-										</span>
-									</a>
-								</li>
+								<?php } ?>
 								<li class="nav-item">
 									<div class="text-center">
-										<a class="dropdown-item">
+										<a class="dropdown-item" href="unread-queries">
 											<strong>See All Alerts</strong>
 											<i class="fa fa-angle-right"></i>
 										</a>
 									</div>
 								</li>
 							</ul>
-						</li> -->
+						</li>
 					</ul>
 				</nav>
 			</div>

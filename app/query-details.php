@@ -9,13 +9,13 @@ check_login();
 if(isset($_POST['update']))
 {
 	$qid=intval($_GET['id']);
-	$adminremark=$_POST['adminremark'];
-	$isread=1;
-	$query=mysqli_query($con,"update tblcontactus set  AdminRemark='$adminremark',IsRead='$isread' where id='$qid'");
-	if($query){
-		echo "<script>alert('Admin Remark updated successfully.');</script>";
-		echo "<script>window.location.href ='read-query.php'</script>";
-	}
+	mysqli_query($con,"UPDATE tblcontactus set IsRead = 1, readDate = now() where id = '$qid'");
+	header("location: read-query?id=$qid&action=markread");
+	$_SESSION['msg']="Message Read !!";
+	// if($query){
+	// 	echo "<script>alert('Admin Remark updated successfully.');</script>";
+	// 	echo "<script>window.location.href ='read-query.php'</script>";
+	// }
 }
 ?>
 <!DOCTYPE html>
@@ -78,38 +78,26 @@ if(isset($_POST['update']))
 							<td><?php echo $row['message'];?></td>
 						</tr>
 
-						<?php if($row['AdminRemark']==""){?>
+						<tr>
+							<th>Time Received</th>
+							<td><?php echo $row['contactDate'];?></td>
+						</tr>
+						<?php if($row['Isread']==0){?>
 							<form name="query" method="post">
-								<tr>
-									<th>Admin Remark</th>
-									<td><textarea name="adminremark" class="form-control" required="true"></textarea></td>
-								</tr>
 								<tr>
 									<td>&nbsp;</td>
 									<td>
-										<button type="submit" class="btn btn-primary pull-left" name="update">
-											Update <i class="fa fa-arrow-circle-right"></i>
+									<!-- <a href="read-query?id=<?php echo $row['id']?>&action=markread" onClick="return confirm('Mark this Message as read?')" class="btn btn-primary btn-sm tooltips" tooltip-placement="top" tooltip="Mark as read">Mark read <i class="fa fa-eye fa fa-white"></i></a>	 -->
+
+										<button type="submit" class="btn btn-primary pull-left" name="update" onClick="return confirm('Mark this Message as read?')" tooltip-placement="top" tooltip="Mark as read">
+											Mark Read <i class="fa fa-arrow-circle-right"></i>
 										</button>
 
 									</td>
 								</tr>
 
 							</form>
-						<?php } else {?>
-
-							<tr>
-								<th>Admin Remark</th>
-								<td><?php echo $row['AdminRemark'];?></td>
-							</tr>
-
-							<tr>
-								<th>Last Updatation Date</th>
-								<td><?php echo $row['LastupdationDate'];?></td>
-							</tr>
-
-							<?php
-						}} ?>
-
+						<?php } }?>
 
 					</tbody>
 				</table>

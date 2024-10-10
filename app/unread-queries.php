@@ -3,12 +3,13 @@ session_start();
 error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
-check_login();
-if(isset($_GET['del']))
+if(isset($_GET['action']))
 {
-	mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
-	$_SESSION['msg']="data deleted !!";
+	mysqli_query($con,"UPDATE tblcontactus set IsRead = 1, readDate = now() where id = '".$_GET['id']."'");
+	$_SESSION['msg']="Message Read !!";
 }
+check_login();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,21 +54,21 @@ if(isset($_GET['del']))
 				</thead>
 				<tbody>
 					<?php
-					$sql=mysqli_query($con,"select * from tblcontactus where IsRead is null");
+					$sql=mysqli_query($con,"select * from tblcontactus where IsRead = 0");
 					$cnt=1;
 					while($row=mysqli_fetch_array($sql))
 					{
 						?>
 						<tr>
 							<td class="center"><?php echo $cnt;?>.</td>
-							<td class="hidden-xs"><?php echo $row['fullname'];?></td>
+							<td class=""><?php echo $row['fullname'];?></td>
 							<td><?php echo $row['email'];?></td>
 							<td><?php echo $row['contactno'];?></td>
-							<td><?php echo $row['message'];?></td>
+							<td width="400"><?php echo $row['message'];?></td>
 							<td >
-								<div class="visible-md visible-lg hidden-sm hidden-xs">
-									<a href="query-details.php?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-lg" title="View Details"><i class="fa fa-file"></i></a>
-								</div>
+								<div class="d-inline">
+									<a href="query-details?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-sm d-inline" title="View Details"><i class="fa fa-file"></i></a>
+									<a href="?id=<?php echo $row['id']?>&action=markread" onClick="return confirm('Mark this Message as read?')" class="btn btn-transparent btn-xs tooltips d-inline" tooltip-placement="top" tooltip="Mark as read"><i class="fa fa-eye fa fa-white"></i></a>								</div>
 							</td>
 						</tr>
 						<?php

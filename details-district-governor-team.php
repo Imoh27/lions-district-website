@@ -9,8 +9,11 @@ $dgteamID = $_GET['tid'];
 
 </head>
 
-<body>
-  <?php
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"></div>
+
+<div style="display:none;" id="myDiv" class="animate-bottom">  <?php
   include("assets/topbar.php");
   include("assets/navbar.php");
   $sql = mysqli_query($con, "SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");

@@ -55,30 +55,30 @@
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="https://www.facebook.com/District404A2" target="_blank"
                         aria-label="Facebook"
                         ><i class="fab fa-facebook-f"></i
                       ></a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="https://x.com/District404A2?t=JldSx1YxCrKWH2wkl3pR8w&s=09" target="_blank"
                         aria-label="Twitter"
                         ><i class="fab fa-twitter"></i
                       ></a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="https://www.instagram.com/district404a2?igsh=MW01cHRxZWx6NDN2bQ==" target="_blank"
                         aria-label="Instagram"
                         ><i class="fab fa-instagram"></i
                       ></a>
                     </li>
                     <li>
                       <a
-                        href="#"
-                        aria-label="Github"
-                        ><i class="fab fa-github"></i
+                        href="https://whatsapp.com/channel/0029Va6KBBnKLaHnsfNMvp0m" target="_blank"
+                        aria-label="Whatsapp"
+                        ><i class="fab fa-whatsapp"></i
                       ></a>
                     </li>
                   </ul>

@@ -233,7 +233,7 @@ $area_select =  "SELECT * FROM tblcorereas";
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" target="_blank" href="contact">Contact</a>
+                  <a class="nav-link" href="contact">Contact</a>
                 </li>
 
                 <li class="header-get-a-quote">

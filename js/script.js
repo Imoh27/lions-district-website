@@ -249,12 +249,12 @@ jQuery(function ($) {
 			$('.gallery-popup').colorbox({
 				rel: 'gallery-popup',
 				transition: 'slideshow',
-				innerHeight: '500'
+				innerHeight: '600'
 			});
 			$('.popup').colorbox({
 				iframe: true,
-				innerWidth: 600,
-				innerHeight: 400
+				innerWidth: 800,
+				innerHeight: 600
 			});
 		}
 		mediaPopup();

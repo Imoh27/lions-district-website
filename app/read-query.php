@@ -9,7 +9,8 @@ if(isset($_GET['del']))
 	mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
 	$_SESSION['msg']="data deleted !!";
 }
-?>
+
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +36,7 @@ if(isset($_GET['del']))
 	<?php
 	$page_title = 'Admin | Manage Read Queries';
 	$x_content = true;
+	// if
 	?>
 	<?php include('include/header.php');?>
 	<div class="row">
@@ -53,7 +55,7 @@ if(isset($_GET['del']))
 				</thead>
 				<tbody>
 					<?php
-					$sql=mysqli_query($con,"select * from tblcontactus where IsRead is not null");
+					$sql=mysqli_query($con,"select * from tblcontactus where IsRead =1");
 					$cnt=1;
 					while($row=mysqli_fetch_array($sql))
 					{

@@ -3,6 +3,13 @@
 include("assets/main-header.php");
 $eventID = $_GET["eid"];
 // $registerAmount = 0;
+?>
+<title>Our Activities - Lions District 404A2</title>
+<?php
+include("assets/topbar.php");
+include("assets/navbar.php");
+
+
 include_once("app/include/config.php");
 $cat_select = "SELECT * FROM tblevents e JOIN tblcategory c ON c.catID = e.catID WHERE e.eventID = $eventID ";
 // echo $eventID; exit;
@@ -35,14 +42,13 @@ if (isset($_POST["register"])) {
   }
 }
 ?>
-<title>Our Activities - Lions District 404A2</title>
+
 
 </head>
 
 <body>
   <?php
-  include("assets/topbar.php");
-  include("assets/navbar.php");
+  
 
   ?>
 

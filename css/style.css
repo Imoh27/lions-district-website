@@ -545,7 +545,7 @@ a[href^=tel] {
 .btn-primary:hover,
 .btn-dark:hover,
 .btn-white.btn-primary:hover {
-  background: #111;
+  background: #061932;
   color: #fff !important;
 }
 
@@ -555,7 +555,7 @@ a[href^=tel] {
 .btn-white.btn-primary:hover:active,
 .btn-white.btn-primary:hover:focus {
   color: #fff !important;
-  background-color: #111 !important;
+  background-color: #061932 !important;
 }
 
 .general-btn {
@@ -1248,8 +1248,8 @@ ul.navbar-nav > li > a {
 }
 
 .header-get-a-quote .btn-primary:hover {
-  background: #272d33;
-  color: #ffb600 !important;
+  background: #112e57;
+  color: #ffffff !important;
 }
 .header-get-a-quote .btn-alt:hover {
   background: #d39d16;
@@ -2103,7 +2103,7 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 }
 
 .general-btn .btn-primary:hover {
-  background: #000;
+  background: #061932;
 }
 
 /* Project owl */
@@ -2993,7 +2993,7 @@ img.testimonial-thumb {
 .ts-team-wrapper .ts-name {
   font-size: 16px;
   margin-top: 0;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   line-height: normal;
   color: #ffb600;
 }
@@ -3001,7 +3001,7 @@ img.testimonial-thumb {
 .ts-team-wrapper .ts-designation {
   color: #fff;
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   font-weight: 700;
   text-transform: uppercase;
 }
