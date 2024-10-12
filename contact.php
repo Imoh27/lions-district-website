@@ -9,6 +9,15 @@ include("assets/main-header.php");
 include("assets/topbar.php");
 include("assets/navbar.php");
 
+//Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+
+
+
 if (isset($_POST["send-message"])) {
  $name = strip_tags($_POST["name"]);
  $email = strip_tags($_POST["email"]);
@@ -16,6 +25,94 @@ if (isset($_POST["send-message"])) {
  $contactNo = strip_tags($_POST["contactNo"]);
  $message = str_replace(array( '\'', '"',
     ';','*' ), '', strip_tags($_POST["message"]));
+
+
+    require 'vendor/autoload.php';
+
+    $mail = new PHPMailer(true);
+    
+    try {
+        $mail->SMTPDebug = 0;                     
+        $mail->isSMTP();                                         
+        $mail->Host       = 'mail.lionsdistrict404a2.com';   
+        $mail->SMTPAuth   = true;                                   
+        $mail->Username   = 'info@lionsdistrict404a2.com';  
+        $mail->Password   = 'lionsD404a2@';                      
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         
+        $mail->Port       = 465;       
+        
+        $mail->setFrom('	info@lionsdistrict404a2.com', 'Lions District 404A2');
+        $mail->addAddress($email);     
+        
+        $mail->isHTML(true);                                 
+        $mail->Subject = 'Hi '.$name;
+        $mail->Body    = '<html>
+        <body>
+        <table style="border-collapse:collapse;max-width:300px; ">
+        <tbody>
+            <tr>
+                <td>Thank You fo Contacting Us<br>
+                    <br>
+                    Your mail hs been received successfully and will be directed to the appropriate quarters and acted upon promptly <br>
+                     <p style="font-weight: bold;">Please reply below </p>
+    
+                     If you have any further questions..
+    
+                    <hr style="border:0;border-bottom:1px solid #e9e9e9">
+    
+                    <p><a href="https://lionsdistrict404a2.com/events" style="color: #fff; text-decoration:none; background-color: #0842a0; padding: 10px;">Explore our Various Activities</a></p> <br>
+                   
+                    Kind Regards,<br>
+                    <strong>Lions District 404A2</strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        </body>
+        </html>';
+        // echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+    
+    
+    
+    //Create an instance; passing `true` enables exceptions
+    $copymail = new PHPMailer(true);
+    
+    try {
+        //Server settings
+        $copymail->SMTPDebug = 0;                  
+        $copymail->isSMTP();    
+        $copymail->Host       = 'mail.leodistrict404a2.com.ng';   
+        $copymail->SMTPAuth   = true;     
+        $copymail->Username   = 'info@lionsdistrict404a2.com';                     //SMTP username
+        $copymail->Password   = 'lionsD404a2@';      
+        $copymail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        
+        $copymail->Port       = 465;    
+        $copymail->setFrom('info@lionsdistrict404a2.com', 'Lions District 404A2');
+        $copymail->addAddress('info@lionsdistrict404a2.com'); 
+        $copymail->isHTML(true);                                  //Set ecopymail format to HTML
+        $copymail->Subject = 'New Message received from '.$name.' ('.$contactNo.') ';
+        $copymail->Body    = '<html>
+        <body>
+        <table style="border-collapse:collapse;max-width:300px; ">
+        <tbody>
+            <tr>
+                <h2> '.$subject.'</h2>
+               
+               
+                <p> '.$message.' </p>
+               
+            </tr>
+        </tbody>
+    </table>
+        </body>
+        </html>';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$copymail->ErrorInfo}";
+    }
+
     
 $isRead = 0;
  $contact_sql="SELECT * FROM  tblcontactus WHERE fullname = '$name' and email = '$email' and messageSubject  = '$subject' ";
@@ -31,6 +128,8 @@ $isRead = 0;
   if ($query) {
     echo "<script>alert('Message Sent');</script>";
 		echo "<script>window.location.href =''</script>";
+    // $mail->send();
+    // $copymail->send();
   }
 }
 }
