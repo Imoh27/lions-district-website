@@ -5175,3 +5175,16 @@ ul.notifications {
 #slash {
   display: none;
 }
+
+.img-guard{
+  height: 300px !important;
+  width: 300px !important;
+}
+
+@media (max-width: 997px) {
+  .img-guard{
+    height: auto !important;
+    width: 100% !important;
+    position: relative;
+  }
+}

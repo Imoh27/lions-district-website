@@ -140,7 +140,7 @@
 
 <?php
 $today = date("Y-m-d");
-$events_sql = "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate >= now() ORDER BY e.startDate DESC LIMIT 1";
+$events_sql = "select * from tblevents e JOIN tblcategory c ON c.catID = e.catID where e.startDate >= now() ORDER BY (e.startDate) LIMIT 1";
 // echo $events_sql; exit;
 $events_query = mysqli_query($con, $events_sql);
 $row = mysqli_fetch_array($events_query)
@@ -171,12 +171,12 @@ $row = mysqli_fetch_array($events_query)
       
       <div class="col-lg-5 m-auto">
         <div class="d-flex">
-          <div class="ts-service-info text-center adjust-center">
+          <div class="ts-service-info adjust-center">
             <h2 class="service-box-title">
               <a href="event-details?eid=<?php echo $row['eventID']; ?>"><?php echo $row['eventTitle']; ?></a>
             </h2>
-            <p style="margin-top: -5px text-center">
-              <a class="btn btn-lg btn-primary" href=""> Check out</a>
+            <p style="margin-top: -5px">
+              <a href="event-details?eid=<?php echo $row['eventID']; ?>" class="btn btn-lg btn-primary" href=""> Check out</a>
             </p>
           </div>
         </div>

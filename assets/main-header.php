@@ -40,10 +40,10 @@
     <style>
 .popupDialog {
   position: fixed;
-  top: 100px;
+  top: 200px;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 750px !important;
   z-index: 99999;
   opacity: 0;
   -webkit-transition: opacity 4000ms ease-in-out;
@@ -93,7 +93,8 @@
 @media screen and (max-width: 997px){
   .popupDialog{
   overflow-y: scroll;
- 
+ top: 0 !important;
+ left: 0 !important;
   }
   .popupDialog > div{
     height: auto !important;
@@ -101,6 +102,8 @@
   }
   .adjust-center{
     margin: 0 auto !important;
+    text-align: center !important;
+    justify-content: center;
   }
 }
     </style>

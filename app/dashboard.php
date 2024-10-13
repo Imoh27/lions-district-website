@@ -8,70 +8,40 @@ include("assets/topheader.php");
 ?>
 <title>Admin | Dashboard</title>
 </head>
-
+<?php 
+  
+$sql=mysqli_query($con,"SELECT * from tblserviceyr ORDER BY serviceYrID DESC LIMIT 1");
+$lsyrow=mysqli_fetch_array($sql);
+?>
 <body class="nav-md">
   <?php include('include/header.php'); ?>
   <div class="tile_count">
-    <!-- <div class="row">
-      <?php
-
-      $result = mysqli_query($con, "SELECT * FROM users ");
-      $num_rows = mysqli_num_rows($result);
-      $total_users = htmlentities($num_rows);
-
-      $result1 = mysqli_query($con, "SELECT * FROM doctors ");
-      $num_rows1 = mysqli_num_rows($result1);
-      $total_doctors = htmlentities($num_rows1);
-
-      $sql = mysqli_query($con, "SELECT * FROM appointment");
-      $num_rows2 = mysqli_num_rows($sql);
-      $total_appointments = htmlentities($num_rows2);
-
-      $result = mysqli_query($con, "SELECT * FROM tblpatient ");
-      $num_rows = mysqli_num_rows($result);
-      $total_patients = htmlentities($num_rows);
-
-      $sql = mysqli_query($con, "SELECT * FROM tblcontactus where  IsRead is null");
-      $num_rows22 = mysqli_num_rows($sql);
-      $total_queries = htmlentities($num_rows22);
-
-      ?>
-      <div class="col-md-2 col-sm-4  tile_stats_count">
-        <span class="count_top"><i class="fa fa-users"></i> Total Users</span>
-        <div class="count"><?php echo $total_users; ?></div>
-        <a href="manage-users.php">
-          <span class="count_bottom">View all users</span>
-        </a>
+    <div class="row">
+      <div class="m-auto text-center">
+      <img class="img-guard img-fluid m-auto mt-lg-5" src="sylogo/<?php echo $row['service_logo']; ?>" alt="">
+      <h3><b>Lions District 404A2</b></h3>
+      <h5><b>Admin Panel</b></h5>
+      <p>Manage All resources and contents of the website</p>
+      <ul>
+        <li class="text-left">
+          Lions Service Year
+        </li>
+        <li class="text-left">
+          Offices and Officers at various level
+        </li>
+        <li class="text-left">
+          Regions, Zones, Clubs, their Chairpersons and Presidents
+        </li>
+        <li class="text-left">
+          Correspondence or messages from website visitors
+        </li>
+        <li class="text-left">
+          More admins and Website wide changes
+        </li>
+      </ul>
       </div>
-      <div class="col-md-2 col-sm-4  tile_stats_count">
-        <span class="count_top"><i class="fa fa-user-md"></i> Total Doctors</span>
-        <div class="count"><?php echo $total_doctors; ?></div>
-        <a href="manage-doctors.php">
-          <span class="count_bottom">View all doctors</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4  tile_stats_count">
-        <span class="count_top"><i class="fa fa-list-alt"></i> Total Appointments</span>
-        <div class="count"><?php echo $total_appointments; ?></div>
-        <a href="appointment-history.php">
-          <span class="count_bottom">View all appointments</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4  tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Patients</span>
-        <div class="count"><?php echo $total_patients; ?></div>
-        <a href="manage-patient.php">
-          <span class="count_bottom">View all patients</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4  tile_stats_count">
-        <span class="count_top"><i class="fa fa-copy"></i> Total Queries</span>
-        <div class="count green"><?php echo $total_queries; ?></div>
-        <a href="read-query.php">
-          <span class="count_bottom">View all queries</span>
-        </a>
-      </div>
-    </div> -->
+    </div>
+    
   </div>
 
 
