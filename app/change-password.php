@@ -18,6 +18,7 @@ if(isset($_POST['submit']))
 		$insert = "UPDATE admin set password='".md5($newpassword)."', dateUpdated= now() where username='".$_SESSION['login']."'";
 		$con=mysqli_query($con,$insert);
 		$_SESSION['msg1']="Password Changed Successfully !!";
+		header("location: change-password");
 	}
 	else
 	{

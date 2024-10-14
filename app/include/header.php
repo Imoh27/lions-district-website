@@ -11,7 +11,7 @@
 				<div class=" profile clearfix">
 					<div class="text-center ml-2 mt-3 text-light">Lions District 404A2</div>
 					<div class=" profile_pic">
-						<img src="assets/images/img.jpg" alt="..." class="img-circle profile_img">
+						<img src="sylogo/<?php echo $row['service_logo'];?>"  alt="..." class="img-circle profile_img">
 					</div>
 					<div class="profile_info">
 						<span>Welcome,</span>
@@ -51,7 +51,7 @@
 					<ul class=" navbar-right">
 						<li class="nav-item dropdown open" style="padding-left: 15px;">
 							<a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-								<img src="assets/images/img.jpg" alt=""><?php echo $_SESSION['login']; ?>
+								<img src="sylogo/<?php echo $row['service_logo'];?>" alt=""><?php echo $_SESSION['login']; ?>
 							</a>
 							<div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item"  href="change-password.php"> Change Password</a>
