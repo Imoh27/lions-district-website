@@ -1,18 +1,22 @@
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-date_default_timezone_set('Asia/Kolkata');// change according timezone
-$currentTime = date( 'Y-m-d h:i:s', time () );
 if(isset($_POST['submit']))
 {
-	$sql=mysqli_query($con,"SELECT password FROM  admin where password='".$_POST['cpass']."' && username='".$_SESSION['login']."'");
-	$num=mysqli_fetch_array($sql);
+	$oldpassword = md5($_POST['cpass']);
+	// echo $oldpassword; exit;
+	$newpassword = strip_tags($_POST['npass']);
+	$sql= "SELECT password FROM  admin where password='".$oldpassword."' && username='".$_SESSION['login']."'";
+	// echo $sql; exit;
+	$query = mysqli_query($con, $sql);
+	$num=mysqli_fetch_array($query);
 	if($num>0)
 	{
-		$con=mysqli_query($con,"update admin set `password`='".$_POST['npass']."', `updationDate`='$currentTime' where username='".$_SESSION['login']."'");
+		$insert = "UPDATE admin set password='".md5($newpassword)."', dateUpdated= now() where username='".$_SESSION['login']."'";
+		$con=mysqli_query($con,$insert);
 		$_SESSION['msg1']="Password Changed Successfully !!";
 	}
 	else
@@ -20,33 +24,12 @@ if(isset($_POST['submit']))
 		$_SESSION['msg1']="Old Password not match !!";
 	}
 }
+include("assets/topheader.php");
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Admin | change Password</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	<!-- Bootstrap -->
-	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Font Awesome -->
-	<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<!-- NProgress -->
-	<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-	<!-- iCheck -->
-	<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	<!-- bootstrap-progressbar -->
-	<link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-	<!-- JQVMap -->
-	<link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-	<!-- bootstrap-daterangepicker -->
-	<link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-	<!-- Custom Theme Style -->
-	<link href="../assets/css/custom.min.css" rel="stylesheet">
+<title>Admin | Change Password</title>
+</head>
+
 	<script type="text/javascript">
 		function valid()
 		{
@@ -77,7 +60,6 @@ if(isset($_POST['submit']))
 			return true;
 		}
 	</script>
-</head>
 <body class="nav-md">
 	<?php
 	$page_title = 'Admin | Change Password';
@@ -93,23 +75,23 @@ if(isset($_POST['submit']))
 							<h5 class="panel-title">Change Password</h5>
 						</div>
 						<div class="panel-body">
-							<p style="color:red;"><?php echo htmlentities($_SESSION['msg1']);?>
+							<p style="color:green;"><?php echo htmlentities($_SESSION['msg1']);?>
 							<?php echo htmlentities($_SESSION['msg1']="");?></p>
 							<form role="form" name="chngpwd" method="post" onSubmit="return valid();">
 								<div class="form-group">
-									<label for="exampleInputEmail1">
+									<label for="currentPWD">
 										Current Password
 									</label>
 									<input type="password" name="cpass" class="form-control"  placeholder="Enter Current Password">
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">
+									<label for="newPWD">
 										New Password
 									</label>
 									<input type="password" name="npass" class="form-control"  placeholder="New Password">
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">
+									<label for="newPWD">
 										Confirm Password
 									</label>
 									<input type="password" name="cfpass" class="form-control"  placeholder="Confirm Password">
@@ -128,45 +110,9 @@ if(isset($_POST['submit']))
 			</div>
 		</div>
 	</div>
-	<?php include('include/footer.php');?>
-	<!-- jQuery -->
-	<script src="../vendors/jquery/dist/jquery.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- FastClick -->
-	<script src="../vendors/fastclick/lib/fastclick.js"></script>
-	<!-- NProgress -->
-	<script src="../vendors/nprogress/nprogress.js"></script>
-	<!-- Chart.js -->
-	<script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-	<!-- gauge.js -->
-	<script src="../vendors/gauge.js/dist/gauge.min.js"></script>
-	<!-- bootstrap-progressbar -->
-	<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-	<!-- iCheck -->
-	<script src="../vendors/iCheck/icheck.min.js"></script>
-	<!-- Skycons -->
-	<script src="../vendors/skycons/skycons.js"></script>
-	<!-- Flot -->
-	<script src="../vendors/Flot/jquery.flot.js"></script>
-	<script src="../vendors/Flot/jquery.flot.pie.js"></script>
-	<script src="../vendors/Flot/jquery.flot.time.js"></script>
-	<script src="../vendors/Flot/jquery.flot.stack.js"></script>
-	<script src="../vendors/Flot/jquery.flot.resize.js"></script>
-	<!-- Flot plugins -->
-	<script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-	<script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-	<script src="../vendors/flot.curvedlines/curvedLines.js"></script>
-	<!-- DateJS -->
-	<script src="../vendors/DateJS/build/date.js"></script>
-	<!-- JQVMap -->
-	<script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-	<script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-	<script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-	<!-- bootstrap-daterangepicker -->
-	<script src="../vendors/moment/min/moment.min.js"></script>
-	<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-	<!-- Custom Theme Scripts -->
-	<script src="../assets/js/custom.min.js"></script>
+	<!-- start: FOOTER -->
+	<?php include('include/footer.php');
+	include('assets/app-footer.php');
+	?>
 </body>
 </html>

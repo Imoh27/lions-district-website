@@ -5,11 +5,13 @@ include("include/config.php");
 if(isset($_POST['submit']))
 {
 	$password = $_POST['password'];
-	$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='".$_POST['username']."' and password='".$password."'");
+	$user_select = "SELECT * FROM admin WHERE username='".$_POST['username']."' and password='".md5($password)."'";
+	// echo $user_select; exit;
+	$ret=mysqli_query($con, $user_select);
 	$num=mysqli_fetch_array($ret);
 	if($num>0)
 	{
-$extra="dashboard.php";//
+$extra="dashboard";//
 $_SESSION['login']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
@@ -20,7 +22,7 @@ exit();
 else
 {
 	$_SESSION['errmsg']="Invalid username or password";
-	$extra="index.php";
+	$extra="index";
 	$host  = $_SERVER['HTTP_HOST'];
 	$uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 	header("location:http://$host$uri/$extra");

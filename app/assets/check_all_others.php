@@ -232,4 +232,26 @@ echo "<span style='color:red'> Core officer already exists .</span>";
 }
 
 
+
+// CHECK USERNAME AVAILABILITY
+if(!empty($_POST["username"])) {
+	$username= $_POST["username"];
+	
+		$sql = 	"SELECT * FROM  admin WHERE username='$username'";
+		$usernameresult =mysqli_query($con, $sql);
+		if ($usernameresult || !empty($usernameresult)) {
+			$usernamecount=mysqli_num_rows($usernameresult);
+		}
+if($usernamecount>0)
+{
+echo "<span style='color:red'> Username already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Username available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>
