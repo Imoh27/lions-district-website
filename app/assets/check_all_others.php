@@ -254,4 +254,26 @@ echo "<span style='color:red'> Username already exists .</span>";
 }
 
 
+
+// CHECK TRAINING TITLE AVAILABILITY
+if(!empty($_POST["trainingTitle"])) {
+	$trainingTitle= $_POST["trainingTitle"];
+	
+		$sql = 	"SELECT * FROM  tblresources WHERE trainingTitle='$trainingTitle'";
+		$trainingTitleresult =mysqli_query($con, $sql);
+		if ($trainingTitleresult || !empty($trainingTitleresult)) {
+			$trainingTitlecount=mysqli_num_rows($trainingTitleresult);
+		}
+if($trainingTitlecount>0)
+{
+echo "<span style='color:red'> Training Title already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Training Title available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>

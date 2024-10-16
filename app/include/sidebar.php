@@ -80,7 +80,7 @@
 					<?php } ?>
 					<li><a href="manage-service-year">Service Year </a></li>
 					<li><a href="upload-acceptance-speech">Upload Acceptance-speech </a></li>
-					<!-- <li><a href="between-dates-reports">B/w dates reports </a></li> -->
+					<li><a href="resources-centre">Resources Centre </a></li>
 				</ul>
 			</li>
 			<li><a href="patient-search"><i class="fa fa-hospital-o"></i> Search</a></li>
