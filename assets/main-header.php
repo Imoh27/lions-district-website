@@ -95,6 +95,7 @@
   overflow-y: scroll;
  top: 0 !important;
  left: 0 !important;
+ padding: 20px !important;
   }
   .popupDialog > div{
     height: auto !important;

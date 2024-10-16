@@ -147,43 +147,46 @@ $row = mysqli_fetch_array($events_query)
 
 
 ?>
-<div id="openModal" class="popupDialog" >
-  <div>
-    <a href="#close" title="Close" class="popupclose">X</a>
+<div class="p-3">
 
-
-    <p style="color:white ">
-      <div class="row bg-light p-3 bg-">
-          <div class="col-lg-7">
-        <h3 class="text-center">Upcoming Event</h3>
-        <div class="ts-service-box">
-          <div class="ts-service-image-wrapper">
-            <img
-              loading="lazy"
-              class="img-guard img-fluid"
-              src="app/event_previews/<?php echo $row['previewPhoto']; ?>"
-              alt="service-image" />
-          </div>
-        </div>
+  <div id="openModal" class="popupDialog" >
+    <div>
+      <a href="#close" title="Close" class="popupclose">X</a>
   
-        <!-- Service1 end -->
-      </div>
-      
-      <div class="col-lg-5 m-auto">
-        <div class="d-flex">
-          <div class="ts-service-info adjust-center">
-            <h2 class="service-box-title">
-              <a href="event-details?eid=<?php echo $row['eventID']; ?>"><?php echo $row['eventTitle']; ?></a>
-            </h2>
-            <p style="margin-top: -5px">
-              <a href="event-details?eid=<?php echo $row['eventID']; ?>" class="btn btn-lg btn-primary" href=""> Check out</a>
-            </p>
+  
+      <p style="color:white ">
+        <div class="row bg-light p-3 bg-">
+            <div class="col-lg-7">
+          <h3 class="text-center">Upcoming Event</h3>
+          <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img
+                loading="lazy"
+                class="img-guard img-fluid"
+                src="app/event_previews/<?php echo $row['previewPhoto']; ?>"
+                alt="service-image" />
+            </div>
+          </div>
+    
+          <!-- Service1 end -->
+        </div>
+        
+        <div class="col-lg-5 m-auto">
+          <div class="d-flex">
+            <div class="ts-service-info adjust-center">
+              <h2 class="service-box-title">
+                <a href="event-details?eid=<?php echo $row['eventID']; ?>"><?php echo $row['eventTitle']; ?></a>
+              </h2>
+              <p style="margin-top: -5px">
+                <a href="event-details?eid=<?php echo $row['eventID']; ?>" class="btn btn-lg btn-primary" href=""> Check out</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
+      </p>
+  
     </div>
-    </p>
-
   </div>
 </div>
 <!-- Me i no be regular front end person sha oh, na open eye i dey take do this full stack thing😄 -->

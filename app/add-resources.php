@@ -20,101 +20,119 @@ if (isset($_POST['submit'])) {
 	// echo $resourceFile; exit;
 	// echo $_SESSION['login']; exit;
 	// get the image extension
+
 	$find = '.';
 	$pos = strrpos($resourceFile, $find) + 1;
-	$extension = substr($resourceFile, $pos);
+	$extension = '.' . substr($resourceFile, $pos);
+	$allowed_extensions = array(".pptx", ".ppt", ".pdf");
 
 
-	// $file =  $_FILES[size];
-	$s = 'kb';
-	$x = round($resourceFileSize / 1000, 1);
-	// $x = ceil($x);
-	if ($x < 1000) {
-		$x = $x;
-		$s = 'kb';
+	$unit = 'kb';
+	$size = round($resourceFileSize / 1000, 1);
+	// $size = ceil($size);
+	if ($size < 1000) {
+		$size = $size;
+		$unit = 'kb';
+	} else if ($size >= 1000) {
+		$size = $size / 1000;
+		$unit = 'mb';
+	} else if ($size >= 100000) {
+		$size = $size / 100000;
+		$unit = 'gb';
 	}
-	else if ($x >= 1000) {
-		$x = $x / 1000;
-		$s = 'mb';
-	} else if ($x >= 100000) {
-		$x = $x / 100000;
-		$s = 'gb';
-	}
-	echo $x . ' ' . $s; exit;
+	$actualsize =  $size . ' ' . $unit;
 
-	$stringlength = strlen($resourceFileSize);
-	if ($stringlength >= 1 && $stringlength <= 3) {
-		$sizeIN = 'byte';
-	} else if ($stringlength >= 4 && $stringlength <= 6) {
-		$sizeIN = 'kb';
-	} else if ($stringlength >= 7 && $stringlength <= 9) {
-		$sizeIN = 'mb';
-	}
+	// $stringlength = strlen($resourceFileSize);
+	// if ($stringlength >= 1 && $stringlength <= 3) {
+	// 	$sizeIN = 'byte';
+	// } else if ($stringlength >= 4 && $stringlength <= 6) {
+	// 	$sizeIN = 'kb';
+	// } else if ($stringlength >= 7 && $stringlength <= 9) {
+	// 	$sizeIN = 'mb';
+	// }
 	// echo $sizeIN; exit;
 
 	// allowed extensions
-	$allowed_extensions = array("pptx", "ppt", "pdf");
-	if ($resourceFileSize > 20000) {
-		echo "<script>alert('OOP!. Maximum Array Size of 2mb Exceeded');</script>";
-	} else
+	// echo $resourceFileSize; exit;
+
 	if (!in_array($extension, $allowed_extensions)) {
-		$error = "Invalid format. Only PPTX / PDF format allowed";
-		// echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+		echo "<script>alert('Invalid format. Only PPTX / PDF format allowed');</script>";
+	} else if ($resourceFileSize > 2000000) {
+		echo "<script>alert('OOP!. Maximum Size of 2mb Exceeded');</script>";
 	} else {
 		//rename the image file
+		$extension = str_replace(array('.'), '', $extension);
 
 		$newresourceFile = date('d-m-Y') . '_' . $resourceFile;
 
-		$resource_insert_sql = "INSERT into tblresources values(null, '$trainingTitle', '$newresourceFile', '$extension', $resourceFileSize, now(), '$loggedin')";
-		echo ($resource_insert_sql);
-		exit;
-		$cp_result = mysqli_query($con, $resource_insert_sql);
-		if ($cp_result) {
-			move_uploaded_file($_FILES["resourceFile"]["tmp_name"], "resources/" . $newresourceFile);
-			echo "<script>alert('Resoure Added Successfully');</script>";
-			echo "<script>window.location.href ='resource-centre'</script>";
+		$resource_insert_sql = "INSERT into tblresources values(null, '$trainingTitle', '$newresourceFile', '$extension', '$actualsize', now(), '$loggedin')";
+		// echo ($resource_insert_sql);
+		// exit;
+		$resource_result = mysqli_query($con, $resource_insert_sql);
+		if ($resource_result) {
+			move_uploaded_file($_FILES["fileName"]["tmp_name"], "../resources/" . $newresourceFile);
+			echo "<script>alert('Resource Added Successfully');</script>";
+			echo "<script>window.location.href ='resources-centre'</script>";
 		}
 	}
 }
 if (isset($_POST['update'])) {
 	// echo $lsy_theme; exit;
 	if (!empty($resourceFile)) {
-		// get the image extension
-		$extension = substr($resourceFile, strlen($resourceFile) - 4, strlen($resourceFile));
-		// allowed extensions
-		$allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
-		if (!in_array($extension, $allowed_extensions)) {
-			$error = "Invalid format. Only jpg / jpeg/ png /gif format allowed";
-			// echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+		$find = '.';
+		$pos = strrpos($resourceFile, $find) + 1;
+		$extension = '.' . substr($resourceFile, $pos);
+		$allowed_extensions = array(".pptx", ".ppt", ".pdf");
 
+
+		$unit = 'kb';
+		$size = round($resourceFileSize / 1000, 1);
+		// $size = ceil($size);
+		if ($size < 1000) {
+			$size = $size;
+			$unit = 'kb';
+		} else if ($size >= 1000) {
+			$size = $size / 1000;
+			$unit = 'mb';
+		} else if ($size >= 100000) {
+			$size = $size / 100000;
+			$unit = 'gb';
+		}
+		$actualsize =  $size . ' ' . $unit;
+		if (!in_array($extension, $allowed_extensions)) {
+			echo "<script>alert('Invalid format. Only PPTX / PDF format allowed');</script>";
+		} else if ($resourceFileSize > 2000000) {
+			echo "<script>alert('OOP!. Maximum Size of 2mb Exceeded');</script>";
 		} else {
 			//rename the image file
-			$newresourceFile = $trainingTitle . '_' . $resourceFile;
+
+			$newresourceFile = date('d-m-Y') . '_' . $resourceFile;
 		}
 	}
 
-	$sql = "UPDATE tblclubpresidents  SET clubID = $club, trainingTitle = '$trainingTitle', phoneNo = '$phoneNo', lions_awards = '$lci_awards', 
-		serviceYrID = $serviceYrID,  dateUpdated = now(), updatedBy = '$loggedin'";
-	// echo ($sql);
-	// exit;
-	if (!empty($resourceFile)) {
-		$sql .= " resourceFile = '$newresourceFile'";
-	}
-	$sql .= " WHERE rID = $rID";
-	// echo $sql; exit;
-	$result = mysqli_query($con, $sql);
-	if ($result) {
-		if (!empty($resourceFile)) {
-			move_uploaded_file($_FILES["resourceFile"]["tmp_name"], "cp_photos/" . $newresourceFile);
+			$sql = "UPDATE tblresources  SET trainingTitle = '$trainingTitle',  dateUpdated = now(), updatedBy = '$loggedin'";
+			// echo ($sql);
+			// exit;
+			if (!empty($resourceFile)) {
+				$sql .= " fileName = '$newresourceFile', fileType = '$extension', 
+		fileSize =' $actualsize', ";
+			}
+			$sql .= " WHERE resourceID = $rID";
+			// echo $sql; exit;
+			$result = mysqli_query($con, $sql);
+			if ($result) {
+				if (!empty($resourceFile)) {
+					move_uploaded_file($_FILES["fileName"]["tmp_name"], "../resources/" . $newresourceFile);
+				}
+				echo "<script>alert('Resource Updated Successfully');</script>";
+				echo "<script>window.location.href ='resources-centre'</script>";
+			}
 		}
-		echo "<script>alert('President Updated Successfully');</script>";
-		echo "<script>window.location.href ='resource-centre'</script>";
-	}
-}
+	
 
 include("assets/topheader.php");
 ?>
-<title>Admin | Club President</title>
+<title>Admin | Resource Centre</title>
 <script>
 	function checkTitleAvailability() {
 		$("#loaderIcon").show();
@@ -143,7 +161,7 @@ include("assets/topheader.php");
 
 	// For Editing
 	if (!empty($rID)) {
-		$query = "SELECT * from resourceFile where resourceID = $rID";
+		$query = "SELECT * from tblresources where resourceID = $rID";
 		// echo $query; exit;
 		$resource_sql = mysqli_query($con, $query);
 		$row = mysqli_fetch_array($resource_sql);
@@ -173,8 +191,7 @@ include("assets/topheader.php");
 									<label for="fileName">
 										Select Resource File <em>(.pptx and .pdf only, not more than 2 mb)</em>
 									</label>
-
-									<input type="file" name="fileName" class="d-inline form-control" <?php if (empty($rID) || !$rID) { ?>required="true" <?php } ?>> <?php if (!empty($rID) || $rID) { ?><div class="d-inline user-profile img-fluid"><img src="cp_Photos/<?php echo $row['fileName']; ?>" alt=""></div><?php } ?>
+									<input type="file" name="fileName" class="d-inline form-control" <?php if (empty($rID) || !$rID) { ?>required="true" <?php } ?>>
 								</div>
 
 

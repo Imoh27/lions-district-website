@@ -67,7 +67,8 @@ $area_select =  "SELECT * FROM tblcorereas";
                       </ul>
                     </li>
                     <li class="nav-item nav-itemactive">
-                      <a href="#">District Directory</a>
+                    <a  href="resource-centre">Resource Center</a>
+                      <!-- <a href="#">District Directory</a> -->
                     </li>
                   </ul>
                 </li>
@@ -227,6 +228,10 @@ $area_select =  "SELECT * FROM tblcorereas";
                           </li>
                         </ul>
                       </li> -->
+
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="resource-centre">Resource Center</a>
+                </li> -->
 
                 <li class="nav-item">
                   <a class="nav-link" href="https://leodistrict404a2.com.ng">Our Leos</a>
