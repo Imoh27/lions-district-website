@@ -39,7 +39,7 @@ include("assets/main-header.php");
               <tr>
                 <td class="center"><?php echo $cnt; ?>.</td>
                 <!-- <td><?php echo $row['trainingTitle']; ?></td> -->
-                <td><a href="resources/<?php echo $row['fileName']; ?>"><?php echo $row['trainingTitle']; ?></a></td>
+                <td><a href="resources/<?php echo $row['fileName']; ?>"  onClick="return confirm('You are about to Download resource for <?php echo $row['trainingTitle']; ?>?')" ><?php echo $row['trainingTitle']; ?></a></td>
                 <td class="user-profile img-fluid">
                   <?php if ($row['fileType'] == 'ppt' || $row['fileType'] == 'pptx') { ?>
                     <img src="../images/ppt.png" height="50" width="30" class="img-fluid"> <?php } else if ($row['fileType'] == 'pdf') { ?>
@@ -49,7 +49,9 @@ include("assets/main-header.php");
 
                 </td>
                 <td>
-                    <a href="resources/<?php echo $row['fileName']; ?>" onClick="return confirm('You are about to Download resource for <?php echo $row['trainingTitle']; ?>?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Download Now">
+                    <a href="resources/<?php echo $row['fileName']; ?>" 
+                    onClick="return confirm('You are about to Download resource for <?php echo $row['trainingTitle']; ?>?')" 
+                    class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Download Now">
                     <img src="images/download-button.png" height="30" width="30" class="img-fluid" style="margin-top: -10px">
                     </a>
                 
