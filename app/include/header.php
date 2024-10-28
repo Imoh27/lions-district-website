@@ -75,21 +75,17 @@
 							</a>
 							<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
 								<?php 
+								if(isset($_GET['action']))
+								{
+									mysqli_query($con,"UPDATE tblcontactus set IsRead = 1, readDate = now() where id = '".$_GET['id']."'");
+									$_SESSION['msg']="Message Read !!";
+								}
 								while($contact_row = mysqli_fetch_array($contact_query)){
 
-// echo round(abs($to_time - $from_time) / 60,2). " minute";
-									// $datetime = date('H:i:s');
-									// $totime = strtotime(date('Y-m-d H:i:s')) ;
-									// $fromtime = strtotime($contact_row["contactDate"]);
-									// $tohr = round(abs($totime - $fromtime));
-
-									// $actutaltime = round(abs($totime - $fromtime) / 60,2). " minute";
-									// $actutalhr = ceil($actutaltime / 60). " hrs";
-									// echo $dateDiff; exit;
 
 								?>
 								<li class="nav-item" >
-									<a class="dropdown-item" href="query-details?id=<?php echo $contact_row['id'] ?>">
+									<a class="dropdown-item" href="query-details?id=<?php echo $contact_row['id'] ?>&action=markread">
 										
 										<span>
 											<span><?php echo $contact_row['fullname'] ?></span>

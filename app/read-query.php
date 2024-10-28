@@ -47,8 +47,8 @@ if(isset($_GET['del']))
 					<tr>
 						<th class="center">#</th>
 						<th>Name</th>
-						<th class="hidden-xs">Email</th>
-						<th>Contact No. </th>
+						<th>Email</th>
+						<th>Subject. </th>
 						<th>Message </th>
 						<th>Action</th>
 					</tr>
@@ -60,15 +60,17 @@ if(isset($_GET['del']))
 					while($row=mysqli_fetch_array($sql))
 					{
 						?>
-						<tr>
-							<td class="center"><?php echo $cnt;?>.</td>
-							<td class="hidden-xs"><?php echo $row['fullname'];?></td>
-							<td><?php echo $row['email'];?></td>
-							<td><?php echo $row['contactno'];?></td>
+							<tr>
+							<td width="50" class="center"><?php echo $cnt;?>.</td>
+							<td width="150"><?php echo $row['fullname'];?></td>
+							<td width="100"><?php echo $row['email'];?></td>
+							<td width="120"><?php echo $row['messageSubject'];?></td>
 							<td><?php echo $row['message'];?></td>
-							<td >
-								<div class="visible-md visible-lg hidden-sm hidden-xs">
-									<a href="query-details.php?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-lg" title="View Details"><i class="fa fa-file"></i></a>
+							<td width="150">
+								<div>
+									<a href="query-details?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-sm" title="Reply"><i class="fa fa-reply"></i></a>
+									<a href="query-details?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-sm" title="View Details"><i class="fa fa-file"></i></a>
+									<a href="?id=<?php echo $row['id'];?>&del=delete" onClick="return confirm('You are about to delete this message?')"  class="btn btn-transparent btn-sm" title="Delete"><i class="fa fa-times"></i></a>
 								</div>
 							</td>
 						</tr>
@@ -79,6 +81,8 @@ if(isset($_GET['del']))
 			</table>
 		</div>
 	</div>
+
+	
 	<?php include('include/footer.php');?>
 	<!-- jQuery -->
 	<script src="vendors/jquery/dist/jquery.min.js"></script>

@@ -19,7 +19,7 @@ $cordinatorName = strtolower(strip_tags($_POST['cordinatorName']));
 $cordinatorPhone = strtolower(strip_tags($_POST['cordinatorPhone']));
 $lionsAmount = strtolower(strip_tags($_POST['lionsAmount']));
 $leosAmount = strtolower(strip_tags($_POST['leosAmount']));
-$eventDesc = str_replace(array( '\'', '"',
+$eventDesc = str_replace(array( '\'', '"', "'",
     ';','*' ), ' ', $_POST['eventDesc']);
 $serviceYrID = $lsyrow['serviceYrID'];
 // echo $serviceYrID; exit;

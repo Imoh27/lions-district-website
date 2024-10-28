@@ -75,6 +75,7 @@ check_login();
 						$cnt=$cnt+1;
 					}?>
 				</tbody>
+				
 			</table>
 		</div>
 	</div>

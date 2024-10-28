@@ -276,4 +276,26 @@ echo "<span style='color:red'> Training Title already exists .</span>";
 }
 
 
+// CHECK GALA DATE AVAILABILITY
+if(!empty($_POST["galaDate"])) {
+	$galaDate= $_POST["galaDate"];
+	
+		$sql = 	"SELECT * FROM  tblclubgaladates WHERE galaDate='$galaDate'";
+		// echo $sql; exit;
+		$galaDateresult =mysqli_query($con, $sql);
+		if ($galaDateresult || !empty($galaDateresult)) {
+			$galaDatecount=mysqli_num_rows($galaDateresult);
+		}
+if($galaDatecount>0)
+{
+echo "<span style='color:red'> Gala Date already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Gala Date available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
+
+
 ?>

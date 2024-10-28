@@ -17,30 +17,30 @@ $cat_query = mysqli_query($con, $cat_select);
 $newrow = mysqli_fetch_array($cat_query);
 // echo $newrow['lionsAmount']; exit;
 
-if (isset($_POST["register"])) {
-  $registerCategory = strip_tags($_POST["registerCategory"]);
-  $lionsID = strip_tags($_POST["lionsID"]);
-  $clubName = strip_tags($_POST["clubName"]);
-  $fullname = strip_tags($_POST["fullname"]);
-  $email = strip_tags($_POST["email"]);
-  $phone = strip_tags($_POST["phone"]);
-  $payStatus = 0;
+// if (isset($_POST["register"])) {
+//   $registerCategory = strip_tags($_POST["registerCategory"]);
+//   $lionsID = strip_tags($_POST["lionsID"]);
+//   $clubName = strip_tags($_POST["clubName"]);
+//   $fullname = strip_tags($_POST["fullname"]);
+//   $email = strip_tags($_POST["email"]);
+//   $phone = strip_tags($_POST["phone"]);
+//   $payStatus = 0;
 
-  if ($registerCategory == 'Lion' || $registerCategory == 'Guest') {
-    $registerAmount  = $newrow['lionsAmount'];
-  }
-  if ($registerCategory == 'Leo') {
-    $registerAmount  = $newrow['leosAmount'];
-  }
-  $pay_detail = "INSERT INTO tbleventregister Values(null, $eventID, '$registerCategory', '$lionsID', '$clubName', '$fullname',
-   '$email', '$phone', '$registerAmount', $payStatus, now())";
-  // echo $pay_detail; exit;
-  $pay_query = mysqli_query($con, $pay_detail);
-  if ($pay_query) {
-    echo "<script>alert('Payment Successfully');</script>";
-    echo "<script>window.location.href =''</script>";
-  }
-}
+//   if ($registerCategory == 'Lion' || $registerCategory == 'Guest') {
+//     $registerAmount  = $newrow['lionsAmount'];
+//   }
+//   if ($registerCategory == 'Leo') {
+//     $registerAmount  = $newrow['leosAmount'];
+//   }
+//   $pay_detail = "INSERT INTO tbleventregister Values(null, $eventID, '$registerCategory', '$lionsID', '$clubName', '$fullname',
+//    '$email', '$phone', '$registerAmount', $payStatus, now())";
+//   // echo $pay_detail; exit;
+//   $pay_query = mysqli_query($con, $pay_detail);
+//   if ($pay_query) {
+//     echo "<script>alert('Payment Successfully');</script>";
+//     echo "<script>window.location.href =''</script>";
+//   }
+// }
 ?>
 
 
@@ -48,7 +48,7 @@ if (isset($_POST["register"])) {
 
 <body>
   <?php
-  
+
 
   ?>
 
@@ -149,24 +149,34 @@ if (isset($_POST["register"])) {
               </div><!-- Quote item end -->
 
             </div><!-- Widget end -->
+
+
+
             <!-- REGISTRATION STARTS -->
-            <?php if ($newrow['lionsAmount'] != 0 || $newrow['leosAmount'] != 0 || !empty($newrow['lionsAmount']) || !empty($newrow['leosAmount'])) { ?>
+            <?php if (!empty($newrow['lionsAmount']) || !empty($newrow['leosAmount'])) { ?>
               <div class="widget">
                 <h3 class="widget-title text-center p-2" style="background-color: #ffb600 !important;">Register Here </h3>
                 <p style="margin-top: -20px !important; text-transform:capitalize">
                   <b><?php echo $newrow['eventTitle']; ?></b>
                 </p>
                 <h3 class="text-center lionsAmount" id="lionsAmount"><del style="text-decoration-style: double">N</del><?php echo $newrow['lionsAmount']; ?></h3>
-                <h3 class="text-center leosAmount" id="leosAmount"><del style="text-decoration-style: double">N</del><?php echo $newrow['leosAmount']; ?></h3>
+                <h3 class="text-center leosAmount" id="leosAmount"><del style="text-decoration-style: double">N</del><?php if (empty($newrow['leosAmount'])) {
+                                                                                                                        echo 0;
+                                                                                                                      } else {
+                                                                                                                        echo $newrow['leosAmount'];
+                                                                                                                      } ?></h3>
               </div><!-- Widget end -->
 
-              <form id="contact-form" class="register-overflow" name="register" action="" method="post" role="form">
+              <form id="contact-form" class="register-overflow" name="register" action="initialize.php" method="post" role="form">
                 <div class="error-container"></div>
                 <div class="row">
                   <div class="col-md-12">
+                    <div class="form-group" id="event">
+                      <input type="hidden" class="form-control form-control-event" value="<?php echo $newrow['eventID']; ?>" name="event" id="event" value="">
+                    </div>
                     <div class="form-group">
                       <label><b>I am a</b></label>
-                      <select class="form-control form-control-registerCategory" name="registerCategory" id="registerCategory" onclick="showfields();">
+                      <select class="form-control form-control-registerCategory" name="registerCategory" id="registerCategory" onchange="showfields();">
 
                         <option value="Lion">Lion</option>
                         <option value="Leo">Leo</option>
@@ -175,11 +185,17 @@ if (isset($_POST["register"])) {
                     </div>
                     <div class="form-group" id="idnum">
                       <label>Lions ID</label>
-                      <input class="form-control form-control-lionsID" name="lionsID" id="lionsID" placeholder="" required>
+                      <input class="form-control form-control-lionsID" name="lionsID" id="lionsID"
+                       >
+                    </div>
+                    <div class="form-group" id="amount">
+                   
+                      <input type="hidden" class="form-control form-control-lionsID" name="amount" id="amount"
+                        value="">
                     </div>
                     <div class="form-group" id="club">
                       <label>Club Name</label>
-                      <input class="form-control form-control-club" name="clubName" id="clubName" placeholder="" required>
+                      <input class="form-control form-control-club" name="clubName" id="clubName" placeholder="">
                     </div>
                     <div class="form-group">
                       <label>Full Name</label>
@@ -187,11 +203,16 @@ if (isset($_POST["register"])) {
                     </div>
                     <div class="form-group">
                       <label>Email</label>
-                      <input class="form-control form-control-email" name="email" id="email" placeholder="" required>
+                      <input class="form-control form-control-email" name="email" id="email"
+                         placeholder="">
                     </div>
+
                     <div class="form-group">
                       <label>Phone Number</label>
                       <input class="form-control form-control-phone" name="phone" id="phone" placeholder="" required>
+                    </div>
+                    <div class="form-group" id="payParam">
+                      <input type="hidden" class="form-control form-control-payParam" value="" name="payParam" id="payParam">
                     </div>
                   </div>
 
@@ -207,14 +228,20 @@ if (isset($_POST["register"])) {
 
           </div><!-- Sidebar end -->
         </div><!-- Sidebar Col end -->
-        <h1 class="mb-4">RELATED EVENTS</h1>
+        <?php $events_select = "SELECT * FROM tblevents WHERE catID =" . $newrow['catID'] . " AND eventID NOT IN($eventID)";
+        // echo $events_select; exit;
+        $events_query = mysqli_query($con, $events_select);
+
+        if (!empty($row = mysqli_fetch_array($events_query))) {
+        ?>
+
+          <h1 class="mb-4 mt-5">RELATED EVENTS</h1>
+        <?php } ?>
         <div class="col-lg-12">
           <div id="team-slide" class="team-slide">
             <?php
-            $events_select = "SELECT * FROM tblevents WHERE catID =" . $newrow['catID'] . " AND eventID NOT IN($eventID)";
-            // echo $events_select; exit;
-            $events_query = mysqli_query($con, $events_select);
-            while ($events = mysqli_fetch_array($events_query)) {
+            $past_query = mysqli_query($con, $events_select);
+            while ($events = mysqli_fetch_array($past_query)) {
             ?>
               <div class="item">
                 <div class="ts-team-wrapper">
@@ -243,16 +270,18 @@ if (isset($_POST["register"])) {
   include("assets/footer.php");
   ?>
   <script>
-    document.getElementById("registerCategory").onclick = function() {
+    document.getElementById("registerCategory").onchange = function() {
       showfields()
     };
 
     function showfields() {
+      
       const registerCategory = document.getElementById('registerCategory').value;
       //  console.log(registerCategory);
       if (registerCategory === 'Lion' || registerCategory === 'Leo') {
         document.getElementById('idnum').style.display = "block"
         document.getElementById('club').style.display = "block"
+
       }
       if (registerCategory === 'Guest') {
         document.getElementById('idnum').style.display = "none";

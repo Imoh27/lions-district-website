@@ -192,12 +192,12 @@ $row = mysqli_fetch_array($events_query)
 <!-- Me i no be regular front end person sha oh, na open eye i dey take do this full stack thing😄 -->
 <script>
  
-  setTimeout(openPopup, 9000);
+  setTimeout(openPopup, 15000);
   function openPopup() {
         window.location.hash = "openModal";
        
     }
-  setTimeout(function() { openPopup.close();}, 3000);
+  setTimeout(function() { openPopup.close();}, 15000);
 
 </script>
 </div>

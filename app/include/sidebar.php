@@ -43,6 +43,8 @@
 				<ul class="nav child_menu">
 					<li><a href="manage-clubs">Clubs</a></li>
 					<li><a href="manage-club-presidents">Club Presidents</a></li>
+					<li><a href="club-gala-dates">Club Gala Dates </a></li>
+
 				</ul>
 			</li>
 			<li><a><i class="fa fa-trophy"></i> Event <span class="fa fa-chevron-down"></span></a>
@@ -72,8 +74,8 @@
 			<!-- <li><a href="doctor-logs"><i class="fa fa-line-chart"></i> Session Logs</a></li> -->
 			<li><a href="user-logs"><i class="fa fa-line-chart"></i> User Session Logs</a></li>
 			<li><a><i class="fa fa-bar-chart"></i> Other Settings <span class="fa fa-chevron-down"></span></a>
-				<ul class="nav child_menu">
-					<?php
+			<ul class="nav child_menu">
+				<?php
 					
 					if($admin_row["admintype"] == 'super'){?>
 					<li><a href="manage-admin-users">All Users </a></li>

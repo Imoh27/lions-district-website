@@ -2361,6 +2361,22 @@ img.testimonial-thumb {
   border-radius: 20px;  
   border: 3px solid #ffb600;  /* creates padding around scroll thumb */
 }
+.register-overflow2{
+  overflow-y: scroll !important; 
+  height: 10em !important;
+  overflow-x: hidden !important;
+}
+.register-overflow2::-webkit-scrollbar {
+  width: 5px !important;
+}
+.register-overflow2::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255); 
+}
+.register-overflow2::-webkit-scrollbar-thumb {
+  background-color: #ffb600;    
+  border-radius: 20px;  
+  border: 3px solid #ffb600;  /* creates padding around scroll thumb */
+}
 
 
 .quote-item-footer {

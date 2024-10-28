@@ -48,26 +48,26 @@ $area_select =  "SELECT * FROM tblcorereas";
                     <li>
                       <a href="about">District 404A2 </a>
                     </li>
-                    <li>
-                      <a href="lci-leaders">International Leaders </a>
-                    </li>
-                    <li>
-                      <a href="past-district-governors">Past District Governors</a>
-                    </li>
                     <li class="dropdown-submenu">
                       <a
-                        href="#"
                         class="dropdown-toggle"
-                        data-toggle="dropdown">District Team</a>
+                        data-toggle="dropdown">Our Leaders</a>
                       <ul class="dropdown-menu">
+                        <li>
+                          <a href="lci-leaders">International Leaders </a>
+                        </li>
+                        <li>
+                          <a href="past-district-governors">Past District Governors</a>
+                        </li>
                         <li><a href="district-governor-team">DG Team</a></li>
                         <li><a href="core-district-officers">Core Officers</a></li>
-                        <li><a href="#">District Officers</a></li>
+                        <li><a href="region-and-zones">Region/Zones</a></li>
                         <li><a href="club-presidents">club Presidents</a></li>
                       </ul>
                     </li>
-                    <li class="nav-item nav-itemactive">
-                    <a  href="resource-centre">Resource Center</a>
+                    <li class="nav-item nav-item">
+                      <a href="resource-centre">Resource Center</a>
+                      <a href="club-gala-dates">Club Gala Dates</a>
                       <!-- <a href="#">District Directory</a> -->
                     </li>
                   </ul>
@@ -170,18 +170,18 @@ $area_select =  "SELECT * FROM tblcorereas";
                       <a href="#">Core Projects</a>
                     </li> -->
                     <li class="dropdown-submenu">
-                     <a
-                       href="#"
-                       class="dropdown-toggle"
-                       data-toggle="dropdown">Core Projects</a>
-                     <ul class="dropdown-menu">
-                       <?php
+                      <a
+                        href="#"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown">Core Projects</a>
+                      <ul class="dropdown-menu">
+                        <?php
                         $area_query = mysqli_query($con, $area_select);
                         while ($row = mysqli_fetch_array($area_query)) { ?>
-                         <li><a href="coreprojects?aid=<?php echo $row['areaID']; ?>"><?php echo $row['coreArea']; ?></a></li>
-                       <?php } ?>
-                     </ul>
-                   </li>
+                          <li><a href="coreprojects?aid=<?php echo $row['areaID']; ?>"><?php echo $row['coreArea']; ?></a></li>
+                        <?php } ?>
+                      </ul>
+                    </li>
                   </ul>
                 </li>
                 <!-- <li class="nav-item dropdown">

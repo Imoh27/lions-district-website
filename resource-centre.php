@@ -48,6 +48,7 @@ include("assets/main-header.php");
                 <td><?php echo $row['fileSize']; ?></td>
 
                 </td>
+                 <td>Added on: <?php echo date('d-m-Y', strtotime($row['dateUpdated'])); ?></td>
                 <td>
                     <a href="resources/<?php echo $row['fileName']; ?>" 
                     onClick="return confirm('You are about to Download resource for <?php echo $row['trainingTitle']; ?>?')" 
