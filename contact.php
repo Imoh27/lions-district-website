@@ -46,7 +46,7 @@ include("assets/main-header.php");
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
       $mail->Port       = 465;
 
-      $mail->setFrom('	info@lionsdistrict404a2.com', 'Lions District 404A2');
+      $mail->setFrom('info@lionsdistrict404a2.com', 'Lions District 404A2');
       $mail->addAddress($email);
 
       $mail->isHTML(true);
@@ -58,7 +58,7 @@ include("assets/main-header.php");
             <tr>
                 <td>Thank You fo Contacting Us<br>
                     <br>
-                    Your mail hs been received successfully and will be directed to the appropriate quarters and acted upon promptly <br>
+                    Your mail hs been received successfully and will be acted upon promptly <br>
                      <p style="font-weight: bold;">Please reply below </p>
     
                      If you have any further questions..
@@ -95,7 +95,7 @@ include("assets/main-header.php");
       $copymail->Password   = 'lionsD404a2@';
       $copymail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
       $copymail->Port       = 465;
-      $copymail->setFrom('info@lionsdistrict404a2.com', 'Lions District 404A2');
+      $copymail->setFrom($email,  $name);
       $copymail->addAddress('info@lionsdistrict404a2.com');
       $copymail->isHTML(true);                                  //Set ecopymail format to HTML
       $copymail->Subject = 'New Message received from ' . $name . ' (' . $contactNo . ') ';

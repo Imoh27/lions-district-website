@@ -39,7 +39,7 @@ check_login();
 	?>
 	<?php include('include/header.php');?>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 new-overflow">
 			<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Unread Queries</span></h5>
 			<table class="table table-hover" id="sample-table-1">
 				<thead>

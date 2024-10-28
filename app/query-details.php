@@ -7,8 +7,71 @@ include('include/checklogin.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 check_login();
 
+
+if (isset($_POST['message_reply'])) {
+	// echo 'You are right first';
+	$replyemail = $_POST['replyemail'];
+	$replysubject = $_POST['replysubject'];
+	$replymessage = $_POST['replymessage'];
+	// exit;
+	$replyname = strtok($_POST['fullname'], ' ');
+
+	// echo $replyname;
+	// exit;
+	
+	
+	require '../vendor/autoload.php';
+	$mail = new PHPMailer(true);
+
+	try {
+		$mail->SMTPDebug = 0;
+		$mail->isSMTP();
+		$mail->Host       = 'mail.lionsdistrict404a2.com';
+		$mail->SMTPAuth   = true;
+		$mail->Username   = 'info@lionsdistrict404a2.com';
+		$mail->Password   = 'lionsD404a2@';
+		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+		$mail->Port       = 465;
+
+		$mail->setFrom('info@lionsdistrict404a2.com', 'Lions District 404A2');
+		$mail->addAddress($replyemail);
+
+		$mail->isHTML(true);
+		$mail->Subject = $replysubject;
+		$mail->Body    = '<html>
+		<body>
+		<table style="border-collapse:collapse;max-width:300px; ">
+		<tbody>
+			<tr>
+				<td class="pt-3"><b>Hello, '.$replyname.'</b><br>
+					<br>
+					<p>' . $replymessage . '</p> <br><br/>
+	
+	
+					<p><a href="https://lionsdistrict404a2.com/events" style="color: #000; text-decoration:none; background-color: #ffb600; padding: 10px;">Explore our Various Activities</a></p> <br>
+				   
+					Kind Regards,<br>
+					<strong>Lions District 404A2</strong>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+		</body>
+		</html>';
+		
+		$mail->send();
+		$_SESSION['msg'] = "Reply Sent !!";
+		
+	} catch (Exception $e) {
+		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+	}
+	
+		// echo "<script>alert('Message Sent');</script>";
+
+}
 //updating Admin Remark
 if (isset($_POST['update'])) {
 	$qid = intval($_GET['id']);
@@ -26,8 +89,8 @@ include("assets/topheader.php");
 <title>Admin | Query Details</title>
 </head>
 
-	
-<body class="nav-md">
+
+<body class="nav-md new-overflow">
 	<?php
 	$page_title = 'Admin | Query Details';
 	$x_content = true;
@@ -91,66 +154,10 @@ include("assets/topheader.php");
 			</table>
 		</div>
 	</div>
-	<?php include('include/footer.php'); 
+	<?php include('include/footer.php');
 	include('assets/app-footer.php');
 
-	if(isset($_POST['reply_message'])){
 
-		$email = $_POST['email'];
-		$subject = $_POST['subject'];
-		$message = $_POST['message'];
-
-		require 'vendor/autoload.php';
-// echo $message; exit;
-
-
-$mail = new PHPMailer(true);
-    
-    try {
-        $mail->SMTPDebug = 0;                     
-        $mail->isSMTP();                                         
-        $mail->Host       = 'mail.lionsdistrict404a2.com';   
-        $mail->SMTPAuth   = true;                                   
-        $mail->Username   = 'info@lionsdistrict404a2.com';  
-        $mail->Password   = 'lionsD404a2@';                      
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         
-        $mail->Port       = 465;       
-        
-        $mail->setFrom('info@lionsdistrict404a2.com', 'Lions District 404A2');
-        $mail->addAddress($email);     
-        
-        $mail->isHTML(true);                                 
-        $mail->Subject = $subject;
-        $mail->Body    = '<html>
-        <body>
-        <table style="border-collapse:collapse;max-width:300px; ">
-        <tbody>
-            <tr>
-                <td><b>Thank You for Contacting Us</b><br>
-                    <br>
-                    <p>'.$message.'</p> <br>
-
-                     <hr style="border:0;border-bottom:1px solid #e9e9e9">
-    
-                    <p><a href="https://lionsdistrict404a2.com/events" style="color: #000; text-decoration:none; background-color: #ffb600; padding: 10px;">Explore our Various Activities</a></p> <br>
-                   
-                    Kind Regards,<br>
-                    <strong>Lions District 404A2</strong>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-        </body>
-        </html>';
-		echo "<script>alert('Message Sent');</script>";
-        echo 'Message has been sent';
-		$_SESSION['msg']="Message Sent !!";
-		$mail->send();
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
-	}
-	
 	$sql = mysqli_query($con, "select * from tblcontactus where id='$qid'");
 	$nrow = mysqli_fetch_array($sql);
 	?>
@@ -167,37 +174,39 @@ $mail = new PHPMailer(true);
 				</div>
 
 
-				<form name="reply_message" id="reply_message" method="post" enctype="multipart/form-data">
+				<form name="reply_message" id="reply_message" method="post" action="" enctype="multipart/form-data">
 					<div class="modal-body">
 
 						<div class="col-md-12">
 							<div class="form-group m-b-20">
 								<label for="email">Email</label>
-								<input type="email" class="form-control" name="email" id="email" value="<?php echo $nrow['email']; ?>" readonly>
+								<input type="email" class="form-control" name="replyemail" id="replyemail" value="<?php echo $nrow['email']; ?>" readonly>
+							</div>
+							<div class="form-group m-b-20">
+								<input type="hidden" class="form-control" name="fullname" id="fullname" value="<?php echo $nrow['fullname']; ?>">
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group m-b-20">
 								<label for="subject">Subject</label>
-								<input type="text" class="form-control" name="subject" id="subject" value="Re: <?php echo $nrow['messageSubject']; ?>" readonly>
+								<input type="text" class="form-control" name="replysubject" id="replysubject" value="Re: <?php echo $nrow['messageSubject']; ?>" readonly>
 							</div>
 						</div>
 						<div class="form-group">
-									<label for="message">
-										Message
-									</label>
-									<textarea type="text" name="message" placeholder="Describe detailed profile" class="summernote"
-									></textarea>
-								</div>
+							<label for="message">
+								Message
+							</label>
+							<textarea type="text" name="replymessage" placeholder="Describe detailed profile" class="summernote"></textarea>
+						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" name="reply_message" class="btn btn-primary">Send</button>
+						<button type="submit" name="message_reply" class="btn btn-primary">Send</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 
-	</body>
+</body>
 
 </html>
