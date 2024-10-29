@@ -37,6 +37,7 @@
 <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="assets/js/custom.min.js"></script>
+<script src="assets/DataTables/datatables.min.js"></script>
 <!--Summernote js-->
 <script src="../plugins/summernote/summernote.min.js"></script>
 <!-- Select 2 -->

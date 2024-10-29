@@ -179,8 +179,8 @@ include("assets/topheader.php");
 										Event Title
 									</label>
 									<input type="text" name="eventTitle" id="eventTitle" class="form-control" <?php if(!empty($eventID) || $eventID)
-									{?>value ="<?php echo $row['eventTitle']; ?>"<?php } else{?> placeholder="Enter Event Title"<?php } ?> required="true"
-									onBlur="checkEventAvailability()">
+									{?>value ="<?php echo $row['eventTitle']; ?>"<?php } else{?> placeholder="Keep the title Short"<?php } ?> required="true"
+									onBlur="checkEventAvailability()" maxlength="50">
 									<span id="event-availability-status"></span>
 								</div>
 

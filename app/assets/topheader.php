@@ -24,6 +24,8 @@
 
     <!-- Select2 -->
     <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+	<!-- <link rel="stylesheet" type="text/css" href="assets/DataTables/datatables.min.css" /> -->
+
 
 
 	<?php

@@ -54,24 +54,18 @@
 					<li><a href="manage-events-gallery">Events Gallery</a></li>
 				</ul>
 			</li>
-			<!-- <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
-				<ul class="nav child_menu">
-					<li><a href="manage-users">Manage Users</a></li>
-				</ul>
-			</li>
-			<li><a><i class="fa fa-user"></i> Patients <span class="fa fa-chevron-down"></span></a>
-				<ul class="nav child_menu">
-					<li><a href="manage-patient">Manage Patients</a></li>
-				</ul>
-			</li>
-			<li><a href="appointment-history"><i class="fa fa-folder-open"></i> Appointment History</a></li> -->
 			<li><a><i class="fa fa-table"></i> Conatct Us Queries <span class="fa fa-chevron-down"></span></a>
 				<ul class="nav child_menu">
 					<li><a href="unread-queries">Unread Query</a></li>
 					<li><a href="read-query">Read Query</a></li>
 				</ul>
 			</li>
-			<!-- <li><a href="doctor-logs"><i class="fa fa-line-chart"></i> Session Logs</a></li> -->
+			<li><a><i class="fa fa-money"></i> Payments <span class="fa fa-chevron-down"></span></a>
+				<ul class="nav child_menu">
+					<li><a href="project-donations">Project Donation</a></li>
+					<li><a href="events-register">Event Registration</a></li>
+				</ul>
+			</li>
 			<li><a href="user-logs"><i class="fa fa-line-chart"></i> User Session Logs</a></li>
 			<li><a><i class="fa fa-bar-chart"></i> Other Settings <span class="fa fa-chevron-down"></span></a>
 			<ul class="nav child_menu">
